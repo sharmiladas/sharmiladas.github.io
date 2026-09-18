@@ -1,1 +1,60 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Why AI Quality Should Start Before Review — Sharmila Das</title><link rel="stylesheet" href="../styles.css"></head><body><main class="article-page"><a class="back" href="../index.html#writing">← BACK TO PORTFOLIO</a><div class="kicker">AI + CONTENT · 2026</div><h1>Why AI Quality Should Start Before Review</h1><p class="dek">Quality is not a final editorial checkpoint. It is a property of the entire system.</p><div class="body"><h2>Review is too late</h2><p>A reviewer can catch a bad claim after generation, but that does not repair the stale source, weak retrieval, missing policy, or ambiguous message framework that caused it.</p><h2>Design quality into every layer</h2><p>Knowledge should have ownership and authority. Retrieval should be evaluated. Context should be minimal and high-signal. Generation should operate inside explicit constraints. Output should pass deterministic and model-based gates before risk-based human review.</p><h2>Measure what matters</h2><p>Useful rubrics go beyond grammar: groundedness, factual accuracy, audience relevance, strategic fidelity, brand fidelity, message consistency, policy compliance, clarity, and value.</p><blockquote>AI content strategy is the design of the decision system around generation.</blockquote><div class="model">KNOWLEDGE → RETRIEVAL → CONTEXT → GENERATION → EVALUATION → GOVERNANCE → LEARNING</div><p><em>This public article is intentionally company-neutral and excludes proprietary implementation details.</em></p></div></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Quality Starts Before the Final Review - Sharmila Das</title>
+  <meta name="description" content="A practical approach to improving AI content quality across sources, retrieval, context, generation, and review.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav"><a href="../index.html#essays">Back to essays</a><span>Sharmila Das</span></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Quality</p><h1>AI Quality Starts Before the Final Review</h1><p class="article-dek">A reviewer can correct one answer. Teams improve reliability when they also correct the conditions that produced it.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>6 minute read</div>
+    </header>
+    <article class="article-body">
+      <p>Final review gets blamed for both being too slow and missing too much. That is an impossible assignment when the reviewer receives a polished answer with no source history, no risk label, and no explanation of why the system chose its evidence.</p>
+      <p>Good review begins earlier. The source, retrieval method, context, instructions, and quality tests all shape what reaches the reviewer.</p>
+
+      <h2>Separate correction from prevention</h2>
+      <p>A reviewer may catch an outdated product claim and replace it. That corrects the current draft. Prevention requires a different response. The old claim needs to be removed or clearly marked, retrieval needs to stop selecting it, and the claim check should catch the problem next time.</p>
+      <p>Without that second step, reviewers keep solving the same issue. The process appears busy while the system stays weak.</p>
+
+      <h2>Define quality for the task</h2>
+      <p>Quality changes with the job. A support answer needs accurate steps and the right product version. A marketing brief needs an approved message and evidence that supports it. A policy summary needs fidelity to the current rule.</p>
+      <p>I usually begin with a short rubric that names the decisions a reviewer already makes. The wording should be concrete enough that two people can apply it to the same output and discuss where they disagree.</p>
+      <div class="article-pull">A useful rubric tells the team what to inspect, what evidence to use, and what happens when the answer fails.</div>
+
+      <h2>Use different checks for different errors</h2>
+      <p>Some checks are straightforward. A rule can confirm that a required disclaimer appears or that a forbidden phrase does not. Other checks require comparison. A claim can be extracted from the draft and checked against an approved source. Audience relevance may need a scored rubric and examples.</p>
+      <p>No single evaluator covers all of these well. Teams should choose the lightest method that can catch the error they care about.</p>
+
+      <h2>Keep a small human-rated set</h2>
+      <p>Automated evaluation needs a point of comparison. A small collection of examples rated by experienced people gives the team a way to test whether an evaluator agrees with the judgments that matter.</p>
+      <p>The set should include difficult cases, near misses, and known failure patterns. Update it when the product, policy, or audience changes. A larger set has little value if the examples are easy or the ratings are inconsistent.</p>
+
+      <h2>Route review by risk</h2>
+      <p>Human review is expensive when every answer follows the same path. It is dangerous when high-risk answers receive no additional scrutiny.</p>
+      <p>Teams can use signals such as topic, claim type, confidence, source conflict, market, or policy sensitivity to route the output. Low-risk material can move quickly. Sensitive material should reach the person who understands the consequence of an error.</p>
+
+      <h2>Measure the work around the answer</h2>
+      <p>Accuracy scores tell only part of the story. Track how often reviewers make substantial edits, how long review takes, which failures repeat, and whether corrections reach the source. These measures show whether the system is getting easier to operate.</p>
+      <p>In one quality program, turning standards into explicit guidance and checks improved measured quality from roughly 65 percent to 85 percent. Representative review time fell from about four hours to one. The gain came from giving authors earlier feedback and reserving reviewer attention for the decisions that needed it.</p>
+
+      <h2>A practical review packet</h2>
+      <p>For higher-risk content, I want the reviewer to receive:</p>
+      <ul>
+        <li>The generated answer and the original request.</li>
+        <li>The sources used, with dates and owners.</li>
+        <li>The quality results and the reason for any failure.</li>
+        <li>The risk tier and the decision the reviewer is being asked to make.</li>
+        <li>A simple way to send a recurring problem back to the source owner.</li>
+      </ul>
+      <p>This reduces detective work and makes the final decision easier to defend.</p>
+      <p class="article-note">This article uses company-neutral examples and omits confidential implementation details.</p>
+    </article>
+  </main>
+</body>
+</html>

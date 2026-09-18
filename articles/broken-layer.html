@@ -1,1 +1,61 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stop Rewriting the Prompt and Find the Broken Layer — Sharmila Das</title><link rel="stylesheet" href="../styles.css"></head><body><main class="article-page"><a class="back" href="../index.html#writing">← BACK TO PORTFOLIO</a><div class="kicker">AI + CONTENT · 2026</div><h1>Stop Rewriting the Prompt and Find the Broken Layer</h1><p class="dek">A weak AI output is a diagnostic signal. Treat it like a systems problem.</p><div class="body"><h2>The six-layer diagnosis</h2><p>Start with knowledge: was the right information available and authoritative? Then retrieval: did the system find it? Context: was the useful evidence preserved? Generation: did the model follow the task? Evaluation: did the gates detect the miss? Governance: should a human or policy have intervened?</p><h2>Prompts cannot repair missing truth</h2><p>Prompt iteration is useful when instructions are genuinely unclear. It is wasteful when the system lacks the correct source, retrieves the wrong version, or has no explicit quality bar.</p><h2>Make failure actionable</h2><p>The goal is not merely to score an output. It is to route the failure back to the layer that can be improved. That is how an AI content system learns instead of accumulating patches.</p><blockquote>AI content strategy is the design of the decision system around generation.</blockquote><div class="model">KNOWLEDGE → RETRIEVAL → CONTEXT → GENERATION → EVALUATION → GOVERNANCE → LEARNING</div><p><em>This public article is intentionally company-neutral and excludes proprietary implementation details.</em></p></div></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>When an AI Answer Misses, Check the Whole System - Sharmila Das</title>
+  <meta name="description" content="A six-part diagnostic for tracing weak AI answers to the source, retrieval, context, generation, evaluation, or review step.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav"><a href="../index.html#essays">Back to essays</a><span>Sharmila Das</span></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Diagnostics</p><h1>When an AI Answer Misses, Check the Whole System</h1><p class="article-dek">Prompt changes help when the instruction is unclear. They do very little when the system retrieved the wrong source.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>5 minute read</div>
+    </header>
+    <article class="article-body">
+      <p>A weak answer often starts a familiar cycle: rewrite the prompt, add another instruction, and try again. Sometimes that works. Sometimes the new prompt only hides a problem somewhere else.</p>
+      <p>I use a six-part diagnostic to keep the investigation focused. The goal is to identify the team and component that can prevent the failure from returning.</p>
+
+      <ol class="diagnostic-list">
+        <li><strong>Source</strong><span>Was the correct information available, current, and approved?</span></li>
+        <li><strong>Retrieval</strong><span>Did search select the right material and version?</span></li>
+        <li><strong>Context</strong><span>Did the system preserve the useful evidence and remove distracting material?</span></li>
+        <li><strong>Generation</strong><span>Did the model understand the task and follow the constraints?</span></li>
+        <li><strong>Evaluation</strong><span>Did the tests detect the error before release?</span></li>
+        <li><strong>Review</strong><span>Did the workflow send the answer to the right person when judgment was required?</span></li>
+      </ol>
+
+      <h2>Begin with the failure you can see</h2>
+      <p>Write down what is wrong in plain language. “The answer used an old return policy” is more useful than “the model hallucinated.” “The draft ignored the approved message for new customers” gives the team a testable issue.</p>
+      <p>Then identify the first point where the process could have prevented it. If the current return policy never entered the knowledge base, prompt work comes too late. If retrieval selected the old policy despite the correct version being available, investigate ranking, metadata, and version rules.</p>
+
+      <h2>Source problems often look like model problems</h2>
+      <p>Teams sometimes expect the model to resolve a conflict that people have never settled. Two pages may define the same product differently. A policy may have changed without an effective date. A claim may appear in several documents with no owner.</p>
+      <p>The repair is content work: choose the source of record, name the owner, retire old material, and record the conditions under which the information applies.</p>
+
+      <h2>Retrieval can be wrong in quiet ways</h2>
+      <p>The system may find material that is relevant by topic and wrong for the request. An answer for an existing customer may use acquisition messaging. A global search may return guidance for the wrong market. A similar product name may pull in an unrelated procedure.</p>
+      <p>Look at the actual sources returned, their order, and the metadata used to filter them. This is usually more revealing than reading the final answer alone.</p>
+      <div class="article-pull">A fluent answer can hide a retrieval mistake. The source list usually cannot.</div>
+
+      <h2>Context can lose the useful part</h2>
+      <p>Even good retrieval can produce weak context. The key limitation may be cut off. A long document may crowd out a short but critical policy. Several near-duplicate passages may leave too little room for the evidence that matters.</p>
+      <p>Inspect the context exactly as the model received it. Check whether the important statement appears, whether its qualifiers remain attached, and whether less useful text is taking up space.</p>
+
+      <h2>Generation problems are real and specific</h2>
+      <p>Once the sources and context are sound, the prompt becomes a more useful place to look. The task may be ambiguous. The output format may be missing. The instruction may ask for a recommendation without saying which criteria matter.</p>
+      <p>Change one thing at a time and test against a small set of known examples. A longer prompt can make a system harder to understand if nobody knows which instruction changed the result.</p>
+
+      <h2>Evaluation should point to a repair</h2>
+      <p>A single quality score tells the team very little. Separate factual accuracy, source use, audience fit, policy compliance, and task completion. A failed check should identify what went wrong and where the issue should be sent.</p>
+      <p>Use the results to build a backlog. Repeated source failures belong with content owners. Retrieval failures belong with search and knowledge teams. Review failures may require clearer routing or decision rights.</p>
+
+      <h2>A short incident note is enough</h2>
+      <p>For each meaningful failure, record the request, the answer, the sources, the failed layer, the correction, and the owner. This small habit turns scattered debugging into evidence about where the system needs work.</p>
+      <p class="article-note">This article uses company-neutral examples and omits confidential implementation details.</p>
+    </article>
+  </main>
+</body>
+</html>

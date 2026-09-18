@@ -1,1 +1,59 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Enterprise AI Problem Hiding in Your Content — Sharmila Das</title><link rel="stylesheet" href="../styles.css"></head><body><main class="article-page"><a class="back" href="../index.html#writing">← BACK TO PORTFOLIO</a><div class="kicker">AI + CONTENT · 2026</div><h1>The Enterprise AI Problem Hiding in Your Content</h1><p class="dek">Before blaming the model, inspect the knowledge it is being asked to reason over.</p><div class="body"><h2>AI exposes old content debt</h2><p>Duplicate pages, conflicting claims, weak ownership, stale guidance, missing metadata, and ambiguous terminology were manageable when humans navigated around them. Retrieval systems surface those inconsistencies at machine speed.</p><h2>The knowledge layer is infrastructure</h2><p>Enterprise AI needs more than a vector database. It needs authoritative sources, structured entities and relationships, lifecycle rules, versioning, access controls, and metadata that expresses audience, market, product, risk, and intent.</p><h2>Fix the source, not only the answer</h2><p>A durable AI program creates a feedback loop from output failures back to the broken layer. Sometimes the prompt is wrong. Often the knowledge, retrieval, or governance is.</p><blockquote>AI content strategy is the design of the decision system around generation.</blockquote><div class="model">KNOWLEDGE → RETRIEVAL → CONTEXT → GENERATION → EVALUATION → GOVERNANCE → LEARNING</div><p><em>This public article is intentionally company-neutral and excludes proprietary implementation details.</em></p></div></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Why Content Problems Show Up as AI Problems - Sharmila Das</title>
+  <meta name="description" content="How outdated guidance, weak ownership, and conflicting sources produce unreliable AI answers.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav"><a href="../index.html#essays">Back to essays</a><span>Sharmila Das</span></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Knowledge systems</p><h1>Why Content Problems Show Up as AI Problems</h1><p class="article-dek">A confident wrong answer may begin with an old page, a missing owner, or two teams using different definitions.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>6 minute read</div>
+    </header>
+    <article class="article-body">
+      <p>Imagine that a support article says one thing, a product page says another, and the current policy lives in a presentation that only a few people can find. A person may notice the conflict and ask a colleague. A retrieval system can collect all three and hand the model a very convincing contradiction.</p>
+      <p>This is why some AI failures are familiar content problems moving at a new speed. The model makes the problem visible, but the repair often belongs in the knowledge that feeds it.</p>
+
+      <h2>AI reads the mess we already have</h2>
+      <p>Large organizations accumulate duplicate pages, old versions, unexplained acronyms, and claims with no named owner. People learn informal ways around the mess. They remember which folder is current. They message the person who wrote the launch brief. They ignore a page that everyone knows is stale.</p>
+      <p>An AI system does not share that informal history unless teams make it available. Search may favor an older page because it has better links. A model may combine two product definitions because both appear credible. The final answer can sound more certain than the source material deserves.</p>
+
+      <h2>Start with one costly question</h2>
+      <p>A full content cleanup can become a year-long inventory with no clear finish. I prefer to begin with a customer or employee question that creates visible risk or repeated work.</p>
+      <p>Gather every source the system might use to answer it. Compare dates, owners, terms, claims, and intended audiences. This small exercise usually exposes the actual work: retire an old page, resolve a policy conflict, add missing metadata, or decide which group owns the answer.</p>
+      <div class="article-pull">If the organization cannot agree on the source, the AI system cannot create that agreement for it.</div>
+
+      <h2>Ownership needs to follow the information</h2>
+      <p>Document ownership can be misleading. A marketing team may own a web page while a product group owns the underlying capability and a legal team approves the claim. The page owner cannot settle every question in the content.</p>
+      <p>I look for ownership at the level of the information: the product definition, policy, procedure, claim, or proof point. This makes review more precise. It also gives the team a place to send corrections when an answer fails.</p>
+
+      <h2>Metadata should help make a choice</h2>
+      <p>Metadata earns its keep when it helps the system choose among sources. Audience, market, product, version, effective date, content type, and risk level can all change which source is appropriate.</p>
+      <p>More fields are not automatically better. If nobody maintains a field or retrieval never uses it, the field adds work without improving the answer. Begin with the distinctions that matter for the question you are trying to answer.</p>
+
+      <h2>Relationships can carry meaning that keywords miss</h2>
+      <p>A claim may apply to one product tier and exclude another. A procedure may require a specific device version. A proof point may support one value proposition but say nothing about a different one.</p>
+      <p>Those relationships can live in a content model, taxonomy, or graph. The technology matters less than the clarity of the relationship. Teams should be able to explain why the system selected a source and what conditions limit its use.</p>
+
+      <h2>Use failures to improve the source</h2>
+      <p>When an answer is wrong, correcting the output is only the immediate repair. The team should also ask why the system produced it. Did retrieval select an old version? Did the source contain an unsupported claim? Did two groups use the same term differently?</p>
+      <p>Record the cause and send the correction to the team that can fix it. Over time, the failure log becomes a practical backlog for content and knowledge work.</p>
+
+      <h2>A useful first audit</h2>
+      <ul>
+        <li>Choose ten questions with real customer or business impact.</li>
+        <li>List the sources used for each answer.</li>
+        <li>Mark conflicts, missing owners, old versions, and undefined terms.</li>
+        <li>Decide which source should take priority and why.</li>
+        <li>Retest the answers after the source problems are fixed.</li>
+      </ul>
+      <p>This work is less visible than a new interface. It is also where many improvements in reliability begin.</p>
+      <p class="article-note">This article uses company-neutral examples and omits confidential implementation details.</p>
+    </article>
+  </main>
+</body>
+</html>
