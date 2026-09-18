@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>When an AI Answer Misses, Check the Whole System - Sharmila Das</title>
   <meta name="description" content="A six-part diagnostic for tracing weak AI answers to the source, retrieval, context, generation, evaluation, or review step.">
-  <link rel="stylesheet" href="../styles.css?v=20260918">
+  <link rel="stylesheet" href="../styles.css?v=20260918-2">
 </head>
 <body>
   <main class="article-page">
-    <nav class="article-nav"><a href="../index.html#essays">Back to essays</a><span>Sharmila Das</span></nav>
+    <nav class="article-nav" aria-label="Article navigation"><a class="article-home" href="../">Sharmila Das</a><div class="article-nav-links"><a href="../#practice">Selected work</a><a href="../#essays">All essays</a></div></nav>
     <header class="article-header">
       <div><p class="article-topic">Diagnostics</p><h1>When an AI Answer Misses, Check the Whole System</h1><p class="article-dek">Prompt changes help when the instruction is unclear. They do very little when the system retrieved the wrong source.</p></div>
       <div class="article-meta">By Sharmila Das<br>2026<br>5 minute read</div>
     </header>
     <article class="article-body">
-      <p>A weak answer often starts a familiar cycle: rewrite the prompt, add another instruction, and try again. Sometimes that works. Sometimes the new prompt only hides a problem somewhere else.</p>
-      <p>I use a six-part diagnostic to keep the investigation focused. The goal is to identify the team and component that can prevent the failure from returning.</p>
+      <p>An answer uses an old return policy. Someone adds “always use the latest policy” to the prompt and runs it again. The new answer happens to be right, so the incident is closed. A week later, the old policy appears in a different answer.</p>
+      <p>The prompt change treated the symptom. To prevent the repeat, the team has to find the first layer that allowed the wrong evidence through.</p>
 
       <ol class="diagnostic-list">
         <li><strong>Source</strong><span>Was the correct information available, current, and approved?</span></li>
@@ -27,35 +27,35 @@
         <li><strong>Review</strong><span>Did the workflow send the answer to the right person when judgment was required?</span></li>
       </ol>
 
-      <h2>Begin with the failure you can see</h2>
-      <p>Write down what is wrong in plain language. “The answer used an old return policy” is more useful than “the model hallucinated.” “The draft ignored the approved message for new customers” gives the team a testable issue.</p>
-      <p>Then identify the first point where the process could have prevented it. If the current return policy never entered the knowledge base, prompt work comes too late. If retrieval selected the old policy despite the correct version being available, investigate ranking, metadata, and version rules.</p>
+      <h2>Name the failure without diagnosing it</h2>
+      <p>Write down what happened in plain language. “The answer used an old return policy” is more useful than “the model hallucinated.” “The draft ignored the approved message for new customers” gives the team something it can reproduce.</p>
+      <p>Diagnosis comes next. Find the first point where the process could have prevented the error. If the current policy never entered the knowledge base, prompt work comes too late. If retrieval selected the old policy even though the current one was available, ranking, metadata, and version rules deserve attention.</p>
 
       <h2>Source problems often look like model problems</h2>
-      <p>Teams sometimes expect the model to resolve a conflict that people have never settled. Two pages may define the same product differently. A policy may have changed without an effective date. A claim may appear in several documents with no owner.</p>
-      <p>The repair is content work: choose the source of record, name the owner, retire old material, and record the conditions under which the information applies.</p>
+      <p>Teams sometimes expect the model to resolve a conflict people have never settled. Two pages define the same product differently. A policy changes without an effective date. A claim appears in several documents and nobody owns it.</p>
+      <p>That repair is content work: choose the source of record, name the owner, retire old material, and record where the information applies. No prompt can supply a decision the organization has avoided making.</p>
 
       <h2>Retrieval can be wrong in quiet ways</h2>
-      <p>The system may find material that is relevant by topic and wrong for the request. An answer for an existing customer may use acquisition messaging. A global search may return guidance for the wrong market. A similar product name may pull in an unrelated procedure.</p>
-      <p>Look at the actual sources returned, their order, and the metadata used to filter them. This is usually more revealing than reading the final answer alone.</p>
+      <p>Search can return material that is relevant by topic and wrong for the request. An answer for an existing customer may use acquisition messaging. A global search may retrieve guidance for the wrong market. A similar product name may pull in an unrelated procedure.</p>
+      <p>Inspect the sources that were returned, their order, and the filters applied. The source list usually explains more than another close reading of the final prose.</p>
       <div class="article-pull">A fluent answer can hide a retrieval mistake. The source list usually cannot.</div>
 
       <h2>Context can lose the useful part</h2>
-      <p>Even good retrieval can produce weak context. The key limitation may be cut off. A long document may crowd out a short but critical policy. Several near-duplicate passages may leave too little room for the evidence that matters.</p>
-      <p>Inspect the context exactly as the model received it. Check whether the important statement appears, whether its qualifiers remain attached, and whether less useful text is taking up space.</p>
+      <p>Even good retrieval can produce poor context. The key limitation may be cut off. A long document may crowd out a short but critical policy. Near-duplicate passages may consume the space needed for better evidence.</p>
+      <p>Look at the context exactly as the model received it. Is the important statement present? Did its qualifiers stay attached? Is less useful text taking up the window? A citation to the right document does not guarantee the model saw the right passage.</p>
 
       <h2>Generation problems are real and specific</h2>
-      <p>Once the sources and context are sound, the prompt becomes a more useful place to look. The task may be ambiguous. The output format may be missing. The instruction may ask for a recommendation without saying which criteria matter.</p>
-      <p>Change one thing at a time and test against a small set of known examples. A longer prompt can make a system harder to understand if nobody knows which instruction changed the result.</p>
+      <p>Once the source and context hold up, the prompt becomes a useful suspect. The task may be ambiguous. The output format may be missing. The instruction may ask for a recommendation without naming the criteria.</p>
+      <p>Change one thing at a time and rerun a small set of known examples. A prompt that grows after every incident soon becomes its own debugging problem.</p>
 
       <h2>Evaluation should point to a repair</h2>
-      <p>A single quality score tells the team very little. Separate factual accuracy, source use, audience fit, policy compliance, and task completion. A failed check should identify what went wrong and where the issue should be sent.</p>
-      <p>Use the results to build a backlog. Repeated source failures belong with content owners. Retrieval failures belong with search and knowledge teams. Review failures may require clearer routing or decision rights.</p>
+      <p>A single quality score does not tell the team what to repair. Separate factual accuracy, source use, audience fit, policy compliance, and task completion. A failure should carry a reason and a destination.</p>
+      <p>Repeated source failures belong with content owners. Retrieval failures belong with search and knowledge teams. Review failures may point to routing or decision rights. Without that handoff, evaluation produces dashboards instead of improvements.</p>
 
       <h2>A short incident note is enough</h2>
-      <p>For each meaningful failure, record the request, the answer, the sources, the failed layer, the correction, and the owner. This small habit turns scattered debugging into evidence about where the system needs work.</p>
-      <p class="article-note">This article uses company-neutral examples and omits confidential implementation details.</p>
+      <p>For each meaningful failure, record the request, the answer, the sources, the failed layer, the correction, and the owner. The note can be brief. Its value comes from making repeated patterns visible across incidents.</p>
     </article>
+    <footer class="article-footer"><a href="../#essays">← All essays</a><a href="unified-content-strategy.html">Next: A unified content program →</a></footer>
   </main>
 </body>
 </html>
