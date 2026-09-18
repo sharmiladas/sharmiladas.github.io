@@ -1,10 +1,120 @@
-const cases={
-fusion:{kicker:'AI · CONTENT PLATFORM · CLOUD',title:'Building an AI-Native Content Operating Model',problem:'A large technical-content ecosystem had fragmented workflows, inconsistent structures, and transformation work that did not scale cleanly across teams.',action:['Framed the program as an operating-model transformation rather than a tooling project.','Coordinated 12 workstreams across strategy, content model, authoring, platform, migration, governance, delivery, measurement, localization, enablement, AI-assisted transformation, and adoption.','Used AI-assisted pattern generation to accelerate repeatable transformation while keeping architecture and quality decisions human-owned.','Defined decision points for build vs. buy, sequencing, dependencies, and measurable adoption.'],impact:['Created a coherent path from fragmented content to structured, machine-readable knowledge.','Reduced transformation effort from roughly eight hours to four hours in representative workflows.','Established the foundation for retrieval, reuse, automation, and future AI experiences.'],lesson:'AI creates leverage when it is embedded in a well-designed content system—not when it is layered on top of chaos.'},
-advisor:{kicker:'AI QUALITY · AUTOMATION',title:'Turning Editorial Standards into a Quality System',problem:'Editorial standards lived in guidance and reviewer expertise. Quality was expensive to apply consistently and difficult to measure at scale.',action:['Translated editorial standards into explicit, testable quality criteria.','Partnered across content and engineering to turn criteria into automated checks and author guidance.','Designed the system as decision support: automation handled repeatable detection while humans retained judgment for ambiguity and strategy.','Used quality data to identify systemic issues instead of treating every defect as an isolated editing problem.'],impact:['Quality improved from roughly 65% to 85%.','Representative review time fell from about four hours to one.','The operating model shifted from manual inspection toward scalable quality engineering.'],lesson:'The strongest AI quality systems make standards executable.'},
-cms:{kicker:'PLATFORM STRATEGY · BUILD VS BUY',title:'Making the Decision for a Net-New CMS',problem:'Engineering favored building a new platform internally. The organization needed a decision based on customer value and long-term economics, not attachment to a solution.',action:['Built a structured business case across customer needs, required capabilities, implementation time, integration complexity, ownership cost, risk, and strategic differentiation.','Separated capabilities that created unique value from commodity platform capabilities.','Made time-to-value and opportunity cost visible to executives and engineering.','Recommended a vendor path where buying accelerated outcomes without giving up control of the knowledge architecture.'],impact:['Moved the discussion from “can we build it?” to “where should we invest differentiated engineering?”','Created alignment around a faster path to value.','Established a repeatable decision framework for future platform investments.'],lesson:'Build-vs-buy is an investment-allocation decision, not a referendum on engineering capability.'},
-linkedin:{kicker:'STRUCTURED CONTENT · GLOBAL MARKETING',title:'Creating a Reusable Marketing Knowledge Foundation',problem:'Marketing content was created as finished assets. That made reuse, localization, consistency, journey orchestration, and measurement harder than necessary.',action:['Mapped content to customer-journey stages and defined reusable content types.','Introduced structure around audience, key message, value proposition, proof, product information, CTA, and metadata.','Partnered with Creative so structure supported—not replaced—creative judgment.','Designed the model to support headless delivery and localization across 12 languages.'],impact:['Created a reusable foundation for cross-channel content.','Improved consistency without centralizing every creative decision.','Made content easier to find, adapt, localize, measure, and eventually expose to AI systems.'],lesson:'Structure works when it protects creative freedom while making strategic intent explicit.'},
-rag:{kicker:'KNOWLEDGE GRAPH · RAG · AI',title:'Designing the Knowledge Layer for AI Marketing',problem:'Generative systems can produce fluent copy while still missing the strategy, using weak evidence, or retrieving outdated context.',action:['Modeled the governed knowledge layer: audiences, products, value propositions, approved claims, proof points, brand/policy rules, channel guidance, and campaign learning.','Designed retrieval using metadata filters, semantic/keyword search, relationships, source authority, versioning, and reranking.','Defined quality gates for groundedness, factual accuracy, audience relevance, brand fidelity, policy, and strategic fidelity.','Added risk-based human review for high-impact, ambiguous, low-confidence, or policy-sensitive decisions.'],impact:['Created a reference architecture that connects content strategy directly to RAG and generation.','Made quality diagnosable by layer instead of treating every failure as a prompt problem.','Established a path for performance data to improve both knowledge and evaluation.'],lesson:'RAG is not the strategy. The strategy is the governed decision system around it.'},
-dita:{kicker:'STRUCTURED AUTHORING · ENTERPRISE',title:'Moving Documentation from Pages to Reusable Knowledge',problem:'Page-oriented documentation duplicated information and made consistency, maintenance, and multi-channel delivery expensive.',action:['Introduced structured authoring and topic-based content principles.','Separated reusable knowledge components from page presentation.','Defined metadata, taxonomy, reuse patterns, and governance.','Aligned authoring practices with downstream publishing and customer experience needs.'],impact:['Increased reuse and consistency across technical content.','Reduced the cost of maintaining repeated information.','Created an early foundation for machine-readable knowledge and multi-channel delivery.'],lesson:'The move from pages to knowledge is not new. AI makes the payoff much larger.'}}
-const modal=document.getElementById('modal'), content=document.getElementById('modal-content');
-document.querySelectorAll('[data-modal]').forEach(b=>b.onclick=()=>{const c=cases[b.dataset.modal];content.innerHTML=`<div class="kicker">${c.kicker}</div><h2>${c.title}</h2><h4>THE PROBLEM</h4><p>${c.problem}</p><h4>WHAT I DID</h4><ul>${c.action.map(x=>`<li>${x}</li>`).join('')}</ul><h4>IMPACT</h4><ul>${c.impact.map(x=>`<li>${x}</li>`).join('')}</ul><blockquote>${c.lesson}</blockquote><p class="modal-note">Public version intentionally excludes employer names, proprietary implementation details, and confidential artifacts.</p>`;modal.classList.add('open')});
-document.querySelector('.close').onclick=()=>modal.classList.remove('open');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+const cases = {
+  fusion: {
+    type: 'Content platform',
+    title: 'A content program spanning 12 workstreams',
+    situation: 'Teams were using different structures and workflows to maintain a large body of technical content. The same transformation work was repeated from one group to the next.',
+    work: [
+      'Set one program plan across the content model, authoring, platform, migration, delivery, governance, measurement, localization, enablement, and adoption work.',
+      'Used assisted pattern generation for repeatable conversion tasks. People remained responsible for architecture and quality decisions.',
+      'Made the build-versus-buy choices, dependencies, and adoption measures visible to program leaders.'
+    ],
+    result: [
+      'Representative transformation time fell from about eight hours to four.',
+      'Teams gained a clearer path from documents to structured content that could support reuse and retrieval.'
+    ]
+  },
+  advisor: {
+    type: 'Quality automation',
+    title: 'Editorial guidance that teams could test',
+    situation: 'Standards lived in reviewer knowledge and long guidance documents. Authors received feedback late, and leaders had little data about recurring quality problems.',
+    work: [
+      'Rewrote editorial standards as specific checks that authors and engineers could test.',
+      'Separated repeatable detection from the judgment that still needed an experienced reviewer.',
+      'Used the resulting data to find patterns across the content instead of treating every issue as a one-off edit.'
+    ],
+    result: [
+      'Measured quality rose from about 65 percent to 85 percent.',
+      'A representative review that took four hours fell to about one hour.'
+    ]
+  },
+  cms: {
+    type: 'Platform decision',
+    title: 'A build-versus-buy decision for a new CMS',
+    situation: 'Engineering preferred to build a platform. The wider group needed to know whether custom development was the best use of time and budget.',
+    work: [
+      'Compared the required capabilities with vendor products and internal options.',
+      'Included implementation time, integration work, ownership cost, risk, and opportunity cost in the analysis.',
+      'Showed which capabilities were unique to the business and which were standard platform functions.'
+    ],
+    result: [
+      'Leaders agreed on a vendor path that shortened delivery time.',
+      'Engineering could concentrate on the work that required company-specific knowledge.'
+    ]
+  },
+  globalMarketing: {
+    type: 'Global marketing content',
+    title: 'Reusable messaging across 12 languages',
+    situation: 'Marketing teams created complete assets for each channel. Repeated messages were hard to find, update, translate, and measure across the customer journey.',
+    work: [
+      'Defined reusable fields for audience, message, value proposition, proof, product information, calls to action, and metadata.',
+      'Mapped content to stages in the customer journey.',
+      'Worked with creative partners so the structure supported their work without prescribing the final expression.'
+    ],
+    result: [
+      'The model supported reuse and localization across 12 languages.',
+      'Teams could update shared information while keeping channel-specific creative choices.'
+    ]
+  },
+  rag: {
+    type: 'AI knowledge architecture',
+    title: 'A knowledge layer for marketing generation',
+    situation: 'A generation system could produce fluent copy while using an outdated claim or missing the intended audience and message.',
+    work: [
+      'Mapped audiences, products, approved claims, proof, policies, channel guidance, and past campaign learning.',
+      'Defined how metadata, search, relationships, versioning, and reranking would select the material for a request.',
+      'Created six quality rubrics and identified the decisions that still required human review.'
+    ],
+    result: [
+      'Teams could trace a weak answer back to the source, retrieval, context, generation, evaluation, or review step.',
+      'Performance data could improve both the knowledge and the quality tests.'
+    ]
+  },
+  dita: {
+    type: 'Structured documentation',
+    title: 'Technical content built for reuse',
+    situation: 'Page-based documentation repeated the same explanations in many places. Updates were slow and inconsistencies were easy to introduce.',
+    work: [
+      'Moved common explanations into smaller topics that could be maintained once and used in several outputs.',
+      'Defined metadata, taxonomy, ownership, and publishing rules.',
+      'Connected authoring choices with the needs of downstream channels and customers.'
+    ],
+    result: [
+      'Teams reused more content and spent less time maintaining repeated information.',
+      'The content became easier for publishing systems and retrieval tools to use.'
+    ]
+  }
+};
+
+const modal = document.getElementById('modal');
+const content = document.getElementById('modal-content');
+const closeButton = document.querySelector('.close');
+
+document.querySelectorAll('[data-modal]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const item = cases[button.dataset.modal];
+    content.innerHTML = `
+      <p class="case-type">${item.type}</p>
+      <h2>${item.title}</h2>
+      <h4>Situation</h4>
+      <p>${item.situation}</p>
+      <h4>My role</h4>
+      <ul>${item.work.map((line) => `<li>${line}</li>`).join('')}</ul>
+      <h4>Result</h4>
+      <ul>${item.result.map((line) => `<li>${line}</li>`).join('')}</ul>
+      <p class="modal-note">Employer names and confidential implementation details are omitted.</p>`;
+    modal.classList.add('open');
+    closeButton.focus();
+  });
+});
+
+function closeModal() {
+  modal.classList.remove('open');
+}
+
+closeButton.addEventListener('click', closeModal);
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) closeModal();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeModal();
+});
