@@ -89,8 +89,10 @@ footer p:last-child{text-align:right}
 
 /* Essays */
 .article-page{max-width:1120px;margin:0 auto;padding:0 28px 100px}
-.article-nav{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:12px;font-weight:700}
+.article-nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line);font-size:12px;font-weight:700}
+.article-nav-links{display:flex;align-items:center;gap:24px}
 .article-nav a{border-bottom:1px solid var(--ink);padding-bottom:4px}
+.article-nav .article-home{border:0;padding:0;font:600 18px Georgia,serif}
 .article-header{padding:88px 0 72px;display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:70px;border-bottom:1px solid var(--line)}
 .article-topic{color:var(--orange);margin:0 0 22px}
 .article-header h1{margin:0;font:500 clamp(58px,8vw,104px)/.92 Georgia,serif;letter-spacing:-.065em}
@@ -105,6 +107,16 @@ footer p:last-child{text-align:right}
 .article-pull{margin:54px -70px;padding:34px 70px;background:var(--acid);font:500 32px/1.25 Georgia,serif;letter-spacing:-.02em}
 .article-note{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font:14px/1.55 Arial,Helvetica,sans-serif}
 .download-link{display:inline-block;background:var(--plum);color:var(--white);padding:14px 18px;font:700 13px Arial,Helvetica,sans-serif}
+.download-card{margin:38px 0 12px;padding:24px;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:Arial,Helvetica,sans-serif}
+.download-card p{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.download-card strong{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+.article-stats{margin:42px 0 12px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);font-family:Arial,Helvetica,sans-serif}
+.article-stats div{padding:22px 18px 22px 0}
+.article-stats div+div{padding-left:18px;border-left:1px solid var(--line)}
+.article-stats strong{display:block;margin-bottom:7px;font:600 30px/1 Georgia,serif;color:var(--plum)}
+.article-stats span{font-size:12px;line-height:1.45;color:var(--muted)}
+.article-footer{width:min(760px,100%);margin:76px auto 0;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;font-size:13px;font-weight:700}
+.article-footer a{border-bottom:1px solid var(--ink);padding-bottom:4px}
 .diagnostic-list{counter-reset:item;list-style:none;padding:0!important;margin:40px 0!important;border-top:2px solid var(--ink)}
 .diagnostic-list li{counter-increment:item;display:grid;grid-template-columns:42px 125px 1fr;gap:18px;margin:0!important;padding:18px 0!important;border-bottom:1px solid var(--line);font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
 .diagnostic-list li:before{content:"0" counter(item);color:var(--orange);font-size:11px;font-weight:700}
@@ -132,5 +144,8 @@ footer p:last-child{text-align:right}
   .modal-card{padding:54px 24px 34px}.modal-card h2{font-size:36px}
   .article-header{padding-top:60px}.article-header h1{font-size:54px}
   .article-dek{font-size:19px}.article-body{font-size:17px}.article-pull{margin:44px 0;padding:28px;font-size:27px}
+  .article-nav{align-items:flex-start;padding-top:24px;padding-bottom:24px}.article-nav-links{align-items:flex-end;flex-direction:column;gap:10px}
+  .download-card,.article-footer{align-items:flex-start;flex-direction:column}
+  .article-stats{grid-template-columns:1fr}.article-stats div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .diagnostic-list li{grid-template-columns:34px 1fr}.diagnostic-list li span{grid-column:2}
 }
