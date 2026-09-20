@@ -27,7 +27,7 @@ button{font:inherit}
 .opening-text{max-width:720px;margin:40px 0 0;font-size:22px;line-height:1.52;color:#3f3b36}
 .opening-links{display:flex;gap:28px;margin-top:36px}
 .opening-links a,.background-links a{font-size:13px;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:5px}
-.focus-note{align-self:center;border-top:8px solid var(--plum);background:var(--acid);padding:26px 24px 22px;transform:rotate(1.2deg)}
+.focus-note{align-self:center;border-top:8px solid var(--plum);background:var(--acid);padding:26px 24px 22px}
 .focus-note .note-label{margin:0 0 20px;color:var(--plum)}
 .focus-note p:not(.note-label){margin:0;padding:12px 0;border-top:1px solid rgba(25,24,22,.25);font:600 17px/1.25 Georgia,serif}
 .section{max-width:var(--max);margin:0 auto;padding:110px 28px;border-top:1px solid var(--line)}
