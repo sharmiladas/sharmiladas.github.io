@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How a Production RAG System Earns Trust - Sharmila Das</title>
+  <meta name="description" content="Trust depends on sources, retrieval, evidence, quality gates, and diagnosis.">
+  <link rel="stylesheet" href="../styles.css?v=20260920-quality">
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav" aria-label="Article navigation"><a class="article-home" href="../">Sharmila Das</a><div class="article-nav-links"><a href="../#practice">Selected work</a><a href="../#essays">All essays</a></div></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Knowledge systems</p><h1>How a Production RAG System Earns Trust</h1><p class="article-dek">Trust depends on sources, retrieval, evidence, quality gates, and diagnosis.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>3 minute read</div>
+    </header>
+    <article class="article-body">
+      <p>Retrieval-augmented generation, or RAG, can help a model answer from company knowledge. The design problem is larger than connecting a model to a vector index. The system has to prepare trusted sources, retrieve the right evidence for a particular request, use it correctly and show where it failed.</p>
+      <h2>Prepare knowledge for retrieval</h2>
+      <p>The ingestion pipeline loads approved sources, extracts their structure, splits them into useful retrieval units and attaches metadata. Stable IDs, permissions, versioning, deletion and refresh rules matter as much as embeddings. An old claim that remains searchable after replacement is a governance failure even if the search engine ranks it perfectly.</p>
+      <p>For a marketing request, I would want the audience, product, market, channel, approval status, effective date and source owner to survive ingestion. A paragraph without that context may look relevant while being wrong for the task.</p>
+      <h2>Retrieve for the request, then assemble evidence</h2>
+      <p>The application interprets the request, applies access and applicability filters, searches for candidates, and reranks them. Semantic search can find related language; keyword search can help with exact terms. Neither by itself establishes authority. The selected context should be compact enough to make the approved audience guidance, message, claims and proof easy for the model to use, with source IDs retained.</p>
+      <p>For example, a request for a US small business lead-generation email should retrieve current US-eligible claims, a relevant value proposition and email guidance. It should exclude an old enterprise campaign, even if that campaign contains similar words.</p>
+      <h2>Check the answer and know when to abstain</h2>
+      <p>The model generates from the supplied evidence. Quality gates then examine claim support, audience fit, strategic alignment, brand and policy requirements. A response with no adequate evidence should ask for clarification or route to a person instead of inventing a convincing answer.</p>
+      <p>Review should scale with risk. An adaptation of approved text may need lighter review than a new pricing claim. The system must still record what it retrieved and which rule or person approved the output.</p>
+      <h2>Diagnose the layer that broke</h2>
+      <p>I would test retrieval separately from generation. Did the right source appear in the candidate set? Was it ranked high enough? Was it current and permitted? Did the model use it faithfully? End-to-end task success matters, but a single score cannot tell a team what to fix.</p>
+      <p>Representative test cases should include conflicting versions, absent answers, narrow market rules and legitimate requests that need more context. Reviewers&#x27; recurring corrections become evidence for changing source content, metadata, search, context construction or generation instructions.</p>
+      <p>The aim is a system that can explain its answer and improve when it is wrong. Better prompts help some failures; trustworthy knowledge and a measurable retrieval chain address the rest.</p>
+    </article>
+    <footer class="article-footer"><a href="../#essays">← All essays</a></footer>
+  </main>
+</body>
+</html>

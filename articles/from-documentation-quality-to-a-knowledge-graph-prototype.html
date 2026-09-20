@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From Documentation Quality to a Knowledge Graph Prototype - Sharmila Das</title>
+  <meta name="description" content="Production quality controls and a separate graph prototype solve different parts of the knowledge problem.">
+  <link rel="stylesheet" href="../styles.css?v=20260920-quality">
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav" aria-label="Article navigation"><a class="article-home" href="../">Sharmila Das</a><div class="article-nav-links"><a href="../#practice">Selected work</a><a href="../#essays">All essays</a></div></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Content architecture</p><h1>From Documentation Quality to a Knowledge Graph Prototype</h1><p class="article-dek">Production quality controls and a separate graph prototype solve different parts of the knowledge problem.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>3 minute read</div>
+    </header>
+    <article class="article-body">
+      <p>In one production documentation program, I worked on content architecture and an automated quality system that checked more than 170 million words a month. Separately, at an internal hackathon, we built a knowledge graph proof of concept for developer documentation. Those were different levels of maturity, but they exposed the same issue: a content system needs to know what information is trustworthy and how pieces of it relate.</p>
+      <h2>Structure the source material</h2>
+      <p>The production content work defined models, taxonomy, metadata and templates. Those gave documentation consistent categories and made quality rules more repeatable. They also created a stronger base for finding relevant information than a pile of loosely organized pages.</p>
+      <p>Structure did not automatically capture every relationship. A concept page, API reference and troubleshooting procedure could be related even when their labels differed. That was the problem explored in the hackathon graph: making relationships explicit and testing whether retrieval could follow them rather than rely only on similar wording.</p>
+      <p>The proof of concept used reasoning loops and tool integrations to examine relationships across publicly available developer documentation. It was exploratory work, not a production graph serving the documentation program. I would not describe it as a deployed RAG pipeline or claim a particular vector store or embedding model without implementation evidence.</p>
+      <h2>Connect generation to a content model</h2>
+      <p>We also developed prompts around the content model and templates so that drafts had a known structure. That is a practical form of grounding: generation begins with a defined content type and relevant source context. It does not, by itself, prove that every generated claim was retrieved and cited through the graph.</p>
+      <p>The production quality system addressed a different point in the lifecycle. Its automated checks covered clarity, consistency, accessibility, search considerations and inclusivity across documentation. Those checks helped catch predictable issues before a person had to find them one by one. They complemented source structure and generation; they were not a substitute for verifying factual support.</p>
+      <h2>Use feedback to find the upstream cause</h2>
+      <p>Quality scores, suggestion acceptance and false positives can reveal whether a rule is useful. Repeated corrections also show where the content model, guidance or prompt needs work. In a future integrated system, I would trace a bad output from source through retrieval, generation and validation, then fix the earliest layer that caused it.</p>
+      <p>The useful lesson from these projects is the continuity of the discipline, not a claim that all components shipped as one architecture. Production governance proved the value of structured standards at scale. The graph prototype explored a deeper way to retrieve related knowledge. Together they informed how I would design the next system.</p>
+    </article>
+    <footer class="article-footer"><a href="../#essays">← All essays</a></footer>
+  </main>
+</body>
+</html>
