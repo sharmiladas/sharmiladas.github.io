@@ -3,56 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AI Quality Starts Before the Final Review - Sharmila Das</title>
-  <meta name="description" content="A practical approach to improving AI content quality across sources, retrieval, context, generation, and review.">
-  <link rel="stylesheet" href="../styles.css?v=20260918-2">
+  <title>How I Would Approach AI Content Quality - Sharmila Das</title>
+  <meta name="description" content="A rubric only works when it shapes the knowledge, checks, and decisions behind every asset.">
+  <link rel="stylesheet" href="../styles.css?v=20260920-quality">
 </head>
 <body>
   <main class="article-page">
     <nav class="article-nav" aria-label="Article navigation"><a class="article-home" href="../">Sharmila Das</a><div class="article-nav-links"><a href="../#practice">Selected work</a><a href="../#essays">All essays</a></div></nav>
     <header class="article-header">
-      <div><p class="article-topic">Quality</p><h1>AI Quality Starts Before the Final Review</h1><p class="article-dek">A reviewer can correct one answer. Teams improve reliability when they also correct the conditions that produced it.</p></div>
-      <div class="article-meta">By Sharmila Das<br>2026<br>6 minute read</div>
+      <div><p class="article-topic">Quality</p><h1>How I Would Approach AI Content Quality</h1><p class="article-dek">A rubric only works when it shapes the knowledge, checks, and decisions behind every asset.</p></div>
+      <div class="article-meta">By Sharmila Das<br>2026<br>7 minute read</div>
     </header>
     <article class="article-body">
-      <p>The reviewer gets a polished answer, a deadline, and very little else. No source history. No risk label. No explanation of why one piece of evidence was chosen over another. Later, the same review step is blamed for taking too long and for missing errors.</p>
-      <p>That is too much responsibility at the end of the line. By the time an answer reaches a person, the source, retrieval, context, instructions, and automated checks have already shaped what can be caught—and how much detective work catching it will take.</p>
-
-      <h2>Separate correction from prevention</h2>
-      <p>Suppose a reviewer catches an outdated product claim and replaces it. The draft is fixed. The system is not. The old claim still needs to be removed or marked, retrieval needs to stop selecting it, and a check needs to catch the same pattern next time.</p>
-      <p>When that second path is missing, reviewers become human patches for recurring defects. The queue stays busy while the underlying system barely changes.</p>
-
-      <h2>Define quality for the task</h2>
-      <p>Quality depends on the job. A support answer needs the right steps for the right product version. A marketing brief needs an approved message and evidence that supports it. A policy summary must remain faithful to the rule now in force.</p>
-      <p>The rubric should capture decisions reviewers already make, in language concrete enough that two people can score the same output and explain a disagreement. If “strategic fidelity” cannot be translated into something observable, it will not guide a review.</p>
-      <div class="article-pull">A rubric is useful when it tells someone what to inspect, which evidence counts, and what to do after a failure.</div>
-
-      <h2>Use different checks for different errors</h2>
-      <p>Some checks are mechanical: a required disclaimer appears, a prohibited phrase does not, a link resolves. Others require comparison. A claim can be pulled from the draft and checked against an approved source. Audience relevance may need examples and a scored judgment.</p>
-      <p>No single evaluator handles all of this equally well. Use the least complicated method that reliably catches the error in question. Adding an LLM judge to a deterministic check usually adds cost and uncertainty, not sophistication.</p>
-
-      <h2>Keep a small human-rated set</h2>
-      <p>Automated evaluation needs something firmer than its own prior scores. A small set of examples rated by experienced people gives the team a way to see whether the evaluator agrees with the judgments they actually care about.</p>
-      <p>The most useful examples are awkward ones: near misses, conflicting evidence, and failures people have already seen in production. Refresh the set when the product, policy, or audience changes. Fifty easy examples can create more confidence than insight.</p>
-
-      <h2>Route review by risk</h2>
-      <p>Human review is expensive when every answer follows the same path and risky when none receives extra scrutiny. Topic, claim type, source conflict, market, and policy sensitivity are more useful routing signals than a blanket “human in the loop” rule.</p>
-      <p>Routine material can move quickly. Sensitive material should reach the person who understands what an error would cost. Confidence scores can help, but they should not be mistaken for a risk model.</p>
-
-      <h2>Measure the work around the answer</h2>
-      <p>Accuracy scores tell only part of the story. Review time, substantial edits, repeated failures, and the percentage of corrections that reach the source reveal whether the operation is improving or merely catching mistakes later.</p>
-      <p>In one quality program, translating editorial standards into explicit author guidance and checks moved measured quality from roughly 65 percent to 85 percent. A representative review dropped from about four hours to one. Reviewers were not working faster; they were spending less time on errors that could have been caught earlier.</p>
-
-      <h2>A practical review packet</h2>
-      <p>For higher-risk content, the review packet should contain:</p>
-      <ul>
-        <li>The generated answer and the original request.</li>
-        <li>The sources used, with dates and owners.</li>
-        <li>The quality results and the reason for any failure.</li>
-        <li>The risk tier and the decision the reviewer is being asked to make.</li>
-        <li>A simple way to send a recurring problem back to the source owner.</li>
-      </ul>
-      <p>The packet does not make judgment automatic. It makes the judgment faster to reach and easier to explain later.</p>
+      <p>When teams say AI content is good, they often mean it reads smoothly. That is a low bar. A draft can be fluent and still make an unsupported claim, miss the customer’s need, contradict the campaign strategy, or use yesterday’s product information. I would define quality as the ability to publish the right message for the right audience with evidence, clear ownership, and a way to learn from the result.</p>
+<p>I would build that standard into the workflow before asking an evaluator to score the final copy. The rubric tells us what good looks like. Rules, source checks, AI evaluators, and human review are different ways to test it.</p>
+<h2>Start with the brief and the source of truth</h2>
+<p>A quality test needs something specific to test against. I would turn each request into a structured brief: audience, customer need, journey stage, objective, product, market, channel, intended action, message hierarchy, required proof, approved claims, and risk. Without those fields, a reviewer or model is left judging whether the copy sounds good in isolation.</p>
+<p>The generation system would retrieve governed knowledge for that brief: current product facts, audience insights, approved claims and proof, brand guidance, policies, and channel requirements. Each source should have an owner, approval status, effective date, and version. If two sources conflict, the system should expose the conflict rather than let the model quietly choose one.</p>
+<h2>Use one rubric with twelve distinct questions</h2>
+<p>I would score content against twelve dimensions, grouped by the decision each one supports:</p>
+<p><strong>Strategy. </strong>Strategic fidelity and audience relevance: Does this support the objective and speak to the customer’s actual need at this point in the journey?</p>
+<p><strong>Evidence. </strong>Factual accuracy, grounding and provenance, and freshness: Are claims correct, supported by approved sources, traceable, and current?</p>
+<p><strong>Expression. </strong>Brand fidelity, message consistency, originality and value, and clarity: Does it preserve the approved message while giving the reader something useful in a clear, appropriate voice?</p>
+<p><strong>Delivery. </strong>Channel and format fit, safety and policy, and performance readiness: Does it meet the channel’s requirements, respect constraints, and carry the metadata needed to measure outcomes?</p>
+<p>The dimensions should be scored separately, with a reason and evidence for each score. A single average can conceal a serious failure. Strategic fidelity, audience relevance, factual accuracy and grounding, and safety or policy would be hard gates. A high overall score cannot compensate for an unsupported claim or the wrong audience.</p>
+<h2>Match each question to the right check</h2>
+<p>I would use deterministic checks for requirements that can be measured directly: character limits, required calls to action, approved product names, disclosures, prohibited terms, mandatory metadata, and expired source versions. Claims need extraction and verification against authoritative evidence, with provenance retained alongside the asset.</p>
+<p>Judgment-heavy dimensions need a different approach. An AI evaluator can compare a draft with the campaign brief, audience context, message hierarchy, and brand guidance, then explain where it diverges. I would calibrate those evaluations against expert human ratings, monitor disagreements, and retest after model or rubric changes. An evaluator that rewards polished language while missing a strategic mistake is not doing its job.</p>
+<p>Human review should follow risk and uncertainty. Routine transformations using approved messages and strong source coverage may pass automated checks with sampling. Novel positioning, pricing or regulated claims, sensitive audiences, unsupported claims, conflicting sources, and low-confidence judgments should go to the appropriate expert. Creative teams retain judgment over expression; the quality system gives them clearer constraints and evidence.</p>
+<p>The checks can be summarized as follows:</p>
+<div class="quality-table-wrap"><table class="quality-checks"><thead><tr><th scope="col">Check</th><th scope="col">Rubric dimensions</th><th scope="col">Evaluation method</th></tr></thead><tbody><tr><td>Strategic judgment</td><td>Strategic fidelity; audience relevance; message consistency; originality and value</td><td>Compare the asset with the structured brief, audience need, approved message hierarchy, and proof. Calibrate AI evaluator scores against expert reviews.</td></tr><tr><td>Claims and sources</td><td>Factual accuracy; grounding and provenance; freshness</td><td>Extract claims, verify them against approved sources, retain provenance, and check source version and effective date.</td></tr><tr><td>Style and format</td><td>Brand fidelity; clarity and readability; channel and format fit</td><td>Combine terminology, length, CTA, accessibility, and format rules with a calibrated evaluator for voice and usefulness.</td></tr><tr><td>Policy and measurement</td><td>Safety and policy; performance readiness</td><td>Apply policy rules and risk classification; verify required campaign, audience, channel, objective, and variant metadata.</td></tr></tbody></table></div>
+<h2>Fix the failed layer, not just the sentence</h2>
+<p>A failed dimension should produce a targeted repair. If the facts are old, fix source freshness and versioning. If the right information exists but was not retrieved, fix retrieval. If the asset is factually correct but speaks to the wrong customer problem, fix the brief, audience context, or message hierarchy. If the evaluator approves work that experts reject, improve the rubric or its calibration. Regenerating the whole asset for every failure wastes time and hides the real defect.</p>
+<p>For each asset I would retain the brief, retrieved sources, evaluator results, rules triggered, human edits, approval decision, and eventual campaign performance. That record lets teams see recurring failures and determine whether the next improvement belongs in knowledge, retrieval, generation, evaluation, or workflow.</p>
+<h2>Prove that the system improves the work</h2>
+<p>I would start with a representative set of AI-generated and strategist-created assets and score both against the same rubric. That baseline shows which gaps matter and prevents the team from declaring success merely because drafts are faster. A first pilot could focus on one measurable, manageable-risk use case such as campaign email or web copy.</p>
+<p>I would track hard-gate pass rates, unsupported claims, reviewer edits, review time, approval rates, and repeat failure patterns. After publication, I would connect those quality signals with customer and campaign outcomes. If assets score well but perform poorly, the question is whether our rubric captures the strategy and customer value that matter.</p>
+<p>My experience informs this approach. In prior content programs, I structured reusable messaging around audience and customer journey; in quality automation work, I translated editorial standards into repeatable checks while leaving judgment with reviewers. The integrated twelve-dimension system described here is how I would bring those lessons together for AI-generated marketing content. Its purpose is not to produce more copy. It is to make trustworthy, strategically useful content repeatable.</p>
     </article>
     <footer class="article-footer"><a href="../#essays">← All essays</a><a href="broken-layer.html">Next: Find the broken layer →</a></footer>
   </main>
