@@ -122,6 +122,15 @@ footer p:last-child{text-align:right}
 .diagnostic-list li:before{content:"0" counter(item);color:var(--orange);font-size:11px;font-weight:700}
 .diagnostic-list strong{font-size:14px}
 
+.quality-table-wrap{margin:32px 0 44px;overflow-x:auto}
+.quality-checks{width:100%;border-collapse:collapse;font:14px/1.45 Arial,Helvetica,sans-serif}
+.quality-checks th,.quality-checks td{padding:14px 16px;text-align:left;vertical-align:top;border:1px solid var(--line)}
+.quality-checks th{background:var(--plum);color:var(--white);font-size:12px;letter-spacing:.03em}
+.quality-checks td:first-child{font-weight:700;width:24%}
+.quality-checks td:nth-child(2){width:34%}
+.quality-checks tbody tr:nth-child(even){background:var(--white)}
+@media(max-width:620px){.quality-checks{min-width:640px}}
+
 @media(max-width:900px){
   .site-header{grid-template-columns:1fr auto}.site-header nav{display:none}
   .opening{grid-template-columns:1fr;min-height:auto;padding-top:70px}.focus-note{width:min(360px,100%);transform:none}
