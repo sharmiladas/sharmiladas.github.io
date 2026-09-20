@@ -106,6 +106,9 @@ footer p:last-child{text-align:right}
 .article-body li{margin:0 0 12px;padding-left:6px}
 .article-pull{margin:54px -70px;padding:34px 70px;background:var(--acid);font:500 32px/1.25 Georgia,serif;letter-spacing:-.02em}
 .article-note{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font:14px/1.55 Arial,Helvetica,sans-serif}
+.article-source-slide{margin:32px 0 44px}
+.article-source-slide img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.article-source-slide figcaption{margin-top:9px;color:var(--muted);font:12px/1.4 Arial,Helvetica,sans-serif}
 .download-link{display:inline-block;background:var(--plum);color:var(--white);padding:14px 18px;font:700 13px Arial,Helvetica,sans-serif}
 .download-card{margin:38px 0 12px;padding:24px;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:Arial,Helvetica,sans-serif}
 .download-card p{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
