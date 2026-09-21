@@ -162,6 +162,9 @@ button:focus-visible{outline-offset:4px}
 .article-body:has(table){overflow-wrap:break-word}
 .knowledge-graph{margin:38px 0 48px;overflow-x:auto}
 .knowledge-graph svg{display:block;width:100%;min-width:680px;height:auto;background:var(--white);border:1px solid var(--line)}
+.knowledge-graph-image{overflow:visible;background:#081019;border:1px solid #213142;padding:22px}
+.knowledge-graph-image img{display:block;width:min(760px,100%);height:auto;margin:0 auto}
+.knowledge-graph-image figcaption{color:#dfeaf5}
 .graph-edges path{fill:none;stroke:var(--plum);stroke-width:2}
 .graph-nodes rect{fill:var(--acid);stroke:var(--plum);stroke-width:1.5}
 .graph-nodes text{fill:var(--ink);font:600 12px Arial,Helvetica,sans-serif}
