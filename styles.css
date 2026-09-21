@@ -88,8 +88,8 @@ button{font:inherit}
 footer{max-width:var(--max);margin:0 auto;padding:28px;display:grid;grid-template-columns:1fr 2fr 1fr;gap:30px;font-size:11px;color:var(--muted)}
 footer p:last-child{text-align:right}
 .modal{display:none;position:fixed;inset:0;z-index:20;background:rgba(25,24,22,.86);padding:28px;overflow:auto}
-.modal.open{display:grid;place-items:center}
-.modal-card{position:relative;width:min(820px,100%);background:var(--white);padding:62px 64px;border-top:10px solid var(--orange)}
+.modal.open{display:block}
+.modal-card{position:relative;width:min(820px,100%);margin:0 auto;background:var(--white);padding:62px 64px;border-top:10px solid var(--orange)}
 .close{position:absolute;right:24px;top:22px;background:none;border:0;border-bottom:1px solid var(--ink);cursor:pointer;font-size:12px;font-weight:700}
 .modal-card .case-type{margin:0 0 18px}
 .modal-card h2{margin:0 0 34px;font:600 48px/1.02 Georgia,serif;letter-spacing:-.04em}
