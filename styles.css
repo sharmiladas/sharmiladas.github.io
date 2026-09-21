@@ -20,16 +20,27 @@ button{font:inherit}
 .site-header nav a,.header-link{border-bottom:1px solid transparent;padding:4px 0}
 .site-header nav a:hover,.header-link:hover{border-color:var(--ink)}
 .header-link{justify-self:end;font-size:13px}
-.opening{max-width:var(--max);min-height:760px;margin:0 auto;padding:96px 28px 62px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:9vw;align-items:end}
+.opening{max-width:var(--max);min-height:760px;margin:0 auto;padding:96px 28px 62px;display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:clamp(40px,5vw,80px);align-items:end}
 .overline,.section-label,.note-label,.case-type,.article-topic{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .overline{color:var(--plum);margin:0 0 30px}
 .opening h1{max-width:900px;margin:0;font:500 clamp(64px,9.7vw,138px)/.86 Georgia,serif;letter-spacing:-.075em}
 .opening-text{max-width:720px;margin:40px 0 0;font-size:22px;line-height:1.52;color:#3f3b36}
 .opening-links{display:flex;gap:28px;margin-top:36px}
 .opening-links a,.background-links a{font-size:13px;font-weight:700;border-bottom:2px solid var(--orange);padding-bottom:5px}
-.focus-note{align-self:center;border-top:8px solid var(--plum);background:var(--acid);padding:26px 24px 22px}
-.focus-note .note-label{margin:0 0 20px;color:var(--plum)}
-.focus-note p:not(.note-label){margin:0;padding:12px 0;border-top:1px solid rgba(25,24,22,.25);font:600 17px/1.25 Georgia,serif}
+.focus-note{align-self:center;width:100%;border-top:8px solid var(--plum);background:var(--white);padding:22px 20px 20px}
+.focus-note .note-label{margin:0 0 8px;color:var(--plum)}
+.focus-venn{display:block;width:100%;height:auto}
+.focus-venn circle{stroke:var(--plum);stroke-width:1.5}
+.venn-content{fill:#d8a8c5;fill-opacity:.78}
+.venn-program{fill:#f4ad91;fill-opacity:.78}
+.venn-docs{fill:#d9ef79;fill-opacity:.78}
+.venn-label{fill:var(--ink);font:700 16px/1.2 Arial,Helvetica,sans-serif}
+.venn-label-small{font-size:14px}
+.venn-center{fill:var(--plum)}
+.venn-center-label{fill:var(--white);font:700 15px Arial,Helvetica,sans-serif}
+.focus-note .focus-domains{margin:0;padding:16px 0 0;border-top:1px solid var(--line);font:700 14px/1.4 Arial,Helvetica,sans-serif;text-align:center}
+.focus-domains span{display:block;margin-bottom:5px;color:var(--plum);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.focus-domains b{padding:0 5px;color:var(--orange)}
 .section{max-width:var(--max);margin:0 auto;padding:110px 28px;border-top:1px solid var(--line)}
 .section-label{color:var(--orange);margin-bottom:42px}
 .section-heading{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:60px;align-items:end;margin-bottom:62px}
@@ -146,9 +157,10 @@ footer p:last-child{text-align:right}
 .graph-nodes text{fill:var(--ink);font:600 12px Arial,Helvetica,sans-serif}
 .knowledge-graph figcaption{margin-top:10px;color:var(--muted);font:13px/1.5 Arial,Helvetica,sans-serif}
 
+@media(max-width:1050px){.opening{grid-template-columns:1fr;min-height:auto}.focus-note{width:min(430px,100%);justify-self:start;margin-top:36px}}
 @media(max-width:900px){
   .site-header{grid-template-columns:1fr auto}.site-header nav{display:none}
-  .opening{grid-template-columns:1fr;min-height:auto;padding-top:70px}.focus-note{width:min(360px,100%);transform:none}
+  .opening{padding-top:70px}
   .thesis,.background{grid-template-columns:1fr}.thesis .section-label,.background .section-label{margin:0}
   .case-row{grid-template-columns:42px 1fr}.case-result,.case-row button{grid-column:2}.case-result{border-left:0;padding-left:0}
   .system-steps{grid-template-columns:repeat(2,1fr)}
