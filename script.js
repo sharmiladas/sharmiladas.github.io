@@ -17,18 +17,18 @@ const cases = {
   advisor: {
     type: 'Quality automation',
     title: 'Editorial guidance that teams could test',
-    problem: 'Manual review could not consistently cover a very large developer-documentation corpus. Repeatable editorial checks competed for the same expert time needed for technical accuracy and ambiguous cases.',
+    problem: 'Developer documentation operated across a very large corpus, so editors could not manually find every quality issue. The challenge was to apply repeatable standards at scale while preserving expert attention for technical accuracy, ambiguity, and unusual cases.',
     solution: [
-      'Translated standards for terminology, style, clarity, accessibility, search, and inclusivity into testable rules and engineering acceptance criteria.',
+      'Worked with Engineering to translate terminology, style, clarity, accessibility, SEO, and inclusivity standards into rules, acceptance criteria, quality signals, and documented exceptions.',
       'Separated predictable checks from technical or judgment-heavy decisions, which stayed with writers, editors, and subject experts.',
-      'Tracked suggestion accuracy, false positives, reviewer acceptance, quality scores, and review time to improve the system based on actual use.'
+      'Used quality scores, review time, suggestion accuracy, and false-positive rates to evaluate whether the system was useful in practice.'
     ],
     results: [
       'The quality system assessed more than 170 million words per month.',
       'Related quality scores rose from roughly 65% to 85%, while a representative document review fell from about four hours to one.',
-      'Program reporting showed 40% better suggestion accuracy, 60% fewer false positives, and 85% user acceptance.'
+      'Program reporting showed 40% better suggestion accuracy and 60% fewer false positives.'
     ],
-    impact: 'Predictable issues moved earlier in the workflow. Reviewers could spend more time on technical truth and exceptions, and the quality controls earned trust through measured usefulness rather than forcing every suggestion into the process.'
+    impact: 'Predictable issues moved earlier in the workflow, while reviewers concentrated on technical truth and consequential ambiguity. This completed work also provides the operating pattern for a future 12-point AI evaluation layer: deterministic rules for objective requirements, AI evaluators for judgment-heavy dimensions, source verification for claims, and human review routed by risk.'
   },
   cms: {
     type: 'Platform decision',
@@ -48,32 +48,33 @@ const cases = {
   globalMarketing: {
     type: 'Global marketing content',
     title: 'Reusable messaging across 12 languages',
-    problem: 'Teams produced isolated assets at different customer touchpoints. Messages were duplicated, hard to localize, and difficult to connect to audience needs or journey stages. Creative partners worried that structure would make final work formulaic.',
+    problem: 'Marketing, Sales, and Support created content independently across customer touchpoints. Individual assets were difficult to connect to a customer, journey stage, product, or purpose, even though the Help Center served more than 1.5 million customers and 2 million weekly sessions.',
     solution: [
-      'Mapped customer needs and content types across the journey, audited duplication and gaps, and built a shared information architecture, taxonomy, and metadata model.',
-      'Structured reusable audience, message, value proposition, proof, product information, and call-to-action components for a headless content workflow.',
-      'Worked with Creative to standardize the underlying building blocks while leaving concept and final expression in their hands; established ownership and governance across teams.'
+      'Led a content inventory and audit, then mapped the journey across awareness, engagement, research, evaluation, purchase, onboarding, and support.',
+      'Mapped content types to those stages and built the information architecture, taxonomy, metadata model, content model, and content architecture. Metadata captured product, audience, journey stage, content type, and topic.',
+      'Moved toward a headless CMS model for structured reuse and established governance through ownership, standards, a steering committee, and measurement.'
     ],
     results: [
-      'The broader content program supported 12 languages and reported about 50% faster publishing and 35% greater reuse.',
-      'Its customer-facing scale included roughly 1.5 million customers and more than 2 million weekly sessions.'
+      'Publishing improved 50% and content reuse increased 35%.',
+      'Time to resolution improved 40%, support cases fell 15%, vendor costs fell 27%, and CSAT improved 10%.',
+      'Weekly sessions grew 17% across a customer-facing experience serving more than 1.5 million customers and 2 million weekly sessions.'
     ],
-    impact: 'Across the broader program, time to resolution improved about 40% and support cases fell about 15%. Those are program-level outcomes, not effects attributable to one content field or a single creative change.'
+    impact: 'The program shifted the organization from managing isolated pages to treating content as a reusable business asset organized around customer needs. The same foundation can support AI retrieval by extending the model with approved claims, message hierarchy, brand voice, campaign, channel, market, policy, risk, authority, freshness, and effective dates.'
   },
   rag: {
     type: 'Knowledge architecture',
     title: 'Structured developer knowledge for retrieval',
-    problem: 'Developer information lived in separate pages, while site search and potential downstream AI experiences needed to distinguish the right product, task, version, and authoritative source.',
+    problem: 'The challenge was larger than moving developer documentation into another CMS. The same governed knowledge needed to support the developer site, search, chatbot, RAG, and MCP-enabled experiences without each system independently interpreting a collection of pages.',
     solution: [
-      'Defined content types, taxonomy, metadata, templates, source ownership, and version rules so knowledge could be reused independently of page presentation.',
-      'Worked with Engineering on the requirements for CMS migration and downstream retrieval, including filters for product, task, capability, audience, and version.',
-      'Explored explicit relationships among concepts, tasks, products, APIs, and versions in a separate hackathon knowledge-graph proof of concept.'
+      'Started with inventory, information architecture, taxonomy, metadata, content models, templates, content architecture, and governance to separate knowledge from presentation.',
+      'Worked with Engineering on the CMS migration and downstream architecture. A request could be interpreted into product, task, capability, audience, and version before retrieval.',
+      'Designed retrieval to combine metadata filters, semantic and keyword search, source authority, freshness and versioning, and explicit relationships where useful. A separate knowledge-graph proof of concept explored links among products, capabilities, concepts, tasks, APIs, and versions.'
     ],
     results: [
-      'The content architecture set out a governed base for the developer site and potential search, chatbot, RAG, and tool-connected experiences.',
-      'The graph work remained an exploratory proof of concept; it was not a deployed production graph or a measured RAG launch.'
+      'The architecture moved the work from publishing individual documents toward governed knowledge that could support multiple downstream developer experiences.',
+      'The graph remained an exploratory proof of concept. The source STAR does not claim a deployed production graph or a measured RAG launch.'
     ],
-    impact: 'The work clarified how authority, metadata, and relationships can narrow the context available to a retrieval system before generation. It also made the boundary between content architecture and engineering implementation explicit.'
+    impact: 'The work established the pattern that retrieval should find the right trusted context, not merely the nearest text match. Content Strategy defined the knowledge model, taxonomy, metadata, source authority, context requirements, and governance; Engineering owned ingestion, indexing, APIs, orchestration, telemetry, scaling, and deployment.'
   },
   dita: {
     type: 'Structured documentation',
