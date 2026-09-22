@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agentic Technical Program Management Workflow - Sharmila (Das) Rammohan</title>
+  <meta name="description" content="A portable agentic TPM framework for turning incomplete program information into a reviewable plan, maintaining program state, and escalating decisions with evidence.">
+  <link rel="stylesheet" href="../styles.css?v=20260922-agentic-tpm">
+  <style>
+    .workflow-loop{margin:38px 0 50px;display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink);font-family:Arial,Helvetica,sans-serif}
+    .workflow-loop div{position:relative;min-height:148px;padding:20px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .workflow-loop div:first-child{border-left:1px solid var(--line)}
+    .workflow-loop span{display:block;color:var(--orange);font-size:11px;font-weight:700}
+    .workflow-loop strong{display:block;margin:22px 0 7px;font:600 20px/1.15 Georgia,serif;color:var(--plum)}
+    .workflow-loop p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+    .workflow-loop div:not(:last-child):after{content:"→";position:absolute;right:-10px;top:67px;z-index:2;width:19px;height:19px;border-radius:50%;background:var(--acid);font:700 14px/19px Arial;text-align:center}
+    .review-grid{margin:34px 0 46px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);font-family:Arial,Helvetica,sans-serif}
+    .review-grid div{background:var(--white);padding:22px}
+    .review-grid strong{display:block;margin-bottom:7px;color:var(--plum);font-size:15px}
+    .review-grid p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    @media(max-width:760px){.workflow-loop{grid-template-columns:1fr}.workflow-loop div,.workflow-loop div:first-child{border-left:1px solid var(--line)}.workflow-loop div:not(:last-child):after{content:"↓";left:50%;right:auto;top:auto;bottom:-10px}.review-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav" aria-label="Framework navigation"><a class="article-home" href="../">Sharmila (Das) Rammohan</a><div class="article-nav-links"><a href="../#frameworks">All frameworks</a><a href="../#practice">Selected work</a></div></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Agentic workflow framework</p><h1>Agentic Technical Program Management</h1><p class="article-dek">A portable operating system for turning incomplete program information into a reviewable plan—and keeping that plan honest as the evidence changes.</p></div>
+      <div class="article-meta">By Sharmila (Das) Rammohan<br>2026<br>Framework + prompt kit</div>
+    </header>
+
+    <article class="article-body">
+      <h2>High-level summary</h2>
+      <p>This framework uses an AI assistant as a structured program coordinator. It creates a charter, milestones, risks, issues, dependencies, actions, and decisions; maintains stable state across reviews; and prepares concise escalations for accountable people.</p>
+      <p>It is intentionally portable. It requires no code, integrations, or background process. One assistant runs seven specialist perspectives sequentially, checks its own output, and stops when human authority or missing evidence is required.</p>
+
+      <div class="article-stats">
+        <div><strong>6</strong><span>commands across the program lifecycle</span></div>
+        <div><strong>7</strong><span>specialist perspectives applied as needed</span></div>
+        <div><strong>1</strong><span>portable JSON state for continuity and auditability</span></div>
+      </div>
+
+      <p class="article-pull">The assistant can maintain the program model. People remain accountable for commitments, approvals, and launch decisions.</p>
+
+      <h2>How the workflow operates</h2>
+      <div class="workflow-loop" aria-label="Agentic TPM operating loop">
+        <div><span>01</span><strong>Load</strong><p>Bring in the latest saved state and new evidence.</p></div>
+        <div><span>02</span><strong>Normalize</strong><p>Separate facts, assumptions, proposals, and unknowns.</p></div>
+        <div><span>03</span><strong>Plan</strong><p>Update the charter, milestones, and registers.</p></div>
+        <div><span>04</span><strong>Check</strong><p>Repair detectable conflicts, gaps, and duplicates.</p></div>
+        <div><span>05</span><strong>Return</strong><p>Produce decisions, actions, a stakeholder update, and new state.</p></div>
+      </div>
+
+      <h2>The six commands</h2>
+      <table>
+        <thead><tr><th>Command</th><th>Use it when</th><th>Primary result</th></tr></thead>
+        <tbody>
+          <tr><td>START</td><td>A program is new</td><td>Draft charter, milestones, registers, and open questions</td></tr>
+          <tr><td>UPDATE</td><td>New facts arrive or a weekly review is due</td><td>Reconciled state, material changes, and status report</td></tr>
+          <tr><td>DECIDE</td><td>A tradeoff requires accountable judgment</td><td>Options, evidence, consequences, recommendation, and approver</td></tr>
+          <tr><td>REPLAN</td><td>Scope, capacity, or dates change</td><td>Impact analysis without silently rewriting the baseline</td></tr>
+          <tr><td>LAUNCH CHECK</td><td>Delivery is approaching</td><td>Evidence-based readiness assessment</td></tr>
+          <tr><td>CLOSE</td><td>Delivery or cancellation is confirmed</td><td>Outcome assessment, handoff, lessons, and open obligations</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Seven specialist perspectives</h2>
+      <p>The framework does not pretend that seven autonomous agents are operating. One assistant adopts only the perspectives needed for the current command:</p>
+      <ol>
+        <li><strong>Intake analyst:</strong> extracts evidence, preserves sources, and labels uncertainty.</li>
+        <li><strong>Program architect:</strong> defines outcomes, scope, authority, milestones, and acceptance evidence.</li>
+        <li><strong>Dependency and risk analyst:</strong> maintains separate risk, issue, dependency, action, and decision registers.</li>
+        <li><strong>Delivery analyst:</strong> reconciles updates against stable IDs and separates baselines from forecasts.</li>
+        <li><strong>Decision facilitator:</strong> frames options, consequences, recommendations, authority, and timing.</li>
+        <li><strong>Readiness reviewer:</strong> evaluates launch evidence and distinguishes outputs from measured outcomes.</li>
+        <li><strong>Quality reviewer:</strong> checks traceability, ownership, status logic, dependency order, and historical consistency.</li>
+      </ol>
+
+      <h2>What the review found</h2>
+      <div class="review-grid">
+        <div><strong>Evidence discipline</strong><p>Material claims trace to named sources or remain visibly labeled as assumptions, proposals, or unknowns.</p></div>
+        <div><strong>Decision integrity</strong><p>Requested dates, approved baselines, and current forecasts stay separate. A new idea is never treated as an approved commitment.</p></div>
+        <div><strong>State continuity</strong><p>Stable IDs prevent duplicate risks and actions, while change records preserve what changed and why.</p></div>
+        <div><strong>Human accountability</strong><p>The assistant drafts ticket changes, messages, assignments, and launch recommendations but does not claim authority or execution.</p></div>
+        <div><strong>Realistic status</strong><p>Missing or stale evidence remains unknown. Lack of updates never becomes “on track.”</p></div>
+        <div><strong>Practical portability</strong><p>The complete program state is valid JSON, so a team can move the workflow between approved assistants without relying on hidden memory.</p></div>
+      </div>
+
+      <h2>A five-minute start</h2>
+      <ol>
+        <li>Open an AI assistant approved for your program information.</li>
+        <li>Paste the complete workflow prompt into a new conversation.</li>
+        <li>Fill in the intake with the business outcome, scope, teams, evidence, authority, and dates you know.</li>
+        <li>Run <strong>START</strong> and review the proposed charter, ownership, and plan.</li>
+        <li>Save the returned state. On the next review, paste the prompt, saved state, and new evidence, then run <strong>UPDATE</strong>.</li>
+      </ol>
+
+      <h2>Worked example</h2>
+      <p>The included fictional example begins with a preferred launch date, an API dependency, a five-day integration estimate, and a mandatory security review with unknown timing. The workflow correctly reports the initial status as unknown rather than inventing a schedule.</p>
+      <p>A weekly update moves the API forecast later and reveals that the earliest mandatory review occurs after the requested launch. The framework marks the program at risk, keeps the requested date unchanged, leaves the final forecast unknown, and raises a decision between seeking an earlier review slot and revising the target.</p>
+
+      <h2>Download the framework</h2>
+      <div class="download-card"><p><strong>Start here</strong>Five-minute instructions, intake template, commands, and operating rhythm.</p><a class="download-link" href="agentic-tpm-workflow/START-HERE.md">Open</a></div>
+      <div class="download-card"><p><strong>Workflow prompt</strong>The complete execution contract, specialist roles, quality checks, response format, and portable-state schema.</p><a class="download-link" href="agentic-tpm-workflow/WORKFLOW.md">Open</a></div>
+      <div class="download-card"><p><strong>Worked example</strong>A fictional first run, weekly update, decision scenario, launch check, and acceptance tests.</p><a class="download-link" href="agentic-tpm-workflow/EXAMPLE.md">Open</a></div>
+
+      <p class="article-note">This framework prepares plans and decisions; it does not schedule work, fetch live updates, send messages, or change tickets without a connected execution environment and explicit authorization.</p>
+    </article>
+    <footer class="article-footer"><a href="../#frameworks">← All frameworks</a><a href="agentic-tpm-workflow/START-HERE.md">Start with the kit</a></footer>
+  </main>
+</body>
+</html>
