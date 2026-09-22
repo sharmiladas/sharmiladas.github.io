@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How to Build an AI Content Quality Lab - Sharmila (Das) Rammohan</title>
+  <meta name="description" content="A practical tutorial for building an inspectable AI content quality system, from transparent scoring and evidence checks to regression tests, RAG, and a marketing knowledge graph.">
+  <link rel="stylesheet" href="../styles.css?v=20260922-quality-lab">
+  <style>
+    .lab-flow{margin:38px 0 48px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);font-family:Arial,Helvetica,sans-serif}
+    .lab-flow div{min-height:150px;padding:22px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .lab-flow div:nth-child(3n+1){border-left:1px solid var(--line)}
+    .lab-flow span{display:block;color:var(--orange);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .lab-flow strong{display:block;margin:18px 0 7px;font:600 22px/1.15 Georgia,serif;color:var(--plum)}
+    .lab-flow p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+    .code-step{margin:28px 0;padding:22px 24px;overflow-x:auto;background:var(--ink);color:var(--white);font:14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    @media(max-width:700px){.lab-flow{grid-template-columns:1fr}.lab-flow div,.lab-flow div:nth-child(3n+1){border-left:1px solid var(--line)}}
+  </style>
+</head>
+<body>
+  <main class="article-page">
+    <nav class="article-nav" aria-label="Article navigation"><a class="article-home" href="../">Sharmila (Das) Rammohan</a><div class="article-nav-links"><a href="../#practice">Selected work</a><a href="../#essays">All essays</a></div></nav>
+    <header class="article-header">
+      <div><p class="article-topic">Hands-on tutorial</p><h1>How to Build an AI Content Quality Lab</h1><p class="article-dek">A practical, six-version path from transparent scoring to evidence checks, regression tests, dashboards, retrieval, and structured knowledge.</p></div>
+      <div class="article-meta">By Sharmila (Das) Rammohan<br>2026<br>9 minute read</div>
+    </header>
+
+    <article class="article-body">
+      <h2>High-level summary</h2>
+      <p>This tutorial builds a portfolio-scale system for measuring, diagnosing, and improving generated enterprise content. The goal is not another chatbot. It is an AI content system that is measurable, inspectable, governable, and aware of production constraints.</p>
+      <p>The lab progresses through six working versions. Each version adds one capability while preserving the transparent baseline beneath it.</p>
+
+      <div class="lab-flow" aria-label="Six versions of the AI Content Quality Lab">
+        <div><span>V1</span><strong>Transparent scoring</strong><p>Turn quality expectations into explicit, weighted checks.</p></div>
+        <div><span>V2</span><strong>Claims + evidence</strong><p>Trace individual claims to approved source material.</p></div>
+        <div><span>V3</span><strong>Regression gates</strong><p>Test changes against a small golden evaluation set.</p></div>
+        <div><span>V4</span><strong>Dashboard</strong><p>Make scores, decisions, and evidence observable.</p></div>
+        <div><span>V5</span><strong>RAG</strong><p>Evaluate retrieval separately from generation.</p></div>
+        <div><span>V6</span><strong>Knowledge graph</strong><p>Add explicit marketing relationships to the context.</p></div>
+      </div>
+
+      <div class="article-stats">
+        <div><strong>6</strong><span>quality dimensions in the baseline rubric</span></div>
+        <div><strong>3</strong><span>routing outcomes: pass, human review, or fail</span></div>
+        <div><strong>6</strong><span>incremental versions in the complete project</span></div>
+      </div>
+
+      <p class="article-pull">AI content quality is an architecture problem, not merely a prompting problem.</p>
+
+      <h2>1. Define quality as a system requirement</h2>
+      <p>A fluent response can still be wrong, unsupported, incomplete, off-strategy, or risky. In production, quality is influenced by the source, retrieval, context construction, prompt, model, policies, and review workflow. Start by defining what “good” means before choosing an evaluator.</p>
+      <p>The lab uses six weighted dimensions and an explicit routing policy:</p>
+
+      <div class="quality-table-wrap">
+        <table class="quality-checks">
+          <thead><tr><th>Check</th><th>What it tests</th><th>Weight</th></tr></thead>
+          <tbody>
+            <tr><td>Groundedness</td><td>Whether claims are supported by approved evidence</td><td>25%</td></tr>
+            <tr><td>Factual consistency</td><td>Contradictions and unsupported factual assertions</td><td>20%</td></tr>
+            <tr><td>Completeness</td><td>Whether required information is present</td><td>20%</td></tr>
+            <tr><td>Relevance</td><td>Whether the response stays focused on the requested task</td><td>15%</td></tr>
+            <tr><td>Brand and tone</td><td>Compliance with language and voice rules</td><td>10%</td></tr>
+            <tr><td>Citation and evidence</td><td>Whether important assertions are traceable</td><td>10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Decision policy:</strong> 85–100 passes; 70–84 goes to human review; below 70 fails.</p>
+
+      <h2>2. Build a transparent baseline</h2>
+      <p>V1 uses deterministic evaluators. The checks are intentionally simple and inspectable: people can see which rule affected a score and debate whether the rule reflects the real editorial standard.</p>
+      <p>This creates a baseline for later model-based evaluation. It also separates two questions that are often collapsed: “Can this expectation be measured?” and “Should a model make the final judgment?”</p>
+
+      <h2>3. Evaluate claims, not only documents</h2>
+      <p>V2 decomposes generated text into claims, matches each claim to approved evidence, records the match, and then aggregates claim decisions into a document score.</p>
+      <p><strong>Document score → claims → evidence → claim decisions → aggregate score</strong></p>
+      <p>The shift matters because a single score does not explain which sentence needs attention. Claim-level evidence creates provenance and gives reviewers a useful unit of work.</p>
+
+      <h2>4. Add an LLM judge carefully</h2>
+      <p>An LLM judge can assess semantic qualities that resist simple rules. It should not become an unexplained source of truth. A stronger pattern combines deterministic signals, model-based judgment, and calibrated human review.</p>
+      <p>Use model-based judgment where interpretation adds value. Keep hard requirements—required fields, prohibited terms, citations, and known contradictions—as explicit checks whenever possible.</p>
+
+      <h2>5. Turn examples into regression gates</h2>
+      <p>V3 stores expected outcomes in a golden set. When prompts, models, retrieval, content, or evaluators change, the same cases run again. A change that improves one output but breaks a known-good case becomes visible before release.</p>
+      <p>This is the beginning of an AI quality CI/CD discipline: version the test set, record evaluator changes, and treat unexpected decision changes as work to investigate.</p>
+
+      <h2>6. Make quality observable</h2>
+      <p>V4 adds a Streamlit dashboard for aggregate scores, dimension-level results, routing decisions, and claim evidence. The dashboard is diagnostic, not decorative: it should help a team see whether a failure came from evidence, completeness, tone, or another layer.</p>
+      <p>A production dashboard should also record model, prompt, evaluator, and corpus versions; human overrides; failure categories; latency; and cost.</p>
+
+      <h2>7. Connect evaluation to retrieval</h2>
+      <p>V5 adds a lightweight local retriever. A response cannot be more grounded than the context it receives, so retrieval and generation need separate checks:</p>
+      <ul>
+        <li>Did the system retrieve the right evidence?</li>
+        <li>Was important evidence omitted?</li>
+        <li>Did irrelevant evidence enter the context?</li>
+        <li>Did the generated response use the evidence correctly?</li>
+      </ul>
+      <p>The local implementation avoids a hosted vector database, keeping the project easy to inspect and run. In production, retrieval would also need permission-aware access, source freshness, version control, and observability.</p>
+
+      <h2>8. Add structured marketing knowledge</h2>
+      <p>V6 supplements retrieval with a small marketing knowledge graph. It connects audiences, needs, product capabilities, value propositions, messages, claims, proof, campaign assets, and performance insights.</p>
+      <p><strong>Audience → Need → Product capability → Value proposition → Message → Claim → Proof</strong></p>
+      <p>Semantic similarity can find related text. A graph makes important relationships explicit—for example, which proof supports a claim, which capability addresses an audience need, and which performance insight should refine a message.</p>
+
+      <h2>9. Run the complete lab</h2>
+      <p>The downloadable project includes the evaluation pipeline, test data, claim-evidence output, regression suite, dashboard, local retrieval example, knowledge-graph context, and enterprise-scale notes.</p>
+      <pre class="code-step"><code>pip install -r requirements.txt
+python src/run_pipeline.py
+python tests/regression_suite.py
+streamlit run dashboard/app.py</code></pre>
+
+      <div class="download-card">
+        <p><strong>Complete AI Content Quality Lab</strong>Python project with V1–V6, sample data, tests, dashboard, RAG, and marketing knowledge graph.</p>
+        <a class="download-link" href="../downloads/ai-content-quality-lab-complete-v1-v6.zip" download>Download ZIP</a>
+      </div>
+      <div class="download-card">
+        <p><strong>Sample evaluation results</strong>Three representative outputs routed to pass, human review, and fail.</p>
+        <a class="download-link" href="../downloads/evaluation_results.csv" download>Download CSV</a>
+      </div>
+
+      <h2>Where to take it next</h2>
+      <p>An enterprise implementation would add model-provider adapters, embedding and vector infrastructure, identity-aware retrieval, versioned prompts and evaluators, human-review calibration, audit logs, risk-tiered approval policies, adversarial test sets, claim-level provenance, drift monitoring, and cost and latency controls.</p>
+      <p>The larger lesson is durable: define quality explicitly, preserve evidence, make failures observable, and keep people responsible for high-risk decisions.</p>
+
+      <p class="article-note">This is a portfolio-scale reference implementation. The included outputs and thresholds are sample evaluation data designed to demonstrate the architecture, not production performance claims.</p>
+    </article>
+    <footer class="article-footer"><a href="../#essays">← All essays</a><a href="../downloads/ai-content-quality-lab-complete-v1-v6.zip" download>Download the lab</a></footer>
+  </main>
+</body>
+</html>
