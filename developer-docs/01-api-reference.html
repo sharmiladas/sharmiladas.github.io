@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source ingestion API reference — Sharmila (Das) Rammohan</title><meta name="description" content="Authentication, request fields, response contracts, errors, and retry behavior."><link rel="stylesheet" href="../styles.css?v=20261007-devdocs"><link rel="stylesheet" href="documentation.css"></head><body><a class="skip-link" href="#main-content">Skip to main content</a><main id="main-content" class="article-page"><nav class="article-nav" aria-label="Portfolio navigation"><a class="article-home" href="../">Sharmila (Das) Rammohan</a><div class="article-nav-links"><a href="../#developer-documentation">Portfolio section</a><a href="index.html">Sample overview</a></div></nav><header class="article-header"><div><p class="article-topic">API reference</p><h1>Source ingestion API reference</h1><p class="article-dek">Authentication, request fields, response contracts, errors, and retry behavior.</p></div><div class="article-meta">Sharmila (Das) Rammohan<br>Documentation sample<br>October 2026</div></header><nav class="doc-sample-nav" aria-label="Documentation samples"><a href="02-developer-quickstart.html">Developer quickstart</a><a href="01-api-reference.html" aria-current="page">API reference</a><a href="03-technical-concept-guide.html">Concept guide</a><a href="04-troubleshooting-runbook.html">Troubleshooting</a><a href="05-release-and-migration-guide.html">Migration guide</a></nav><aside class="doc-disclosure">Portfolio demonstration for Baseframe Knowledge, a fictional product. The API has no live service; .example URLs are placeholders.</aside><article class="article-body doc-body"><h2 id="overview">Overview</h2>
+<p>Ingest approved documentation into a searchable collection. Ingestion is asynchronous: accepting a source creates a job, and the source becomes searchable only after that job succeeds. The collection&#x27;s access policy applies to every source; this sample does not support document-specific permissions.</p>
+<p>Base URL: https://api.baseframe.example/v1 All requests use HTTPS. Send a bearer token in Authorization. Tokens are scoped to a workspace; collection IDs from another workspace return 404. JSON requests require Content-Type: application/json.</p>
+<h2 id="create-a-source">Create a source</h2>
+<p>POST /collections/{collection_id}/sources Required scope: sources:write</p>
+<p>Path parameter: collection_id (string), the collection to receive the source. Headers: Authorization (required); Content-Type (required); Idempotency-Key (required, 1–128 ASCII characters).</p>
+<p>Request fields:</p>
+<ul>
+<li>external_id: required string, 1–128 characters; unique within a collection. Use a stable identifier from the source system.</li>
+<li>title: required string, 1–200 characters.</li>
+<li>content: required string, UTF-8 plain text, 1–100,000 bytes.</li>
+<li>source_url: required absolute HTTPS URL; stored as provenance, never fetched by this endpoint.</li>
+<li>language: optional string; supported values en, fr, de, ja. Default en.</li>
+</ul>
+<pre><code class="language-bash">curl --request POST &#x27;https://api.baseframe.example/v1/collections/col_demo/sources&#x27;   --header &quot;Authorization: Bearer $BASEFRAME_TOKEN&quot;   --header &#x27;Content-Type: application/json&#x27;   --header &#x27;Idempotency-Key: onboarding-guide-2026-10-06-v1&#x27;   --data &#x27;{&quot;external_id&quot;:&quot;onboarding-guide&quot;,&quot;title&quot;:&quot;Create an API token&quot;,&quot;content&quot;:&quot;Open Workspace settings. Select API tokens. Choose Create token.&quot;,&quot;source_url&quot;:&quot;https://docs.example.com/api-tokens&quot;,&quot;language&quot;:&quot;en&quot;}&#x27;</code></pre>
+<p>202 Accepted:</p>
+<pre><code class="language-json">{&quot;source_id&quot;:&quot;src_demo&quot;,&quot;job_id&quot;:&quot;job_demo&quot;,&quot;status&quot;:&quot;queued&quot;}</code></pre>
+<p>Location: /v1/jobs/job_demo The response confirms acceptance, not search availability.</p>
+<h2 id="idempotency-and-duplicate-handling">Idempotency and duplicate handling</h2>
+<p>A key is retained for 24 hours within the workspace. Repeating the same key and body returns the original 202 response and IDs without creating another job. Reusing the key with a different body returns 409 idempotency_conflict. A new key with an existing external_id returns 409 source_exists. To change an existing source, use the replacement workflow; creating it again is not an update. Replacement is outside this sample&#x27;s API surface.</p>
+<h2 id="get-job-status">Get job status</h2>
+<p>GET /jobs/{job_id} Required scope: jobs:read 200 OK:</p>
+<pre><code class="language-json">{&quot;job_id&quot;:&quot;job_demo&quot;,&quot;source_id&quot;:&quot;src_demo&quot;,&quot;status&quot;:&quot;succeeded&quot;,&quot;error&quot;:null}</code></pre>
+<p>status: queued, processing, succeeded, or failed. queued becomes processing; processing becomes succeeded or failed. Terminal states do not change. If failed, error contains code and message; the source is not searchable. Poll every two seconds, then increase to a maximum of 30 seconds. Stop on a terminal state. After five minutes, stop the client loop and retain the job ID for investigation; timeout does not cancel the job.</p>
+<h2 id="search-a-collection">Search a collection</h2>
+<p>POST /collections/{collection_id}/search Required scope: search:read Request: query (required string, 1–1,000 characters); limit (optional integer, 1–20, default 5). Only successfully ingested sources are eligible. Search returns source excerpts, not generated answers.</p>
+<pre><code class="language-json">{&quot;query&quot;:&quot;How do I create an API token?&quot;,&quot;limit&quot;:3}</code></pre>
+<p>200 OK:</p>
+<pre><code class="language-json">{&quot;results&quot;:[{&quot;source_id&quot;:&quot;src_demo&quot;,&quot;title&quot;:&quot;Create an API token&quot;,&quot;source_url&quot;:&quot;https://docs.example.com/api-tokens&quot;,&quot;excerpt&quot;:&quot;Open Workspace settings. Select API tokens. Choose Create token.&quot;,&quot;score&quot;:0.92}]}</code></pre>
+<p>score is a ranking signal between 0 and 1, not a probability that the result is correct. Results are ordered by descending score. No matches returns {&quot;results&quot;:[]} with 200.</p>
+<h2 id="errors-and-retry-behavior">Errors and retry behavior</h2>
+<p>Errors use this envelope:</p>
+<pre><code class="language-json">{&quot;error&quot;:{&quot;code&quot;:&quot;invalid_request&quot;,&quot;message&quot;:&quot;content exceeds 100000 bytes&quot;,&quot;request_id&quot;:&quot;req_demo&quot;}}</code></pre>
+<ul>
+<li>400 invalid_request: correct the named field; do not retry unchanged.</li>
+<li>401 unauthenticated: replace the expired or invalid token.</li>
+<li>403 insufficient_scope: request the required token scope.</li>
+<li>404 not_found: verify the ID and workspace.</li>
+<li>409 idempotency_conflict or source_exists: reconcile the existing operation before retrying.</li>
+<li>429 rate_limited: wait for Retry-After, expressed in seconds.</li>
+<li>500 internal_error or 503 unavailable: retry with exponential backoff and jitter, at most five attempts; preserve the original idempotency key for create requests.</li>
+</ul>
+<p>Limit: 60 requests per minute per workspace across these endpoints. Every response includes X-Request-ID. When escalating, include the request ID, endpoint, timestamp, and job ID if available. Omit tokens and source content.</p></article><footer class="article-footer"><a href="index.html">All documentation samples</a><a href="../#developer-documentation">Back to portfolio</a></footer></main></body></html>
