@@ -32,7 +32,7 @@ const cases = {
       'Related quality scores rose from roughly 65% to 85%, while a representative document review fell from about four hours to one.',
       'Program reporting showed 40% better suggestion accuracy and 60% fewer false positives.'
     ],
-    impact: 'Predictable issues moved earlier in the workflow, while reviewers concentrated on technical truth and consequential ambiguity. This completed work also provides the operating pattern for a future 12-point AI evaluation layer: deterministic rules for objective requirements, AI evaluators for judgment-heavy dimensions, source verification for claims, and human review routed by risk.'
+    impact: 'Predictable issues moved earlier in the workflow, while reviewers concentrated on technical accuracy and claims that needed clarification. This completed work also provides the operating pattern for a future 12-point AI evaluation layer: deterministic rules for objective requirements, AI evaluators for judgment-heavy dimensions, source verification for claims, and human review routed by risk.'
   },
   cms: {
     type: 'Platform decision',
