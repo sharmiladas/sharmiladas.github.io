@@ -1,6 +1,6 @@
 # Products — build, run, and customize
 
-[Leadership portfolio: Products](https://sharmiladas.github.io/#products)
+[Leadership portfolio: Products](https://sharmiladas.github.io/products.html)
 
 Working apps, local prototypes, and agent kits by Sharmila Das. Each entry below explains the implementation, the starting command or workflow, and the places to adapt it. Repository paths remain stable so existing links and downloads continue to work.
 
@@ -118,4 +118,4 @@ Inspect the extracted project and adapt its sample content and evidence to your 
 
 ## Add another product
 
-Add a product card to the homepage's `#products` section with an honest maturity label, product link, source link, and **Build, run & customize** guide. Add an entry here covering implementation, prerequisites, runnable steps, customization points, validation, and access restrictions. Give public demos synthetic data and keep personal records and credentials out of published code. Existing articles and operating frameworks can remain in their own sections while the working product is listed here.
+Add a product card to the `products.html` section with an honest maturity label, product link, source link, and **Build, run & customize** guide. Add an entry here covering implementation, prerequisites, runnable steps, customization points, validation, and access restrictions. Give public demos synthetic data and keep personal records and credentials out of published code. Existing articles and operating frameworks can remain in their own sections while the working product is listed here.
