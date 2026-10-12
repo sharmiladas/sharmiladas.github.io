@@ -1,0 +1,1 @@
+(()=>{if(!location.pathname.endsWith('/index.html')&&!location.pathname.endsWith('/'))return;const routes={top:'index.html',services:'services.html',learning:'learning.html',approach:'approach.html',work:'work.html',about:'about.html'};const key=location.hash.slice(1);if(routes[key])location.replace(routes[key]);})();
