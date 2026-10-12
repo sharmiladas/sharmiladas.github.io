@@ -1,24 +1,11 @@
-# Sharmila Das — leadership portfolio
+# Sharmila Das leadership portfolio
 
-Enterprise content, knowledge architecture, AI systems, and technical program leadership.
+[Open the portfolio](https://sharmiladas.github.io/)
 
-[Open the portfolio](https://sharmiladas.github.io/) · [Products](https://sharmiladas.github.io/#products)
+The homepage presents Sharmila Das’s profile and areas of focus. A persistent desktop sidebar links to separate pages for My work, editorial leadership, program management, technical writing, developer docs, products, frameworks, perspective, and About. Phones use a collapsible menu. Breadcrumbs show the current section and article.
 
-## Products
+## Build and edit
 
-- **Baseframe Knowledge Studio:** local document workspace, reviewed relationships, graph, entity wiki, and evidence search. Source repository is private.
-- **Baseframe TPM Agent:** a file-based agent kit with eight delivery workflows and a reusable program workspace.
-- **Forma 3.0:** goal-based fitness and dance routines, guided exercises, and browser-local progress.
-- **AI Content Quality Lab:** a six-stage evaluation, retrieval, and structured-knowledge learning kit.
+Static HTML, CSS, and JavaScript; no build tools or API credentials. Run `python3 -m http.server 8000` from the repository root. Edit a section’s HTML file to change its content. `portfolio-navigation.css` styles the shared sidebar and breadcrumbs; `portfolio-navigation.js` preserves old homepage section bookmarks. Keep navigation links and active-page labels consistent across pages.
 
-See [PRODUCTS.md](PRODUCTS.md) for each product's implementation, source access, setup, and customization instructions. Forma also has a [complete fork-and-run README](fun-stuff/forma/README.md), and the TPM kit has a [setup guide](labs/tpm-agent-kit/START-HERE.md).
-
-## Run the portfolio locally
-
-From the repository root:
-
-```bash
-python3 -m http.server 8000
-```
-
-Open `http://localhost:8000`. The portfolio uses static HTML, CSS, and JavaScript and is published with GitHub Pages. Product prerequisites differ; use each product's guide. Existing product file paths are retained for link compatibility.
+Existing article URLs, product app paths, and download paths remain available. The technical writing collection includes 11 executable example tests. [PRODUCTS.md](PRODUCTS.md) contains product run and customization guides.
