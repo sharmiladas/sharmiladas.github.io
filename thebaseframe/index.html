@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Baseframe | Enterprise Content, Knowledge &amp; AI Advisory</title>
+  <meta name="description" content="The Baseframe helps enterprises build reliable content, knowledge, developer experience, and AI systems through strategy, architecture, governance, and transformation leadership.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307101f'/%3E%3Ccircle cx='18' cy='32' r='5' fill='%2359c7ff'/%3E%3Ccircle cx='46' cy='17' r='5' fill='%23ffbd67'/%3E%3Ccircle cx='46' cy='47' r='5' fill='%2359c7ff'/%3E%3Cpath d='M23 30 41 19M23 34l18 11' stroke='%23d9efff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#07101f; --navy:#0b1b33; --blue:#2367d1; --sky:#59c7ff;
+      --amber:#ffbd67; --paper:#f6f9fc; --white:#fff; --muted:#5d6878;
+      --line:#dbe4ef; --card:#ffffff; --shadow:0 24px 70px rgba(7,16,31,.11);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.65}
+    a{color:inherit} img{max-width:100%;display:block} button,a{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .skip{position:absolute;left:-999px;top:8px;background:white;padding:10px 14px;z-index:100}.skip:focus{left:8px}
+    header{position:sticky;top:0;z-index:50;background:rgba(7,16,31,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+    .brand{text-decoration:none;font-family:Manrope,sans-serif;font-weight:700;letter-spacing:-.02em}.brand span{color:var(--sky)}
+    .navlinks{display:flex;align-items:center;gap:28px}.navlinks a{text-decoration:none;color:#cdd8e8;font-size:.92rem;font-weight:600}.navlinks a:hover{color:#fff}
+    .nav-cta{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 16px!important;color:#fff!important}
+    .menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+    .hero{min-height:760px;color:#fff;background:#06101f;position:relative;overflow:hidden;display:grid;align-items:center}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,31,.98) 0%,rgba(6,16,31,.92) 38%,rgba(6,16,31,.35) 68%,rgba(6,16,31,.08) 100%)}
+    .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero .wrap{position:relative;z-index:2;padding:112px 0 96px}
+    .eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:.75rem;color:var(--sky)}
+    .eyebrow:before{content:"";width:28px;height:2px;background:var(--amber)}
+    h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.1;letter-spacing:-.045em;margin:0}
+    h1{font-size:clamp(3rem,6.2vw,6.4rem);max-width:860px;margin-top:24px}.hero h1 em{font-style:normal;color:var(--sky)}
+    .hero-copy{max-width:690px;color:#d7e2f0;font-size:clamp(1.06rem,1.7vw,1.28rem);margin:28px 0 36px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:13px 21px;text-decoration:none;font-weight:700;border:1px solid transparent}
+    .btn-primary{background:var(--amber);color:#10233e}.btn-primary:hover{background:#ffd294}.btn-secondary{border-color:rgba(255,255,255,.35);color:#fff}.btn-secondary:hover{background:rgba(255,255,255,.08)}
+    .signal-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:54px}.signal{border:1px solid rgba(255,255,255,.18);background:rgba(8,24,46,.68);padding:9px 13px;border-radius:10px;color:#c7d7ea;font-size:.84rem}
+    .scale{background:#fff;border-bottom:1px solid var(--line);padding:0}.scale-grid{display:grid;grid-template-columns:repeat(5,1fr)}.scale-item{padding:30px 24px;border-right:1px solid var(--line)}.scale-item:last-child{border-right:0}.scale-item strong{display:block;font-family:Manrope,sans-serif;font-size:clamp(1.55rem,2.5vw,2.35rem);line-height:1;color:var(--navy)}.scale-item span{display:block;margin-top:9px;color:var(--muted);font-size:.82rem;line-height:1.35}
+    section{padding:104px 0}.section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:start;margin-bottom:52px}
+    .kicker{color:var(--blue);text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;margin-bottom:16px}
+    h2{font-size:clamp(2.15rem,4.3vw,4rem);max-width:760px}.lead{font-size:1.16rem;color:var(--muted);max-width:720px;margin:0}
+    .thesis{background:#fff}.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .thesis-card{padding:34px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(150deg,#fff,#f7fbff)}
+    .thesis-card:first-child{grid-row:span 2;background:var(--navy);color:#fff;border:0;padding:42px}.thesis-card .num{font-family:Manrope;font-weight:700;color:var(--blue);font-size:.82rem;margin-bottom:48px}.thesis-card:first-child .num{color:var(--amber)}
+    .thesis-card h3{font-size:1.45rem;margin-bottom:14px}.thesis-card p{color:var(--muted);margin:0}.thesis-card:first-child p{color:#c8d5e7}
+    .services{background:#eef4fa}.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .service{background:#fff;border-radius:22px;padding:34px;border:1px solid #e2eaf3;position:relative;overflow:hidden}
+    .service:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--blue)}.service:nth-child(2):before,.service:nth-child(3):before{background:var(--sky)}.service:nth-child(4):before{background:var(--amber)}
+    .service small{font-weight:700;color:var(--blue);letter-spacing:.08em}.service h3{font-size:1.45rem;margin:18px 0 12px}.service p{margin:0;color:var(--muted)}
+    .engagements{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.engage{background:#0a1a31;color:white;padding:28px;border-radius:18px}.engage .step{color:var(--amber);font-weight:700}.engage h3{font-size:1.18rem;margin:8px 0}.engage p{color:#b8c9dc;margin:0;font-size:.94rem}
+    .learning{background:#fff}.learning-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-bottom:22px}
+    .featured-product{background:linear-gradient(135deg,#0b1b33,#123968);color:#fff;border-radius:24px;padding:38px;display:flex;flex-direction:column;min-height:390px;position:relative;overflow:hidden}
+    .featured-product:after{content:"";position:absolute;width:230px;height:230px;border:52px solid rgba(89,199,255,.16);border-radius:50%;right:-84px;bottom:-92px}
+    .product-type{position:relative;z-index:1;color:var(--sky);font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.product-price{position:relative;z-index:1;margin:18px 0 8px;font:700 clamp(2.6rem,5vw,4.5rem)/1 Manrope,sans-serif;color:var(--amber)}
+    .featured-product h3{position:relative;z-index:1;font-size:1.75rem;max-width:560px;margin:6px 0 15px}.featured-product p{position:relative;z-index:1;color:#c9d9ec;max-width:610px;margin:0}.featured-product .product-actions{position:relative;z-index:1;margin-top:auto;padding-top:28px}
+    .assessment-card{border:1px solid var(--line);border-radius:24px;padding:38px;background:linear-gradient(150deg,#fff,#f1f8ff);display:flex;flex-direction:column;min-height:390px}.assessment-card .product-type{color:var(--blue)}.assessment-card h3{font-size:1.75rem;margin:24px 0 15px}.assessment-card p{color:var(--muted);margin:0}.assessment-card ul{padding-left:19px;color:#31445c;margin:22px 0 28px}.assessment-card .btn{margin-top:auto;align-self:flex-start;background:var(--blue);color:#fff}
+    .product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.product-card{border:1px solid var(--line);border-radius:20px;padding:30px;background:#fff}.product-card .product-type{color:var(--blue)}.product-card h3{font-size:1.35rem;margin:15px 0 10px}.product-card p{color:var(--muted);margin:0 0 21px}.product-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.product-meta span{background:#edf4fb;color:#234466;border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:700}.text-link{display:inline-flex;gap:8px;align-items:center;color:var(--blue);font-weight:700;text-decoration:none;border-bottom:1px solid #a9c8ed;padding-bottom:3px}
+    .product-note{margin:22px 0 0;color:var(--muted);font-size:.9rem}
+    .method{background:#07101f;color:white}.method .lead{color:#b9c8da}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.12);border-radius:22px;overflow:hidden}
+    .phase{background:#0c1d36;padding:38px}.phase .days{color:var(--sky);font-weight:700;font-size:.8rem;letter-spacing:.09em}.phase h3{font-size:1.45rem;margin:16px 0}.phase ul{margin:0;padding-left:18px;color:#c8d5e7}.phase li+li{margin-top:9px}
+    .proof{background:white}.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.case{border:1px solid var(--line);border-radius:20px;padding:30px;display:flex;flex-direction:column}.case .label{color:var(--blue);font-weight:700;font-size:.77rem;text-transform:uppercase;letter-spacing:.11em}.case h3{font-size:1.35rem;margin:16px 0 20px}.case dl{margin:0}.case dt{font-weight:700;font-size:.8rem;color:#26384e;text-transform:uppercase;letter-spacing:.06em}.case dd{margin:3px 0 17px;color:var(--muted)}
+    .about{background:#eaf1f8}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}.about h2{margin-bottom:24px}.about p{color:var(--muted);font-size:1.06rem}.interest-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.interest{background:white;border:1px solid var(--line);padding:15px 16px;border-radius:12px;font-weight:600;color:#20344f}
+    .cta{padding:92px 0;background:linear-gradient(120deg,#174a9a,#0b274e);color:white}.cta-box{display:flex;align-items:center;justify-content:space-between;gap:50px}.cta h2{max-width:760px}.cta p{color:#c8d8eb;margin:18px 0 0;max-width:680px}
+    footer{background:#050b14;color:#9fb0c4;padding:34px 0}.foot{display:flex;justify-content:space-between;gap:24px;align-items:center}.foot a{color:#d5e2f0;text-decoration:none}.footlinks{display:flex;gap:20px}
+    @media(max-width:800px){
+      .wrap{width:min(100% - 28px,1180px)}.menu{display:block}.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:#07101f;padding:22px 24px;flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.scale-grid{grid-template-columns:repeat(2,1fr)}.scale-item{border-bottom:1px solid var(--line)}.scale-item:nth-child(2n){border-right:0}.scale-item:last-child{grid-column:1/-1}
+      .hero{min-height:700px}.hero:after{background:linear-gradient(90deg,rgba(6,16,31,.98),rgba(6,16,31,.8))}.hero-art{opacity:.58;object-position:64% center}
+      section{padding:78px 0}.section-head,.about-grid,.learning-intro{grid-template-columns:1fr;gap:28px}.thesis-grid,.service-grid,.engagements,.timeline,.case-grid,.product-grid{grid-template-columns:1fr}.thesis-card:first-child{grid-row:auto}.timeline{gap:1px}.cta-box,.foot{align-items:flex-start;flex-direction:column}.interest-list{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){h1{font-size:2.8rem}.hero .wrap{padding-top:86px}.interest-list{grid-template-columns:1fr}.actions .btn{width:100%;justify-content:center}.signal-row{margin-top:38px}}
+  </style>
+<link rel="canonical" href="https://sharmiladas.github.io/thebaseframe/">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav class="wrap" aria-label="Primary navigation">
+      <a class="brand" href="#top">THE <span>BASEFRAME</span></a>
+      <button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="navlinks">
+        <a href="#services">Services</a><a href="#learning">Learning &amp; toolkits</a><a href="#approach">Approach</a><a href="#work">Selected work</a><a href="#about">About</a>
+        <a class="nav-cta" href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">Start a conversation</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-art" src="knowledge-infrastructure.png" alt="Abstract flow from fragmented content into a governed knowledge and AI system">
+      <div class="wrap">
+        <div class="eyebrow">Enterprise Content, Knowledge &amp; AI Advisory</div>
+        <h1>Build the <em>knowledge foundation</em> your AI strategy depends on.</h1>
+        <p class="hero-copy">The Baseframe helps enterprises turn fragmented content, complex products, and disconnected expertise into reliable knowledge systems—combining strategy, architecture, governance, developer experience, and cross-functional transformation leadership.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">Discuss an enterprise challenge <span aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="https://sharmiladas.github.io/" target="_blank" rel="noopener">View leadership portfolio</a>
+        </div>
+        <div class="signal-row" aria-label="Areas of focus">
+          <span class="signal">Technical writing</span><span class="signal">Technical program management</span><span class="signal">Developer experience</span><span class="signal">Content modeling &amp; architecture</span><span class="signal">Knowledge graphs</span><span class="signal">Information architecture</span><span class="signal">AI content quality</span><span class="signal">RAG &amp; agent readiness</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="scale" aria-label="Leadership scale and outcomes">
+      <div class="wrap scale-grid">
+        <div class="scale-item"><strong>12</strong><span>cross-functional workstreams led</span></div>
+        <div class="scale-item"><strong>170M+</strong><span>words supported each month</span></div>
+        <div class="scale-item"><strong>1.5M+</strong><span>customers reached</span></div>
+        <div class="scale-item"><strong>12</strong><span>languages enabled at scale</span></div>
+        <div class="scale-item"><strong>65→85%</strong><span>measured quality improvement</span></div>
+      </div>
+    </section>
+
+    <section class="thesis" aria-labelledby="thesis-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">The point of view</div><h2 id="thesis-title">AI succeeds or fails at the knowledge layer.</h2></div>
+          <p class="lead">Better prompts cannot compensate for conflicting sources, missing metadata, stale claims, weak retrieval, or unclear ownership. Trustworthy AI needs content designed as governed infrastructure.</p>
+        </div>
+        <div class="thesis-grid">
+          <article class="thesis-card"><div class="num">01 / STRUCTURE</div><h3>From documents to reusable knowledge</h3><p>Model audiences, needs, capabilities, claims, proof, messages, policies, and relationships as reusable objects—not trapped inside decks and pages.</p></article>
+          <article class="thesis-card"><div class="num">02 / TRUST</div><h3>Authority before similarity</h3><p>Use ownership, provenance, effective dates, approvals, and source tiers to determine what AI is allowed to trust.</p></article>
+          <article class="thesis-card"><div class="num">03 / LEARNING</div><h3>Evaluation as a content signal</h3><p>Trace failures across content, metadata, retrieval, generation, and agent behavior—then feed the evidence back into the knowledge system.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Advisory services</div><h2 id="services-title">Senior guidance for high-impact content and AI transformations.</h2></div>
+          <p class="lead">Each engagement starts with a high-value business, customer, developer, or AI workflow and connects executive decisions to an actionable architecture, operating model, program plan, and measurement system.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><small>01</small><h3>AI content &amp; knowledge assessment</h3><p>Map content sources, quality risks, duplication, authority, ownership, lifecycle gaps, and AI readiness. Prioritize the highest-leverage fixes.</p></article>
+          <article class="service"><small>02</small><h3>Quality &amp; evaluation framework</h3><p>Define rubrics, test sets, release gates, and layered metrics for knowledge, retrieval, generation, agent behavior, governance, and business outcomes.</p></article>
+          <article class="service"><small>03</small><h3>Content modeling &amp; information architecture</h3><p>Define reusable content types, structures, taxonomy, metadata, navigation, labeling, and findability so people and systems can access content in the right context.</p></article>
+          <article class="service"><small>04</small><h3>Content operations transformation</h3><p>Create the governance, roles, workflows, decision rights, and feedback loops required to operate AI-ready content across teams.</p></article>
+          <article class="service"><small>05</small><h3>Technical writing &amp; developer experience</h3><p>Turn complex products into clear, task-oriented documentation and connected developer journeys across onboarding, APIs, tutorials, reference, troubleshooting, and support.</p></article>
+          <article class="service"><small>06</small><h3>Technical program management</h3><p>Translate strategy into an executable cross-functional program with requirements, priorities, dependencies, decision mechanisms, milestones, risks, and measurable outcomes.</p></article>
+          <article class="service"><small>07</small><h3>Knowledge graphs &amp; semantic architecture</h3><p>Model entities and relationships across audiences, needs, products, capabilities, claims, proof, policies, and performance signals to support traceable retrieval and reuse.</p></article>
+          <article class="service"><small>08</small><h3>Knowledge architecture for RAG &amp; agents</h3><p>Design ontology, provenance, source authority, lifecycle controls, AI eligibility, and retrieval choices across search, RAG, knowledge graphs, and APIs.</p></article>
+        </div>
+        <div class="engagements" aria-label="Engagement models">
+          <article class="engage"><span class="step">Fast clarity</span><h3>Diagnostic sprint</h3><p>A concentrated assessment with findings, priorities, and a practical action plan.</p></article>
+          <article class="engage"><span class="step">Designed direction</span><h3>Strategy &amp; blueprint</h3><p>A target-state model covering architecture, governance, evaluation, and roadmap.</p></article>
+          <article class="engage"><span class="step">Sustained change</span><h3>Transformation advisory</h3><p>Ongoing executive and cross-functional guidance from pilot through operating rhythm.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning" id="learning" aria-labelledby="learning-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Learning &amp; toolkits</div><h2 id="learning-title">Practical ways to build AI-ready content systems.</h2></div>
+          <p class="lead">Use the same assessment methods, architecture patterns, governance tools, and evaluation frameworks that shape Baseframe advisory work—adapted for individual practitioners and enterprise teams.</p>
+        </div>
+        <div class="learning-intro">
+          <article class="assessment-card">
+            <div class="product-type">Free interactive assessment</div>
+            <h3>How ready is your content for AI?</h3>
+            <p>Score your organization across source trust, content structure, retrieval readiness, governance, and evaluation—and get a focused next-step recommendation.</p>
+            <ul><li>12 evidence-based questions</li><li>Instant readiness score</li><li>Recommended priorities by maturity level</li></ul>
+            <a class="btn" href="ai-readiness-assessment.html">Take the free assessment <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="featured-product">
+            <div class="product-type">Practitioner toolkit · Early access</div>
+            <div class="product-price">$99</div>
+            <h3>AI-Ready Content Systems Toolkit</h3>
+            <p>A working set of templates for assessing content, defining metadata and ownership, evaluating RAG outputs, governing risk, and planning the first 90 days.</p>
+            <div class="product-actions"><a class="btn btn-primary" href="mailto:das.sharmila@gmail.com?subject=AI-Ready%20Content%20Systems%20Toolkit%20-%20Early%20Access&amp;body=Hi%20Sharmila%2C%0A%0AI%27d%20like%20early%20access%20to%20the%20AI-Ready%20Content%20Systems%20Toolkit.%0A%0AName%3A%0ARole%20and%20organization%3A%0AMy%20main%20content%20or%20AI%20challenge%3A%0A">Request early access <span aria-hidden="true">→</span></a></div>
+          </article>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-type">Live practitioner workshop</div>
+            <h3>Building Trusted AI Content Systems</h3>
+            <p>A hands-on session for content strategists, technical writers, knowledge managers, and developer-experience leaders. Diagnose a use case, map its knowledge risks, and leave with an actionable system design.</p>
+            <div class="product-meta"><span>Live online</span><span>2.5 hours</span><span>Pilot price $395</span></div>
+            <a class="text-link" href="mailto:das.sharmila@gmail.com?subject=Building%20Trusted%20AI%20Content%20Systems%20-%20Workshop%20Pilot&amp;body=Hi%20Sharmila%2C%0A%0AI%27m%20interested%20in%20the%20workshop%20pilot.%0A%0AName%3A%0ARole%20and%20organization%3A%0AWhat%20I%27d%20like%20to%20learn%3A%0A">Join the pilot list <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="product-card">
+            <div class="product-type">Private team training</div>
+            <h3>AI Content &amp; Knowledge Systems for Teams</h3>
+            <p>A tailored working session for enterprise teams adopting RAG, agents, AI-assisted content, or a new knowledge platform. Includes a pre-session diagnostic and a team-specific action brief.</p>
+            <div class="product-meta"><span>Private cohort</span><span>Custom scenarios</span><span>From $3,500</span></div>
+            <a class="text-link" href="mailto:das.sharmila@gmail.com?subject=Baseframe%20Private%20Team%20Training%20Inquiry&amp;body=Hi%20Sharmila%2C%0A%0AI%27d%20like%20to%20discuss%20private%20team%20training.%0A%0AName%3A%0AOrganization%3A%0ATeam%20size%3A%0AMain%20use%20case%20or%20challenge%3A%0A">Discuss team training <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <p class="product-note">The toolkit and workshops are in pilot development. Early participants will help shape the examples, exercises, and supporting templates.</p>
+      </div>
+    </section>
+
+    <section class="method" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">A practical 90-day path</div><h2 id="approach-title">Start narrow. Prove trust. Build the system.</h2></div>
+          <p class="lead">The work begins with a measurable use case, not a platform shopping list. Architecture and governance grow only where the workflow needs them.</p>
+        </div>
+        <div class="timeline">
+          <article class="phase"><div class="days">DAYS 1–30</div><h3>Discover &amp; model</h3><ul><li>Select the use case and success criteria</li><li>Inventory sources, owners, risks, and authority</li><li>Draft the content, metadata, and relationship model</li><li>Create representative tests and baselines</li></ul></article>
+          <article class="phase"><div class="days">DAYS 31–60</div><h3>Build the governed layer</h3><ul><li>Canonicalize priority knowledge</li><li>Apply metadata, provenance, and lifecycle rules</li><li>Test hybrid and graph retrieval where useful</li><li>Fix knowledge gaps before tuning prompts</li></ul></article>
+          <article class="phase"><div class="days">DAYS 61–90</div><h3>Connect &amp; operationalize</h3><ul><li>Connect retrieval and bounded tools</li><li>Add citations, abstention, and approval</li><li>Evaluate answers and agent trajectories</li><li>Establish release gates and review cadence</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Selected work</div><h2 id="work-title">Systems thinking applied to real content problems.</h2></div>
+          <p class="lead">These anonymized examples show the pattern: clarify the business problem, structure the knowledge, establish trust controls, and measure what improves.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case"><div class="label">AI quality system</div><h3>Quality before final review</h3><dl><dt>Business challenge</dt><dd>Quality was treated as a late editorial check, after upstream failures had already compounded.</dd><dt>Leadership response</dt><dd>Established a layered quality system spanning standards, automated checks, governance, and human judgment.</dd><dt>Enterprise impact</dt><dd>Raised measured quality from 65% to 85% and cut review time from four hours to one.</dd></dl></article>
+          <article class="case"><div class="label">Enterprise transformation</div><h3>AI-native content operations</h3><dl><dt>Business challenge</dt><dd>Fragmented systems and manual transformation slowed the delivery of trusted content at enterprise scale.</dd><dt>Leadership response</dt><dd>Aligned 12 workstreams around a shared architecture, investment case, build-versus-buy decisions, and delivery plan.</dd><dt>Enterprise impact</dt><dd>Created a scalable operating foundation supporting more than 170 million words each month.</dd></dl></article>
+          <article class="case"><div class="label">Content architecture</div><h3>Global structured content system</h3><dl><dt>Business challenge</dt><dd>Creative and channel teams needed reuse and consistency without losing editorial control.</dd><dt>Leadership response</dt><dd>Aligned stakeholders on reusable models, metadata, governance, analytics, and a headless delivery approach.</dd><dt>Enterprise impact</dt><dd>Enabled governed scale across 12 languages and experiences reaching more than 1.5 million customers.</dd></dl></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div><div class="kicker">Founder &amp; principal advisor</div><h2 id="about-title">Senior leadership across content, knowledge, and AI systems.</h2><p>The Baseframe is led by Sharmila Das, an electrical engineer and MBA with enterprise leadership experience across AI, cloud, semiconductor, developer, and customer environments.</p><p>She connects executive strategy to operating reality: the investment case, architecture, governance, decision rights, cross-functional program, quality system, and adoption path required to make complex transformation work.</p><div class="actions" style="margin-top:28px"><a class="btn btn-primary" href="https://sharmiladas.github.io/" target="_blank" rel="noopener">Explore leadership experience &amp; case notes</a></div></div>
+        <div><div class="kicker">Interest areas</div><div class="interest-list"><div class="interest">Technical writing</div><div class="interest">Technical program management</div><div class="interest">Developer experience</div><div class="interest">Content modeling &amp; architecture</div><div class="interest">Information architecture</div><div class="interest">Knowledge graphs</div><div class="interest">Knowledge architecture</div><div class="interest">AI systems &amp; agents</div><div class="interest">RAG &amp; GraphRAG</div><div class="interest">AI governance</div><div class="interest">Quality &amp; evaluation</div><div class="interest">Content operations</div><div class="interest">Cloud &amp; semiconductors</div></div></div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title"><div class="wrap cta-box"><div><h2 id="cta-title">Your AI strategy needs a reliable knowledge foundation.</h2><p>Let’s identify the leadership decisions, content architecture, governance, and operating model that will create the most leverage.</p></div><a class="btn btn-primary" href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">Start a conversation <span aria-hidden="true">→</span></a></div></section>
+  </main>
+
+  <footer><div class="wrap foot"><span>© 2026 The Baseframe · Founded by Sharmila Das</span><div class="footlinks"><a href="https://sharmiladas.github.io/" target="_blank" rel="noopener">Leadership portfolio</a><a href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+  <script>
+    const menu=document.querySelector('.menu'); const links=document.querySelector('.navlinks');
+    menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+  </script>
+</body>
+</html>
