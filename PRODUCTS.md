@@ -2,7 +2,7 @@
 
 [Leadership portfolio: Products](https://sharmiladas.github.io/#products)
 
-Working apps, local prototypes, and agent kits by Sharmila (Das) Rammohan. Each entry below explains the implementation, the starting command or workflow, and the places to adapt it. Repository paths remain stable so existing links and downloads continue to work.
+Working apps, local prototypes, and agent kits by Sharmila Das. Each entry below explains the implementation, the starting command or workflow, and the places to adapt it. Repository paths remain stable so existing links and downloads continue to work.
 
 | Product | Implementation | Source access |
 | --- | --- | --- |

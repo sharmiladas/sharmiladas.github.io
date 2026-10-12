@@ -1,4 +1,4 @@
-# Sharmila (Das) Rammohan — leadership portfolio
+# Sharmila Das — leadership portfolio
 
 Enterprise content, knowledge architecture, AI systems, and technical program leadership.
 
