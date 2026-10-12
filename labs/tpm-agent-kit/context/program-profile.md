@@ -1,0 +1,20 @@
+# Program profile
+- Program: [name]
+- Program lead: [name]
+- User/customer problem: [specific problem and evidence]
+- Target outcome: [measure, baseline, target, measurement source]
+- Scope / excluded scope: [boundaries]
+- Next committed milestone and date: [milestone; timezone]
+- Executive sponsor / decision authority: [names or unconfirmed]
+- Workstream owners and accepted responsibilities: [names]
+- Capacity and constraints: [confirmed availability; budget; integration windows]
+- Definition of Done: [acceptance checks and required approvers]
+- Mandatory release gates: [security, engineering, quality, documentation, operations as applicable]
+- Source of truth: [ordered hierarchy of tracker, decision records, notes]
+- Evidence freshness: [default flag critical updates older than seven calendar days; change as appropriate]
+- Escalation: [who; material thresholds; latest decision dates]
+- Timezone: [e.g. Asia/Kolkata]
+- Tool permissions: [read sources; authorized local edits; specifically authorized external actions]
+- Communication cadence: [reviews; decision forum; leadership update]
+
+Fill these fields from verified information. Place unresolved values under Open questions.
