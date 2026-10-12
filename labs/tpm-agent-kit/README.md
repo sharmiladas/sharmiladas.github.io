@@ -1,5 +1,5 @@
 # Baseframe TPM Agent Kit
-Version 0.1 — a file-based agent operating kit by Sharmila (Das) Rammohan.
+Version 0.1 — a file-based agent operating kit by Sharmila Das.
 
 Turn program documents, meeting notes, and delivery updates into a coherent execution system: outcomes, owners, dependencies, risks, decisions, release gates, and concise leadership updates.
 
@@ -29,5 +29,5 @@ Capture → reconcile evidence → identify delivery impact → recommend action
 
 Each operational item has a stable ID, owner, status, source, and last verified date. All example names, dates, metrics, and commitments are fictional.
 
-## Inspiration
-Inspired by Joe Garvey’s [Personal Assistant Kit](https://github.com/joegarvey-pm/personal-assistant-kit), reviewed on 2026-10-11. It supplied the architectural idea of a system prompt, organized notes, repeatable workflows, and optional connected tools. The TPM instructions, workflows, templates, utility, and example here are original; no upstream code is included.
+## Build approach
+The kit combines an original system prompt, structured program records, repeatable delivery workflows, and a Python workspace utility. The templates and fictional example make the behavior inspectable and adaptable.
