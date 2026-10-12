@@ -23,3 +23,52 @@
 @media(max-width:900px){.portfolio-sidebar{display:none}.portfolio-main{margin-left:0}.portfolio-mobile-brand{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:#eae4d9;border-bottom:1px solid #cfc7ba;font:700 22px/1.2 Georgia,serif;color:#211d1a}.portfolio-mobile-brand a{text-decoration:none;color:#211d1a}.portfolio-mobile-brand a:last-child{font:600 12px/1.4 Arial,sans-serif}.portfolio-mobile-menu{display:block;margin:0;padding:0;background:#eae4d9;border-bottom:1px solid #cfc7ba}.portfolio-mobile-menu summary{padding:16px 20px;cursor:pointer;font:700 14px/1.5 Arial,sans-serif;color:#332c26}.portfolio-mobile-menu .portfolio-nav{padding:0 12px 12px}.portfolio-toolbar{padding:14px 20px;min-height:52px}.portfolio-toolbar-link{display:none}.portfolio-view>.section{padding:36px 20px 46px}.portfolio-view .section-heading{grid-template-columns:1fr;gap:20px}.portfolio-view .section h1{font-size:42px}.portfolio-view .section h2{font-size:33px}.portfolio-view .thesis,.portfolio-view .background{grid-template-columns:1fr}.portfolio-view .thesis .beliefs,.portfolio-view .background-links{grid-column:1}.portfolio-view .case-row{grid-template-columns:32px minmax(0,1fr)}.portfolio-view .case-result,.portfolio-view .case-row button{grid-column:2}.portfolio-overview .profile-intro{padding:20px 20px 0}.portfolio-overview .profile-content{grid-template-columns:1fr;gap:0;padding:0 12px 20px}.portfolio-overview .profile-copy{padding-top:20px}.portfolio-overview .profile-copy h1{font-size:44px}.portfolio-overview .profile-cover{height:150px}.portfolio-overview .profile-photo{width:120px;height:120px}.overview-focus{padding:24px 20px 36px}.portfolio-overview .leadership-proof{padding:28px 20px}.portfolio-footer{padding:20px}.portfolio-detail-page .article-header{padding-top:20px}}
 @media(max-width:550px){.focus-area-grid{grid-template-columns:1fr}.focus-area-grid a{padding:22px}.portfolio-view .section h1{font-size:37px}.portfolio-view .section h2{font-size:29px}.portfolio-view .case-copy h3{font-size:23px}.portfolio-overview .profile-headline{font-size:23px}.portfolio-view .essay-list a{grid-template-columns:1fr;gap:12px}.portfolio-view .essay-list p,.portfolio-view .essay-list b{grid-column:1}.portfolio-view .work-routes{gap:12px 20px}.portfolio-detail-page .article-header h1{font-size:40px}.portfolio-breadcrumbs li{max-width:44ch}.portfolio-toolbar{font-size:11px}}
 .portfolio-toolbar{position:sticky;top:0;z-index:15}.portfolio-view>.section,.portfolio-detail-page .portfolio-main [id]{scroll-margin-top:92px}
+
+/* Mobile layout: keep case content in a full-width reading column.
+   These scoped rules override the desktop navigation layout at phone widths. */
+@media (max-width: 620px) {
+  .portfolio-view .case-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 28px 0;
+  }
+  .portfolio-view .case-row > * {
+    grid-column: 1 / -1;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .portfolio-view .case-copy h3 {
+    font-size: clamp(24px, 6.5vw, 30px);
+    line-height: 1.18;
+    overflow-wrap: break-word;
+  }
+  .portfolio-view .case-copy > p:last-child { font-size: 16px; line-height: 1.65; }
+  .portfolio-view .case-result { border-left: 0; padding-left: 0; }
+  .portfolio-view .case-result strong { font-size: 28px; line-height: 1.15; }
+  .portfolio-view .case-row button { grid-column: 1 / -1; width: auto; min-height: 44px; }
+  .portfolio-view .essay-list a {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .portfolio-view .essay-list a > * { grid-column: 1 / -1; min-width: 0; }
+  .portfolio-view .essay-list b { justify-self: start; }
+  .portfolio-main .opening-links { flex-wrap: wrap; gap: 14px 22px; }
+  .portfolio-view .section-heading > * { min-width: 0; }
+  .portfolio-view .section h1 { font-size: clamp(30px, 8.5vw, 37px); line-height: 1.12; }
+  .portfolio-main .km-case { padding: 28px 20px; }
+  .portfolio-main .km-case h1 { font-size: clamp(30px, 8.5vw, 38px); }
+  .portfolio-main .km-case .case-toc { line-height: 1.6; }
+  .portfolio-main .km-case .table-scroll { max-width: 100%; overflow-x: auto; }
+  .portfolio-main .km-case img { display: block; max-width: 100%; height: auto; }
+  .modal { padding: 16px; z-index: 100; }
+  .modal-card { padding: 56px 22px 28px; }
+  .modal-card h2 { font-size: 30px; line-height: 1.16; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  .portfolio-view .case-copy { grid-column: 2; min-width: 0; }
+  .portfolio-view .essay-list a { grid-template-columns: 110px minmax(0, 1fr); }
+  .portfolio-view .essay-list h3,
+  .portfolio-view .essay-list p,
+  .portfolio-view .essay-list b { grid-column: 2; min-width: 0; }
+}
+
