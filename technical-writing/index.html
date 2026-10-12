@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Engineering & Technical Writing — Sharmila Das</title>
+<style>
+:root{--ink:#172a31;--muted:#50626b;--accent:#006f70;--paper:#f6f4ee;--line:#d6ddd9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,sans-serif}header,main,footer{max-width:1060px;margin:auto;padding:40px 28px}header{padding-top:72px}h1{font:clamp(38px,6vw,66px)/1.08 Georgia,serif;max-width:820px;margin:18px 0}h2{font:34px/1.2 Georgia,serif}h3{line-height:1.3;margin-top:32px}a{color:var(--accent);text-underline-offset:4px}nav{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0}.eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:12px;font-weight:750;color:var(--accent)}.lead{font-size:22px;max-width:790px}.note{border-left:4px solid var(--accent);padding:12px 20px;background:#e9efeb;font-size:15px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:white;border:1px solid var(--line);padding:24px}.card h3{margin:8px 0}article{border-top:1px solid var(--line);padding:42px 0;scroll-margin-top:24px}article>p,article>ul,article>ol{max-width:820px}pre{background:#142b34;color:#e3f1eb;overflow:auto;padding:22px;border-radius:6px;font-size:14px;line-height:1.55}code{font-family:ui-monospace,monospace}.table{overflow:auto}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:14px}th{background:#e9efeb}.diagram{width:100%;height:auto;display:block;background:white;border:1px solid var(--line);margin:24px 0}.small{font-size:14px;color:var(--muted)}details{margin:22px 0}summary{cursor:pointer;color:var(--accent);font-weight:700}footer{border-top:1px solid var(--line)}@media(max-width:650px){.cards{grid-template-columns:1fr}header,main,footer{padding:28px 20px}h2{font-size:29px}.lead{font-size:19px}}
+</style></head><body>
+<header><p class="note"><a href="../#technical-writing">← Sharmila Das portfolio</a> · <a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/technical-writing" target="_blank" rel="noopener">Examples and source on GitHub ↗</a></p><p class="eyebrow">Sharmila Das · Independent writing samples</p><h1>Engineering decisions, explained.</h1><p class="lead">Technical articles on API requests, retrieval errors, and workflow dependencies. Each sample includes code and explains what the tests show.</p><nav aria-label="Portfolio navigation"><a href="#samples">Writing samples</a><a href="#editing">Editorial work</a><a href="#interview">Engineering interviews</a><a href="#verification">Verification</a></nav><p class="note">Independent writing samples for an engineering audience, based on small local prototypes.</p></header>
+<main><section id="samples"><p class="eyebrow">Selected samples</p><div class="cards">
+<div class="card"><p class="eyebrow">API design · Database transactions</p><h3><a href="#api">The request timed out. Did the job get created?</a></h3><p>A job-creation prototype with request deduplication, a shared transaction, and a separate problem at the queue boundary.</p></div>
+<div class="card"><p class="eyebrow">AI systems · Failure analysis</p><h3><a href="#retrieval">The right words, the wrong product version</a></h3><p>A reproducible retrieval error shows why source applicability belongs in the query.</p></div>
+<div class="card"><p class="eyebrow">Infrastructure · Code walkthrough</p><h3><a href="#workflow">Reject a broken workflow before running it</a></h3><p>Validate dependency graphs, detect cycles, and separate compilation from execution.</p></div>
+<div class="card"><p class="eyebrow">Developmental editing · Evidence</p><h3><a href="#editing">From rough engineering notes to a defensible article</a></h3><p>Before-and-after copy, editorial decisions, and the questions an engineer still needs to answer.</p></div></div></section>
+
+<article id="api"><p class="eyebrow">01 · Engineering article · Independent prototype</p><h2>The request timed out. Did the job get created?</h2><p>A client sends a request to create an indexing job. The service commits the job, but the connection closes before the response reaches the client. The client sees a timeout. The database sees a successful insert. Retrying an ordinary create operation can now produce a second job.</p><p>The retry needs an identity that survives the lost response. In this prototype, the client supplies an idempotency key. The service stores that key alongside a fingerprint of the request and the response it would have returned. A repeated request with the same key and payload receives the stored result.</p><h3>Commit the job and replay record together</h3><p>Saving the job and saving its retry record in separate commits leaves a gap: the first write can succeed while the second fails. The example uses one database transaction for both. A failure before commit rolls them both back. The transaction covers these two database writes. An external worker’s actions require their own failure handling.</p>
+<svg class="diagram" viewBox="0 0 840 205" role="img" aria-labelledby="transaction-title"><title id="transaction-title">A transaction stores a job and its replay response together; a retry reads the replay response.</title><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#006f70"/></marker></defs><g font-family="system-ui" font-size="16" fill="#172a31"><rect x="22" y="76" width="150" height="54" fill="#e9efeb"/><text x="40" y="108">Client + key</text><rect x="270" y="26" width="340" height="150" rx="8" fill="#f6f4ee" stroke="#006f70"/><text x="295" y="55">One database transaction</text><text x="295" y="89">Create job</text><text x="295" y="118">Store key, fingerprint, response</text><text x="295" y="151">Commit both or roll back both</text><text x="659" y="104">Return job ID</text></g><g stroke="#006f70" stroke-width="2" marker-end="url(#arrow)"><path d="M172 102 H260"/><path d="M610 102 H647"/></g></svg>
+<p>The replay identity is the pair <code>(tenant, key)</code>. Scoping the key prevents two tenants using the same string from sharing a response. The fingerprint prevents a different request from silently reusing an old result. The example hashes JSON serialized with sorted keys and compact separators using SHA-256. A real API must define normalization: omitted defaults, number formats, and API versions can change whether two bodies represent the same operation.</p><pre><code>with db:
+    prior = lookup(tenant, key)
+    if prior:
+        verify_same_fingerprint(prior, payload)
+        return prior.response
+    job = insert_job(payload)
+    store_replay_record(tenant, key, payload, job)
+    return job</code></pre><p class="small">Control-flow excerpt. The complete executable implementation is in examples.py; the helper names above are explanatory.</p>
+<h3>What the tests show</h3><div class="table"><table><tr><th>Test</th><th>Observed behavior</th><th>Untested behavior</th></tr><tr><td>Replay the same request</td><td>Same job ID; one job row</td><td>Concurrent requests on separate connections</td></tr><tr><td>Reuse key with changed payload</td><td>ValueError; existing job unchanged</td><td>An HTTP status or complete error contract</td></tr><tr><td>Reuse key across tenants</td><td>Distinct jobs</td><td>Authentication or authorization</td></tr><tr><td>Fail before commit</td><td>No job or replay row remains</td><td>Crash recovery, storage failure, or failover</td></tr></table></div>
+<h3>What changes in a service</h3><p>The prototype runs serially on one SQLite connection. A production implementation needs a unique constraint and a deliberate strategy for concurrent arrivals. Do not assume that a read followed by an insert wins a race. PostgreSQL’s transaction-isolation documentation describes how competing writes and conflict handling behave; the service must handle its chosen isolation level and retry conditions [1].</p><p>If the next step calls an external queue or payment provider, the database transaction cannot automatically roll back that external action. One design option is to commit an outbox event with the job, then have a worker deliver it with deduplication at the receiving boundary. That moves the retry problem; it does not remove it.</p><p>The API contract also needs a retention period for keys, behavior while an operation is still pending, and a policy for failed requests. Expiring a key too early allows a delayed retry to create new work. Keeping every response forever creates storage and privacy costs. Choose the window from client retry behavior and the operation’s risk, then test the boundary.</p><h3>Sources</h3><p>[1] <a href="https://www.postgresql.org/docs/18/transaction-iso.html">PostgreSQL 18: Transaction Isolation</a>. [2] <a href="https://docs.python.org/3/library/sqlite3.html">Python sqlite3 documentation</a>. The prototype uses a connection context manager for commit/rollback. These sources explain the database mechanisms used here.</p></article>
+
+<article id="retrieval"><p class="eyebrow">02 · Failure analysis · Synthetic fixture</p><h2>The right words, the wrong product version</h2><p>A search result can match a question perfectly and still be unusable. The fixture in this sample contains two invented API instructions. Version 1 permits a retry without a key. Version 2 requires an idempotency key. Both contain the words “retry upload requests.” A simple lexical ranker gives them the same score and returns the older record because it appears first.</p><p>The two-document fixture isolates a selection error: both records match the query, but only one applies to the requested version.</p><h3>Reproduce the failure</h3><pre><code>question = 'Retry upload requests'
+retrieve(question)                 # selects v1
+retrieve(question, version='2')    # selects v2
+retrieve(question, version='3')    # returns None</code></pre><p>The correction filters candidates by version before ranking them. Filtering only after selecting the top result can discard the answer without recovering the relevant document that ranked below it. In a larger system, applicability might include locale, account permissions, effective date, and product tier.</p><h3>Check the selected source and its required condition</h3><p>The tests check which source was selected and whether its text includes the idempotency requirement. Both checks inspect retrieved text. To evaluate a generated answer, a separate test would need to compare the answer’s claims with that evidence.</p><div class="table"><table><tr><th>Condition</th><th>Fixture result</th><th>Interpretation</th></tr><tr><td>No version filter</td><td>v1 selected</td><td>Lexical match is insufficient</td></tr><tr><td>Version 2 filter</td><td>v2 selected with key requirement</td><td>Applicability narrows eligible evidence</td></tr><tr><td>Unknown version</td><td>No evidence returned</td><td>Caller must clarify, abstain, or escalate</td></tr></table></div>
+<h3>A missing result should remain missing</h3><p>For version 3, neither document is applicable. Silently falling back to version 1 would hide uncertainty behind a confident answer. The retrieval function returns no evidence. The caller needs an explicit policy: ask for a supported version, point to a maintained source, or state that the collection does not answer the question.</p><p>That policy has a cost. Strict filters can reduce coverage when metadata is incomplete. Relaxing them improves recall but risks using the wrong source. A practical rollout should log no-evidence cases separately from incorrect-source cases, so content owners can distinguish missing coverage from bad selection.</p><h3>What a larger evaluation would need</h3><p>Use a versioned question set with expected source IDs, required answer conditions, and examples where no answer is available. Freeze the corpus and retrieval configuration for each run. Measure retrieval and answer quality separately. Include permission-sensitive cases without putting private documents or identifiers into a public report.</p><p>The original RAG research combines parametric and retrieved memory and reports improvements on its evaluated tasks [1]. Here, the fixture tests lexical selection and version filtering. Evaluating a RAG system would also require a generator and an answer-quality test set.</p><h3>Source</h3><p>[1] Lewis et al. (2020), <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>. Product versions and retry instructions in this sample are invented test data, not real API guidance.</p></article>
+
+<article id="workflow"><p class="eyebrow">03 · Code walkthrough · Workflow infrastructure</p><h2>Reject a broken workflow before running it</h2><p>A workflow describes three tasks: build an artifact, test it, then publish it. If testing depends on publication and publication depends on testing, no task can satisfy its prerequisites. A runner that discovers this after allocating workers wastes resources and may leave partial work behind.</p><p>This prototype treats a workflow as a directed dependency graph. A compilation step validates its references and produces an ordered plan before any task executes. It rejects cycles and missing dependencies rather than guessing an order.</p><h3>Separate “being explored” from “finished”</h3><p>The algorithm tracks two sets. A node in the visiting set belongs to the active traversal path. Reaching it again indicates a cycle. A node in the visited set is already complete; reaching it again is allowed because several tasks may share a prerequisite.</p><pre><code>def visit(node):
+    if node not in graph:
+        raise ValueError('missing dependency: ' + node)
+    if node in visiting:
+        raise ValueError('cycle: ' + node)
+    if node in visited:
+        return
+    visiting.add(node)
+    for dependency in sorted(graph[node]):
+        visit(dependency)
+    visiting.remove(node)
+    visited.add(node)
+    order.append(node)</code></pre><p>Appending after visiting dependencies puts prerequisites before their consumers. Sorting names makes the plan deterministic for the same graph. That helps compare plans during review, although alphabetical order is not a scheduling policy. The full implementation also visits disconnected components.</p><h3>Why validate before scheduling?</h3><div class="table"><table><tr><th>Approach</th><th>Benefit</th><th>Tradeoff</th></tr><tr><td>Validate as tasks arrive</td><td>Can accept dynamic work</td><td>Errors may emerge after execution begins</td></tr><tr><td>Compile a complete graph first</td><td>Rejects structural defects before side effects</td><td>Requires a known graph or staged recompilation</td></tr><tr><td>Use a mature workflow engine</td><td>Can supply persistence and scheduling features</td><td>Introduces integration and operating requirements</td></tr></table></div>
+<p>For this fixed educational graph, a compile-first design is easy to inspect. The tests verify a dependency chain, a cycle, a missing node, and a shared prerequisite appearing once. Recovery of a running workflow remains untested.</p><h3>What the runner still needs</h3><p>The compiler does not manage worker capacity, retries, durable task state, cancellation, or secrets. Independent tasks could run in parallel, but this sample returns only an order. A production scheduler would need to maintain readiness as tasks complete and persist the state transitions it depends on.</p><p>Recursion is another limit. Deep dependency chains can exceed Python’s recursion limit. An iterative traversal or an indegree-based algorithm avoids dependence on the call stack. This implementation also sorts nodes and dependency lists; its cost therefore includes sorting, rather than being strictly linear in graph size.</p><p>Before adding a runner, define what completion means. A process returning zero may not prove that the expected artifact exists. For the build-test-publish chain, task outputs and validation criteria should be explicit. Otherwise the graph can be structurally correct while the workflow publishes the wrong thing.</p></article>
+
+<article id="editing"><p class="eyebrow">04 · Worked editorial sample</p><h2>From rough engineering notes to a defensible article</h2><p class="note">Constructed notes for editing practice.</p><h3>Source notes</h3><p>“Retries fixed. Key stored in DB. Tested repeat calls. No duplicates. Should be safe now. One transaction. Need queue next. Probably exactly once.”</p><h3>Edited passage</h3><p>“The prototype stores a job and its replay response in one database transaction. When a client repeats the same request with the same tenant-scoped key, the service returns the existing job ID. A local test confirmed that two serial calls created one job row. Concurrent requests remain untested. Queue delivery also requires a separate failure and deduplication design.”</p><h3>Editing decisions</h3><div class="table"><table><tr><th>Original wording</th><th>Edit</th><th>Reason</th></tr><tr><td>Retries fixed</td><td>Describe key lookup and response replay</td><td>Explain the mechanism, not just the outcome</td></tr><tr><td>No duplicates</td><td>Two serial calls created one row</td><td>Bound the claim to the actual test</td></tr><tr><td>Safe now</td><td>Identify untested concurrent requests</td><td>Avoid an undefined safety assurance</td></tr><tr><td>Exactly once</td><td>Separate creation from external execution</td><td>Distinguish database atomicity from distributed delivery</td></tr></table></div>
+<h3>Questions before publication</h3><ul><li>Where does the replay response commit relative to the job?</li><li>What happens when two connections present the same new key?</li><li>How long are keys retained, and what happens after expiration?</li><li>What happens if queue delivery succeeds but its acknowledgement is lost?</li><li>Which failures were reproduced, and which remain assumptions?</li></ul><p>The revision preserves the useful finding without turning a small test into a production guarantee. The unanswered questions stay in the review record; they are not filled with plausible details.</p></article>
+
+<article id="interview"><p class="eyebrow">Editorial method</p><h2>Find the engineering story before drafting</h2><p>A useful engineering article usually has a decision at its center. Start with the constraint that made the obvious solution insufficient, then investigate the alternatives, the failure, and the evidence that changed the team’s approach.</p><div class="table"><table><tr><th>Ask</th><th>Request as evidence</th><th>Use in the article</th></tr><tr><td>Which invariant could not be broken?</td><td>Contract, design note, failing test</td><td>State the problem precisely</td></tr><tr><td>What simpler design was rejected?</td><td>Decision record and comparison</td><td>Explain the tradeoff</td></tr><tr><td>Where did the first approach fail?</td><td>Sanitized trace or reproduction</td><td>Show the failure mechanism</td></tr><tr><td>What changed after the fix?</td><td>Comparable runs and methodology</td><td>Report a bounded result</td></tr><tr><td>What still does not work?</td><td>Known issues and reviewer notes</td><td>Make limitations visible</td></tr></table></div><p>Before release, confirm technical interpretation with the engineer, rerun the published examples, and check diagrams against the implementation. Record what each measurement means, including the workload and environment. If there is no evidence for a number, omit it.</p></article>
+
+<article id="verification"><p class="eyebrow">Reproducibility & disclosure</p><h2>What was checked</h2><p>Run <code>python examples.py</code> from the extracted folder. It uses Python’s standard library and an in-memory SQLite database. The script contains 11 deterministic tests across the three technical samples. The recorded output is included as <code>test-results.txt</code>.</p><p>These tests exercise serial database operations, a two-document lexical retrieval fixture, and small dependency graphs. Throughput, concurrency, distributed durability, and real language-model performance remain untested.</p><p>These independent samples were prepared with AI assistance. The examples were executed locally, and source links were checked during preparation. The systems and editorial notes are demonstrations rather than employer projects or a real interview.</p><details><summary>Read the complete executable examples</summary><pre><code>"""Small, deterministic demonstrations. Not a production service."""
+import hashlib
+import json
+import re
+import sqlite3
+import unittest
+
+
+def database():
+    db = sqlite3.connect(':memory:')
+    db.executescript('''
+        CREATE TABLE requests (
+            tenant TEXT, key TEXT, digest TEXT NOT NULL,
+            response TEXT NOT NULL, PRIMARY KEY (tenant, key));
+        CREATE TABLE jobs (id INTEGER PRIMARY KEY, payload TEXT NOT NULL);
+    ''')
+    return db
+
+
+def create_job(db, tenant, key, payload, fail=False):
+    serialized = json.dumps(payload, sort_keys=True, separators=(',', ':'))
+    digest = hashlib.sha256(serialized.encode()).hexdigest()
+    # A single connection, serial execution; not a concurrency benchmark.
+    with db:
+        prior = db.execute(
+            'SELECT digest, response FROM requests WHERE tenant=? AND key=?',
+            (tenant, key)).fetchone()
+        if prior:
+            if prior[0] != digest:
+                raise ValueError('key reused with a different payload')
+            return json.loads(prior[1])
+        cursor = db.execute('INSERT INTO jobs(payload) VALUES (?)', (serialized,))
+        response = {'job_id': cursor.lastrowid}
+        db.execute('INSERT INTO requests VALUES (?, ?, ?, ?)',
+                   (tenant, key, digest, json.dumps(response)))
+        if fail:
+            raise RuntimeError('simulated failure before commit')
+        return response
+
+
+DOCS = [
+    {'id': 'v1', 'version': '1', 'text': 'Retry upload requests without a key.'},
+    {'id': 'v2', 'version': '2', 'text': 'Retry upload requests with an idempotency key.'},
+]
+
+
+def retrieve(question, version=None):
+    # Lexical baseline, deliberately not embedding search or a real RAG model.
+    terms = set(re.findall(r'\w+', question.lower()))
+    candidates = [d for d in DOCS if version is None or d['version'] == version]
+    ranked = sorted(candidates, key=lambda d: -len(
+        terms &amp; set(re.findall(r'\w+', d['text'].lower()))))
+    return ranked[0] if ranked else None
+
+
+def compile_graph(graph):
+    """Return a stable topological order or reject cycles/missing references."""
+    order, visiting, visited = [], set(), set()
+
+    def visit(node):
+        if node not in graph:
+            raise ValueError('missing dependency: ' + node)
+        if node in visiting:
+            raise ValueError('cycle: ' + node)
+        if node in visited:
+            return
+        visiting.add(node)
+        for dependency in sorted(graph[node]):
+            visit(dependency)
+        visiting.remove(node)
+        visited.add(node)
+        order.append(node)
+
+    for node in sorted(graph):
+        visit(node)
+    return order
+
+
+class PortfolioTests(unittest.TestCase):
+    def test_retry_creates_one_job(self):
+        db = database()
+        first = create_job(db, 'a', 'k', {'task': 'index'})
+        self.assertEqual(first, create_job(db, 'a', 'k', {'task': 'index'}))
+        self.assertEqual(db.execute('SELECT COUNT(*) FROM jobs').fetchone()[0], 1)
+
+    def test_changed_payload_rejected(self):
+        db = database()
+        create_job(db, 'a', 'k', {'task': 'index'})
+        with self.assertRaises(ValueError):
+            create_job(db, 'a', 'k', {'task': 'delete'})
+
+    def test_tenant_scoping(self):
+        db = database()
+        self.assertNotEqual(create_job(db, 'a', 'k', {}), create_job(db, 'b', 'k', {}))
+
+    def test_rollback(self):
+        db = database()
+        with self.assertRaises(RuntimeError):
+            create_job(db, 'a', 'k', {}, fail=True)
+        self.assertEqual(db.execute('SELECT COUNT(*) FROM jobs').fetchone()[0], 0)
+        self.assertEqual(db.execute('SELECT COUNT(*) FROM requests').fetchone()[0], 0)
+        self.assertEqual(create_job(db, 'a', 'k', {})['job_id'], 1)
+
+    def test_unfiltered_retrieval_selects_old_version(self):
+        self.assertEqual(retrieve('Retry upload requests')['id'], 'v1')
+
+    def test_filter_preserves_required_condition(self):
+        result = retrieve('Retry upload requests', version='2')
+        self.assertEqual(result['id'], 'v2')
+        self.assertIn('with an idempotency key', result['text'])
+
+    def test_unknown_version_has_no_evidence(self):
+        self.assertIsNone(retrieve('Retry upload requests', version='3'))
+
+    def test_graph_order(self):
+        self.assertEqual(compile_graph({'publish': ['test'], 'test': ['build'], 'build': []}),
+                         ['build', 'test', 'publish'])
+
+    def test_cycle_rejected(self):
+        with self.assertRaises(ValueError):
+            compile_graph({'a': ['b'], 'b': ['a']})
+
+    def test_missing_dependency_rejected(self):
+        with self.assertRaises(ValueError):
+            compile_graph({'build': ['missing']})
+
+    def test_shared_dependency_once(self):
+        order = compile_graph({'a': ['base'], 'b': ['base'], 'base': []})
+        self.assertEqual(order.count('base'), 1)
+        self.assertLess(order.index('base'), order.index('a'))
+        self.assertLess(order.index('base'), order.index('b'))
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+</code></pre></details><p class="small">Prepared October 11, 2026. Published writing samples with executable examples and bounded test results.</p></article></main><footer><p>Sharmila Das · Engineering & Technical Writing</p><a href="#samples">Back to samples</a></footer></body></html>

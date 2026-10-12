@@ -1,0 +1,16 @@
+test_changed_payload_rejected (__main__.PortfolioTests.test_changed_payload_rejected) ... ok
+test_cycle_rejected (__main__.PortfolioTests.test_cycle_rejected) ... ok
+test_filter_preserves_required_condition (__main__.PortfolioTests.test_filter_preserves_required_condition) ... ok
+test_graph_order (__main__.PortfolioTests.test_graph_order) ... ok
+test_missing_dependency_rejected (__main__.PortfolioTests.test_missing_dependency_rejected) ... ok
+test_retry_creates_one_job (__main__.PortfolioTests.test_retry_creates_one_job) ... ok
+test_rollback (__main__.PortfolioTests.test_rollback) ... ok
+test_shared_dependency_once (__main__.PortfolioTests.test_shared_dependency_once) ... ok
+test_tenant_scoping (__main__.PortfolioTests.test_tenant_scoping) ... ok
+test_unfiltered_retrieval_selects_old_version (__main__.PortfolioTests.test_unfiltered_retrieval_selects_old_version) ... ok
+test_unknown_version_has_no_evidence (__main__.PortfolioTests.test_unknown_version_has_no_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.003s
+
+OK
