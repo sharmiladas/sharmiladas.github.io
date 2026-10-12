@@ -1,6 +1,6 @@
 # Enterprise Knowledge Strategy
 
-Sharmila (Das) Rammohan
+Sharmila Das
 
 ## Problem statement
 
