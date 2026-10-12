@@ -1,39 +1,52 @@
-# Forma 2.0 — Your daily strength
+# Forma 2.2 — Daily movement, strength, and dance
 
-A small fitness web app by Sharmila (Das) Rammohan.
+[Open Forma](https://sharmiladas.github.io/fun-stuff/forma/) · [Portfolio](https://sharmiladas.github.io/#fun-stuff)
 
-[Open the app](https://sharmiladas.github.io/fun-stuff/forma/) · [Portfolio](https://sharmiladas.github.io/#fun-stuff)
+A browser fitness and dance practice app by Sharmila (Das) Rammohan.
+
+## Weekly program
+| Day | Daily practice | Additional training |
+| --- | --- | --- |
+| Monday | Yoga → foot preparation → heels fundamentals → optional advanced drill | Full-body resistance |
+| Tuesday | Yoga → heels practice | Cardio |
+| Wednesday | Yoga → heels practice | Lighter day |
+| Thursday | Yoga → heels practice | Full-body resistance |
+| Friday | Yoga → heels practice | Cardio |
+| Saturday | Yoga → heels practice | Lighter day |
+| Sunday | Yoga → heels practice | Lighter day |
+
+Strength and cardio weekdays are editable. Each default resistance session covers chest, glutes, abs, and arms with bands or light weights. The cardio starter block is 20 minutes. The daily heels extension rotates coordination, musicality, transitions, and rehearsal; floorwork requires previously learned instructor guidance and has a standing substitute.
 
 ## Features
-- Glutes and core, chest and posture, and gentle recovery sessions
-- Simplified exercise illustrations and form guides
-- Adjustable session length, weekly goals, and equipment
-- Rest timer, completed workout history, and JSON export
+- 79 unique movement entries; source duplicates grouped into variations
+- Editable twice-weekly strength routine and cardio days
+- Daily yoga before dance, or an option to mark yoga as already completed outside Forma
+- Heels fundamentals and a rotating optional advanced extension
+- Flat-shoe practice option, guides, rest timer, and skip controls for daily practice
+- Separate strength, cardio, and daily-practice progress counts
+- Browser-local history, settings, and JSON export
 
 ## Run locally
-No installation or API keys are required.
-
-From this folder, run:
+No dependencies or API keys are needed. From this folder:
 ```bash
 python3 -m http.server 8000
 ```
-Open http://localhost:8000 in your browser. The app uses plain HTML, CSS, and JavaScript.
+Open http://localhost:8000. The app uses plain HTML, CSS, and JavaScript.
 
 ## Data
-Settings and history are stored in browser localStorage. They do not sync between browsers or devices. Use the progress export to keep a backup. There is no import feature in this version.
+Workout data stays in browser localStorage under the existing forma-v1 key. Upgrades preserve history and customized strength choices. It does not sync between browsers or devices. Export your data for a backup; this version has no import feature. No uploaded personal media or actual workout records are stored in this repository.
 
-## Files
-- `index.html`: responsive interface, styles, and exercise dialogs
-- `app.js`: routines, settings, timer, and local progress storage
+## Sources and scope
+The practice sequence is original, informed by publicly available instructor materials. It does not copy paid lessons.
+- [STEEZY: Kiira Harper’s Intro to Heels](https://www.steezy.co/posts/kiira-harper-q-a)
+- [STEEZY: beginner posture, balance, and preparation](https://www.steezy.co/posts/how-to-dance-confidently-in-heels)
+- [Shaka Lee: Heels Drills Vol. 1](https://www.shakalee.com/heels-drills)
+- [Shaka Lee: intermediate progression in Vol. 2](https://www.shakalee.com/heels-drills-online)
+- [DancePlug: dance shoe considerations](https://www.danceplug.com/article/dancing-in-heels-here-are-your-best-shoe-options)
+- [NHS: adult physical activity guidance](https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-for-adults-aged-19-to-64/)
+- [NHS: foot-pain guidance](https://www.nhs.uk/symptoms/foot-pain/heel-pain/)
 
-Exercise guidance is general. Illustrations are simplified positions rather than animations. The app does not promise targeted fat loss or breast lifting.
+The supplied fitness clips informed movement identification, not an assessment of the user’s dance technique. A floorwork course screenshot only listed course topics, so no unseen choreography was inferred. General exercise guidance does not promise targeted fat loss or breast lifting. Start gradually and stop if a movement hurts. Two short cardio blocks alone do not meet the general 150-minute weekly moderate-activity guideline.
 
-
-## Version 2.0
-- 57 unique exercise entries, with repeated source movements grouped as variations
-- A customizable recurring routine on two chosen weekdays (Monday and Thursday by default)
-- Starter sequence includes 13 movements; optional advanced poses are unselected
-- Identifiable movements from the supplied glute, arm, Pilates, wall-sit, moon-salutation, upper-back, and yoga references
-- Retains existing browser workout history
-
-The floorwork screenshot names paid courses but does not show movement instructions; no routine was inferred from it. Repetition targets are modest starter suggestions rather than the high-volume or appearance claims in social reels. Uploaded media is not redistributed with this app.
+## Video links
+Every one of the 79 exercise entries has a video link in the library, form guide, and guided workout. Twenty entries link to provider-published demonstrations or instructor video pages. The remaining entries link to exercise-specific YouTube searches, explicitly labeled as search results rather than verified videos. Direct YouTube playback was not verified; the Barts Health links were taken from its own physiotherapy page.
