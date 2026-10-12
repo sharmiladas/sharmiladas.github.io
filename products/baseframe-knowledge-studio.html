@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baseframe Knowledge Studio — Sharmila (Das) Rammohan</title>
+<meta name="description" content="An independent product prototype connecting source documents, evidence search, reviewed relationships, and an entity wiki. Product decisions, architecture, and run instructions.">
+<link rel="stylesheet" href="../styles.css?v=20261012-knowledge-studio">
+<style>
+.product-links{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0;font:700 13px Arial,sans-serif}.product-links a{border-bottom:2px solid var(--orange);padding:7px 0}.product-status{background:var(--white);border-left:5px solid var(--plum);padding:22px 24px;margin:30px 0;font:15px/1.65 Arial,sans-serif}.product-status p{margin:0 0 10px}.product-status p:last-child{margin:0}.architecture{margin:32px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font:14px/1.55 Arial,sans-serif}.architecture div{padding:20px;border:1px solid var(--line);background:var(--white)}.architecture strong{display:block;color:var(--plum);margin-bottom:8px}.architecture p{margin:0}.article-body code{font:14px/1.6 monospace;overflow-wrap:anywhere}.run-code{background:var(--ink);color:var(--white);padding:22px;overflow-x:auto;font:14px/1.7 monospace;white-space:pre}.article-body a:not(.download-link){text-decoration:underline;text-underline-offset:3px}.comparison{overflow:auto}.comparison table{min-width:570px}@media(max-width:760px){.architecture{grid-template-columns:1fr}.article-header h1{font-size:clamp(48px,11vw,76px)}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#project-content">Skip to project</a>
+<main class="article-page" id="project-content">
+<nav class="article-nav" aria-label="Project navigation"><a class="article-home" href="../">Sharmila (Das) Rammohan</a><div class="article-nav-links"><a href="../#products">All products</a><a href="../#practice">Selected impact</a></div></nav>
+<header class="article-header">
+<div><p class="article-topic">Independent product development · Knowledge architecture</p><h1>Baseframe Knowledge Studio</h1><p class="article-dek">A local workspace that connects documents, source evidence, reviewed relationships, and an entity wiki.</p></div>
+<div class="article-meta">By Sharmila (Das) Rammohan<br>October 2026<br>Working local MVP<br>Python · SQLite · JavaScript</div>
+</header>
+<article class="article-body">
+<div class="product-status"><p><strong>Current status:</strong> A local, single-user prototype with persistent document storage, keyword evidence search, a graph, and a review queue.</p><p>The source repository is private. Its run guide requires GitHub access. The main workspace runs without an API key. It is separate from the earlier browser-only graph editor.</p></div>
+<div class="product-links"><a href="https://github.com/sharmiladas/baseframe-knowledge-graph" target="_blank" rel="noopener">Source repository · private ↗</a><a href="https://github.com/sharmiladas/baseframe-knowledge-graph/blob/main/RUNNING.md" target="_blank" rel="noopener">Complete run guide · access required ↗</a></div>
+<h2>The problem</h2>
+<p>Documentation teams can find a page without finding the relationship they need: which system a product depends on, who owns it, or which policy governs it. A useful knowledge tool must preserve the source behind a relationship and make its approval visible.</p>
+<h2>The product decision</h2>
+<p>I scoped the first version around documentation and content platform teams. The initial task is small: add a platform charter, inspect the proposed relationships, approve the ones supported by the text, and use that knowledge to find dependencies and owners.</p>
+<p>The design connects discovery to review. Source passages remain visible throughout the workflow, and new relationships enter a pending state. Search returns the passages it finds; it does not turn them into an unsupported generated answer.</p>
+<h2>What I built</h2>
+<div class="comparison"><table><thead><tr><th>Capability</th><th>Current behavior</th></tr></thead><tbody>
+<tr><td>Document workspace</td><td>Paste source text or upload text and Markdown files. Store documents in SQLite.</td></tr>
+<tr><td>Relationship candidates</td><td>Recognize explicit English statements using seven controlled relationship phrases. Retain the exact source quote.</td></tr>
+<tr><td>Human review</td><td>Approve or reject each relationship after inspecting its meaning and evidence.</td></tr>
+<tr><td>Knowledge graph</td><td>Visualize approved relationships and inspect an entity’s source evidence.</td></tr>
+<tr><td>Entity wiki</td><td>Build linked entity views from approved relationships and their quotations.</td></tr>
+<tr><td>Evidence search</td><td>Return keyword-matching source passages with document citations and a no-evidence state.</td></tr>
+<tr><td>Portability</td><td>Export an evidence snapshot as JSON. Back up the full workspace by copying its database while the server is stopped.</td></tr>
+</tbody></table></div>
+<h2>The user journey</h2>
+<ol>
+<li><strong>Add:</strong> Ingest a document such as a content platform charter.</li>
+<li><strong>Inspect:</strong> Read the extracted candidate and its exact quotation.</li>
+<li><strong>Review:</strong> Approve meaning, entity identity, and relationship direction.</li>
+<li><strong>Explore:</strong> Follow approved connections in the graph or entity wiki.</li>
+<li><strong>Find evidence:</strong> Search for a question and inspect the cited passages.</li>
+</ol>
+<p>An illustrative source sentence, “Content Advisor depends on CMS,” creates a pending <code>depends_on</code> relationship. It appears in the approved graph only after review. This is demo data, not a claim about an employer’s systems.</p>
+<h2>Architecture</h2>
+<p>The browser calls a local Python API. The API stores documents and relationship decisions in SQLite, extracts explicit relationships, and retrieves matching passages. The browser builds the graph and wiki from approved records.</p>
+<div class="architecture" aria-label="Three-layer application architecture">
+<div><strong>Browser workspace</strong><p>Documents, review queue, evidence search, graph, wiki, and JSON export.</p></div>
+<div><strong>Local Python API</strong><p>Document ingestion, controlled extraction, quote checks, review updates, and keyword retrieval.</p></div>
+<div><strong>SQLite persistence</strong><p>Source documents and relationship records, including quotes and approval state.</p></div>
+</div>
+<p>The local server binds to <code>127.0.0.1</code>. Mutation requests check the host and origin. UI text is escaped, and input sizes are bounded. These controls support a local prototype; they do not provide enterprise identity or document permissions.</p>
+<h2>Tradeoffs I made</h2>
+<ul>
+<li><strong>Start with explicit relationships:</strong> Controlled extraction makes candidate behavior inspectable. It misses statements outside the supported grammar.</li>
+<li><strong>Keep retrieval extractive:</strong> Showing source passages makes evidence visible. Keyword matching cannot reliably interpret paraphrases.</li>
+<li><strong>Use SQLite:</strong> A single local database keeps setup simple. It does not solve shared access or a production graph service.</li>
+<li><strong>Separate AI extraction:</strong> The optional CLI produces model-assisted candidates for the earlier graph editor. Integration into the persistent workspace remains a next step.</li>
+</ul>
+<h2>How to run it</h2>
+<p>Download the repository, open a terminal in its folder, and run:</p>
+<pre class="run-code"><code>python3 server.py</code></pre>
+<p>On Windows, use <code>py server.py</code>. Then open <code>http://127.0.0.1:8000</code>. Python 3.10 or newer is required. No dependency installation or API key is needed for the main workspace.</p>
+<p>Start with <strong>Add sample charter</strong> in Overview, approve relationships in Review queue, then open Knowledge graph, Wiki, and Ask knowledge.</p>
+<div class="download-card"><p><strong>Complete run guide</strong>Mac, Windows, and Linux setup; sample workflow; supported relationship phrases; backups; optional AI configuration; tests; troubleshooting.</p><a class="download-link" href="https://github.com/sharmiladas/baseframe-knowledge-graph/blob/main/RUNNING.md" target="_blank" rel="noopener">Read guide ↗</a></div>
+<h2>What I verified</h2>
+<p>Five Python tests passed for document persistence, extraction validation, missing evidence, and no-answer behavior. JavaScript checks passed for quote validation, malformed graph imports, approval downgrades, and directed paths in the earlier editor. An HTTP smoke check passed for serving the workspace, adding a document, approving a relationship, and retrieving its source passage.</p>
+<p>These checks establish basic behavior. Customer adoption, task completion time, semantic accuracy at scale, and live model extraction have not been measured or verified.</p>
+<h2>What comes next</h2>
+<p>The next product gate is a small retrieval pilot: representative questions, expected sources, unsupported questions, and a comparison against the current search workflow. That evidence should guide whether to add embeddings, hybrid retrieval, and cited answer generation.</p>
+<p>Later phases include shared ingestion for the CLI and UI, entity resolution, source versions, document deletion and update propagation, review history, authentication, and document-level permissions.</p>
+<div class="product-status"><p><strong>Implemented:</strong> Local document workspace, controlled extraction, review, keyword retrieval, graph, wiki, and exports.</p><p><strong>Planned:</strong> PDF/Word parsing, semantic retrieval, generated answers in the persistent workspace, connectors, synchronization, and team access.</p><p>The separate developer-documentation portfolio describes a fictional asynchronous knowledge API. Its authentication and indexing contracts are writing samples, not this prototype’s implemented API.</p></div>
+<h2>Product artifacts</h2>
+<p>The repository includes the product strategy, requirements and graph playbook, complete run guide, sample brief, extraction CLI, and tests. It is a product development project with an explicit evaluation plan; it has no claimed customer outcomes.</p>
+<p class="article-note">Independent Baseframe project. The persistent workspace runs locally; the earlier hosted graph editor remains a separate prototype. Source access is private. Current capabilities and proposed architecture are kept distinct.</p>
+</article>
+<footer class="article-footer"><a href="../#products">← All products</a><a href="https://github.com/sharmiladas/baseframe-knowledge-graph" target="_blank" rel="noopener">Source repository · private ↗</a></footer>
+</main></body></html>
