@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Content Readiness Assessment | The Baseframe</title>
+  <meta name="description" content="Assess your organization's readiness for reliable AI content, RAG, and knowledge systems across trust, structure, governance, and evaluation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307101f'/%3E%3Ccircle cx='18' cy='32' r='5' fill='%2359c7ff'/%3E%3Ccircle cx='46' cy='17' r='5' fill='%23ffbd67'/%3E%3Ccircle cx='46' cy='47' r='5' fill='%2359c7ff'/%3E%3Cpath d='M23 30 41 19M23 34l18 11' stroke='%23d9efff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root{--ink:#07101f;--navy:#0b1b33;--blue:#2367d1;--sky:#59c7ff;--amber:#ffbd67;--paper:#f4f8fc;--white:#fff;--muted:#5d6878;--line:#dbe4ef;--shadow:0 24px 70px rgba(7,16,31,.11)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "DM Sans",sans-serif}a{color:inherit}.wrap{width:min(900px,calc(100% - 36px));margin:auto}.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:10px 14px;z-index:100}.skip:focus{left:8px}
+    header{background:#07101f;color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Manrope,sans-serif;font-weight:700;text-decoration:none}.brand span{color:var(--sky)}.back{color:#d8e4f2;text-decoration:none;font-weight:600;font-size:.92rem}.back:hover{color:#fff}
+    .intro{background:linear-gradient(135deg,#07101f,#123968);color:#fff;padding:82px 0 74px}.eyebrow{color:var(--sky);font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.12;letter-spacing:-.04em}h1{font-size:clamp(2.7rem,7vw,5rem);max-width:820px;margin:19px 0 24px}.intro p{font-size:1.15rem;color:#c9d8ea;max-width:720px;margin:0}.intro-note{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:#dce7f4;font-size:.88rem}.intro-note span{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px}
+    main{padding:62px 0 96px}.instructions{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;margin-bottom:28px}.instructions h2{font-size:1.3rem;margin:0 0 8px}.instructions p{margin:0;color:var(--muted)}
+    .dimension{margin:0 0 28px;border:0;padding:0}.dimension-title{display:block;width:100%;background:var(--navy);color:#fff;border-radius:16px 16px 0 0;padding:20px 24px;font:700 1.25rem/1.2 Manrope,sans-serif}.question{background:#fff;border:1px solid var(--line);border-top:0;padding:24px}.question:last-child{border-radius:0 0 16px 16px}.question p{font-weight:700;margin:0 0 15px;line-height:1.45}.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.choice{position:relative}.choice input{position:absolute;opacity:0}.choice label{display:block;height:100%;border:1px solid var(--line);border-radius:11px;padding:13px 11px;cursor:pointer;color:#40516a;font-size:.85rem;line-height:1.35;background:#fbfdff}.choice input:focus-visible+label{outline:3px solid rgba(35,103,209,.3);outline-offset:2px}.choice input:checked+label{border-color:var(--blue);background:#eaf3ff;color:#153b70;font-weight:700}.choice b{display:block;font-size:1rem;color:var(--ink);margin-bottom:3px}
+    .submit-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:35px}.btn{border:0;border-radius:999px;padding:14px 23px;background:var(--amber);color:#10233e;font-weight:700;cursor:pointer}.btn:hover{background:#ffd294}.privacy{font-size:.86rem;color:var(--muted)}
+    .result{display:none;margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.result.show{display:block}.result-top{background:var(--navy);color:#fff;padding:34px}.result-score{font:700 4rem/1 Manrope,sans-serif;color:var(--amber)}.result-top h2{font-size:1.8rem;margin:12px 0 9px}.result-top p{color:#c9d8ea;margin:0}.result-body{padding:32px}.result-body h3{font-size:1.25rem;margin:0 0 10px}.result-body p{color:var(--muted)}.next-steps{margin:24px 0;padding-left:20px}.next-steps li+li{margin-top:10px}.result-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.result-actions a,.reset{display:inline-flex;border-radius:999px;padding:12px 18px;text-decoration:none;font-weight:700}.result-actions a{background:var(--blue);color:#fff}.reset{border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+    footer{background:#050b14;color:#9fb0c4;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:18px}.foot a{color:#d5e2f0;text-decoration:none}
+    @media(max-width:700px){.choices{grid-template-columns:1fr 1fr}.intro{padding:62px 0 58px}main{padding-top:42px}.foot{flex-direction:column}}@media(max-width:430px){.choices{grid-template-columns:1fr}.question,.result-body{padding:20px}.dimension-title{padding:18px 20px}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#assessment">Skip to assessment</a>
+  <header><nav class="wrap"><a class="brand" href="index.html">THE <span>BASEFRAME</span></a><a class="back" href="index.html#learning">← Learning &amp; toolkits</a></nav></header>
+  <section class="intro">
+    <div class="wrap">
+      <div class="eyebrow">Free AI content readiness assessment</div>
+      <h1>Can your content support reliable AI?</h1>
+      <p>Evaluate the foundations behind RAG, agents, AI-assisted content, and enterprise knowledge experiences. Your score identifies where to focus before investing further in models or platforms.</p>
+      <div class="intro-note"><span>12 questions</span><span>About 5 minutes</span><span>Instant recommendations</span></div>
+    </div>
+  </section>
+  <main id="assessment" class="wrap">
+    <div class="instructions"><h2>Choose the answer closest to current reality.</h2><p>Score the system you have today—not the roadmap. If practices vary across teams, use the most common state.</p></div>
+    <form id="readiness-form">
+      <fieldset class="dimension" data-dimension="Trust">
+        <legend class="dimension-title">1. Source trust</legend>
+        <div class="question"><p>1. Can teams identify the authoritative source for important claims and guidance?</p><div class="choices">
+          <div class="choice"><input required id="q1a" type="radio" name="q1" value="0"><label for="q1a"><b>Rarely</b>Sources conflict or are unclear.</label></div><div class="choice"><input id="q1b" type="radio" name="q1" value="1"><label for="q1b"><b>Sometimes</b>Experts know, but systems do not.</label></div><div class="choice"><input id="q1c" type="radio" name="q1" value="2"><label for="q1c"><b>Usually</b>Priority content has clear authority.</label></div><div class="choice"><input id="q1d" type="radio" name="q1" value="3"><label for="q1d"><b>Consistently</b>Authority is explicit and enforced.</label></div>
+        </div></div>
+        <div class="question"><p>2. Do content items carry ownership, approval, and effective-date information?</p><div class="choices">
+          <div class="choice"><input required id="q2a" type="radio" name="q2" value="0"><label for="q2a"><b>Rarely</b>Little lifecycle information exists.</label></div><div class="choice"><input id="q2b" type="radio" name="q2" value="1"><label for="q2b"><b>Sometimes</b>Tracked manually or inconsistently.</label></div><div class="choice"><input id="q2c" type="radio" name="q2" value="2"><label for="q2c"><b>Usually</b>Present for priority sources.</label></div><div class="choice"><input id="q2d" type="radio" name="q2" value="3"><label for="q2d"><b>Consistently</b>Required, visible, and maintained.</label></div>
+        </div></div>
+        <div class="question"><p>3. Is outdated or superseded guidance removed from AI-eligible sources?</p><div class="choices">
+          <div class="choice"><input required id="q3a" type="radio" name="q3" value="0"><label for="q3a"><b>Rarely</b>Old versions remain discoverable.</label></div><div class="choice"><input id="q3b" type="radio" name="q3" value="1"><label for="q3b"><b>Sometimes</b>Cleanup happens after problems.</label></div><div class="choice"><input id="q3c" type="radio" name="q3" value="2"><label for="q3c"><b>Usually</b>Reviews cover priority content.</label></div><div class="choice"><input id="q3d" type="radio" name="q3" value="3"><label for="q3d"><b>Consistently</b>Lifecycle rules control eligibility.</label></div>
+        </div></div>
+      </fieldset>
+
+      <fieldset class="dimension" data-dimension="Structure">
+        <legend class="dimension-title">2. Structure &amp; retrieval</legend>
+        <div class="question"><p>4. Is content organized into reusable types rather than only pages and files?</p><div class="choices">
+          <div class="choice"><input required id="q4a" type="radio" name="q4" value="0"><label for="q4a"><b>Rarely</b>Knowledge is trapped in documents.</label></div><div class="choice"><input id="q4b" type="radio" name="q4" value="1"><label for="q4b"><b>Sometimes</b>A few structured collections exist.</label></div><div class="choice"><input id="q4c" type="radio" name="q4" value="2"><label for="q4c"><b>Usually</b>Priority domains use models.</label></div><div class="choice"><input id="q4d" type="radio" name="q4" value="3"><label for="q4d"><b>Consistently</b>Reusable types guide authoring.</label></div>
+        </div></div>
+        <div class="question"><p>5. Does metadata capture audience, product, task, version, topic, and risk where relevant?</p><div class="choices">
+          <div class="choice"><input required id="q5a" type="radio" name="q5" value="0"><label for="q5a"><b>Rarely</b>Metadata is missing or cosmetic.</label></div><div class="choice"><input id="q5b" type="radio" name="q5" value="1"><label for="q5b"><b>Sometimes</b>Different teams use different fields.</label></div><div class="choice"><input id="q5c" type="radio" name="q5" value="2"><label for="q5c"><b>Usually</b>A shared model covers key content.</label></div><div class="choice"><input id="q5d" type="radio" name="q5" value="3"><label for="q5d"><b>Consistently</b>Metadata drives retrieval and reuse.</label></div>
+        </div></div>
+        <div class="question"><p>6. Can retrieval reliably distinguish the right audience, product, market, and version?</p><div class="choices">
+          <div class="choice"><input required id="q6a" type="radio" name="q6" value="0"><label for="q6a"><b>Rarely</b>Similarity search does most of the work.</label></div><div class="choice"><input id="q6b" type="radio" name="q6" value="1"><label for="q6b"><b>Sometimes</b>Filters exist but are incomplete.</label></div><div class="choice"><input id="q6c" type="radio" name="q6" value="2"><label for="q6c"><b>Usually</b>Key context shapes retrieval.</label></div><div class="choice"><input id="q6d" type="radio" name="q6" value="3"><label for="q6d"><b>Consistently</b>Context, authority, and relevance combine.</label></div>
+        </div></div>
+      </fieldset>
+
+      <fieldset class="dimension" data-dimension="Governance">
+        <legend class="dimension-title">3. Governance &amp; operations</legend>
+        <div class="question"><p>7. Are decision rights clear across content, product, engineering, legal, and subject experts?</p><div class="choices">
+          <div class="choice"><input required id="q7a" type="radio" name="q7" value="0"><label for="q7a"><b>Rarely</b>Escalations depend on relationships.</label></div><div class="choice"><input id="q7b" type="radio" name="q7" value="1"><label for="q7b"><b>Sometimes</b>Roles are understood informally.</label></div><div class="choice"><input id="q7c" type="radio" name="q7" value="2"><label for="q7c"><b>Usually</b>Priority workflows define ownership.</label></div><div class="choice"><input id="q7d" type="radio" name="q7" value="3"><label for="q7d"><b>Consistently</b>Decision rights are explicit and used.</label></div>
+        </div></div>
+        <div class="question"><p>8. Are review and approval requirements based on content and use-case risk?</p><div class="choices">
+          <div class="choice"><input required id="q8a" type="radio" name="q8" value="0"><label for="q8a"><b>Rarely</b>One process applies to everything.</label></div><div class="choice"><input id="q8b" type="radio" name="q8" value="1"><label for="q8b"><b>Sometimes</b>Teams make local exceptions.</label></div><div class="choice"><input id="q8c" type="radio" name="q8" value="2"><label for="q8c"><b>Usually</b>High-risk uses have stronger gates.</label></div><div class="choice"><input id="q8d" type="radio" name="q8" value="3"><label for="q8d"><b>Consistently</b>Risk tiers route review and approval.</label></div>
+        </div></div>
+        <div class="question"><p>9. Does user and AI-system feedback reach accountable content owners?</p><div class="choices">
+          <div class="choice"><input required id="q9a" type="radio" name="q9" value="0"><label for="q9a"><b>Rarely</b>Feedback is fragmented or lost.</label></div><div class="choice"><input id="q9b" type="radio" name="q9" value="1"><label for="q9b"><b>Sometimes</b>Teams review it episodically.</label></div><div class="choice"><input id="q9c" type="radio" name="q9" value="2"><label for="q9c"><b>Usually</b>Priority signals have owners.</label></div><div class="choice"><input id="q9d" type="radio" name="q9" value="3"><label for="q9d"><b>Consistently</b>Feedback drives an operating cadence.</label></div>
+        </div></div>
+      </fieldset>
+
+      <fieldset class="dimension" data-dimension="Evaluation">
+        <legend class="dimension-title">4. Quality &amp; evaluation</legend>
+        <div class="question"><p>10. Do you test answers against representative tasks and approved evidence?</p><div class="choices">
+          <div class="choice"><input required id="q10a" type="radio" name="q10" value="0"><label for="q10a"><b>Rarely</b>Demos or spot checks define quality.</label></div><div class="choice"><input id="q10b" type="radio" name="q10" value="1"><label for="q10b"><b>Sometimes</b>A small informal test set exists.</label></div><div class="choice"><input id="q10c" type="radio" name="q10" value="2"><label for="q10c"><b>Usually</b>Priority tasks have expected evidence.</label></div><div class="choice"><input id="q10d" type="radio" name="q10" value="3"><label for="q10d"><b>Consistently</b>Versioned tests gate releases.</label></div>
+        </div></div>
+        <div class="question"><p>11. Can teams diagnose whether a failure came from source, retrieval, context, generation, or review?</p><div class="choices">
+          <div class="choice"><input required id="q11a" type="radio" name="q11" value="0"><label for="q11a"><b>Rarely</b>Failures are labeled model problems.</label></div><div class="choice"><input id="q11b" type="radio" name="q11" value="1"><label for="q11b"><b>Sometimes</b>Experts investigate manually.</label></div><div class="choice"><input id="q11c" type="radio" name="q11" value="2"><label for="q11c"><b>Usually</b>Telemetry supports diagnosis.</label></div><div class="choice"><input id="q11d" type="radio" name="q11" value="3"><label for="q11d"><b>Consistently</b>Layered measures isolate causes.</label></div>
+        </div></div>
+        <div class="question"><p>12. Do release decisions combine automated checks with appropriate human judgment?</p><div class="choices">
+          <div class="choice"><input required id="q12a" type="radio" name="q12" value="0"><label for="q12a"><b>Rarely</b>Approval is ad hoc or absent.</label></div><div class="choice"><input id="q12b" type="radio" name="q12" value="1"><label for="q12b"><b>Sometimes</b>Review happens but is inconsistent.</label></div><div class="choice"><input id="q12c" type="radio" name="q12" value="2"><label for="q12c"><b>Usually</b>Checks and experts share the work.</label></div><div class="choice"><input id="q12d" type="radio" name="q12" value="3"><label for="q12d"><b>Consistently</b>Risk determines the evaluation path.</label></div>
+        </div></div>
+      </fieldset>
+      <div class="submit-row"><button class="btn" type="submit">Calculate my readiness score</button><span class="privacy">Your answers stay in this browser and are not saved.</span></div>
+    </form>
+
+    <section class="result" id="result" aria-live="polite" tabindex="-1">
+      <div class="result-top"><div class="result-score"><span id="score">0</span>/36</div><h2 id="level">Readiness level</h2><p id="summary"></p></div>
+      <div class="result-body"><h3>Your first priority: <span id="priority"></span></h3><p id="priority-copy"></p><h3>Recommended next steps</h3><ol class="next-steps" id="next-steps"></ol><div class="result-actions"><a href="mailto:das.sharmila@gmail.com?subject=AI%20Content%20Readiness%20Assessment%20Results&amp;body=Hi%20Sharmila%2C%0A%0AI%27d%20like%20to%20discuss%20my%20AI%20content%20readiness%20assessment%20results.%0A%0AName%3A%0AOrganization%3A%0AScore%3A%0AMain%20priority%3A%0A">Discuss your results →</a><button class="reset" type="button" id="reset">Reset assessment</button></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span>© 2026 The Baseframe</span><a href="index.html">Enterprise Content, Knowledge &amp; AI Advisory</a></div></footer>
+  <script>
+    const form=document.getElementById('readiness-form');
+    const profiles=[
+      {max:11,level:'Fragile foundation',summary:'AI initiatives are likely to amplify existing content and ownership problems. Stabilize a narrow, high-value knowledge domain before expanding.',steps:['Choose one consequential use case and identify its authoritative sources.','Assign owners and remove stale or conflicting guidance.','Define a small test set before changing models or prompts.']},
+      {max:23,level:'Foundation in progress',summary:'Useful practices exist, but they are uneven. Focus on making authority, structure, and quality controls repeatable across one priority workflow.',steps:['Document the current content-to-answer workflow and its decision rights.','Standardize metadata, lifecycle rules, and AI eligibility for priority content.','Baseline answer quality and diagnose failures by system layer.']},
+      {max:29,level:'Operationally ready',summary:'Your organization has a credible base for governed pilots. The next challenge is connecting the practices into a measurable operating system.',steps:['Turn existing practices into explicit release gates and escalation paths.','Connect user feedback and evaluation failures to accountable owners.','Pilot the model in a second domain and test whether it transfers.']},
+      {max:36,level:'Ready to scale',summary:'Your foundations can support broader AI adoption. Protect quality as scope grows by measuring system behavior, business value, and governance together.',steps:['Stress-test the system across higher-risk and cross-domain scenarios.','Track knowledge health, retrieval, answer quality, and business outcomes together.','Create a reusable playbook for onboarding new domains and teams.']}
+    ];
+    const priorityCopy={Trust:'Clarify source authority, ownership, lifecycle, and AI eligibility before tuning retrieval or generation.',Structure:'Strengthen content models, metadata, context, and retrieval so the right knowledge can be selected reliably.',Governance:'Make decision rights, risk tiers, feedback loops, and operating cadence explicit across functions.',Evaluation:'Build representative test sets and layered measures that reveal why an answer succeeds or fails.'};
+    form.addEventListener('submit',event=>{
+      event.preventDefault();
+      const data=new FormData(form);let total=0;const scores={Trust:0,Structure:0,Governance:0,Evaluation:0};
+      [...form.querySelectorAll('.dimension')].forEach((field,index)=>{const name=field.dataset.dimension;for(let q=index*3+1;q<=index*3+3;q++){const value=Number(data.get('q'+q));total+=value;scores[name]+=value;}});
+      const profile=profiles.find(item=>total<=item.max);const priority=Object.entries(scores).sort((a,b)=>a[1]-b[1])[0][0];
+      document.getElementById('score').textContent=total;document.getElementById('level').textContent=profile.level;document.getElementById('summary').textContent=profile.summary;document.getElementById('priority').textContent=priority;document.getElementById('priority-copy').textContent=priorityCopy[priority];document.getElementById('next-steps').innerHTML=profile.steps.map(step=>'<li>'+step+'</li>').join('');
+      const result=document.getElementById('result');result.classList.add('show');result.focus();
+    });
+    document.getElementById('reset').addEventListener('click',()=>{form.reset();document.getElementById('result').classList.remove('show');form.scrollIntoView({behavior:'smooth'});});
+  </script>
+</body>
+</html>
