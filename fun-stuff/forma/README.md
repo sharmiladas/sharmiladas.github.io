@@ -1,4 +1,4 @@
-# Forma 2.2 — Daily movement, strength, and dance
+# Forma 3.0 — Daily movement, strength, and dance
 
 [Open Forma](https://sharmiladas.github.io/fun-stuff/forma/) · [Portfolio](https://sharmiladas.github.io/#fun-stuff)
 
@@ -50,3 +50,10 @@ The supplied fitness clips informed movement identification, not an assessment o
 
 ## Video links
 Every one of the 79 exercise entries has a video link in the library, form guide, and guided workout. Twenty entries link to provider-published demonstrations or instructor video pages. The remaining entries link to exercise-specific YouTube searches, explicitly labeled as search results rather than verified videos. Direct YouTube playback was not verified; the Barts Health links were taken from its own physiotherapy page.
+
+## Forma 3.0: customize by goals
+The default goals are mobility, posture, and muscle definition. Choose multiple goals and a primary priority, then set strength-session length, workload, equipment, cardio time, and whether to include floor exercises. A live preview explains the recommendation before Apply replaces the chosen strength and yoga routines. Individual strength choices can still be edited in Weekly routine.
+
+The generator changes exercise selection, equipment variations, yoga priorities, set counts, and cardio duration. It preserves the daily yoga/dance and twice-weekly strength/cardio structure, selected weekdays, dance preferences, and existing workout history. Bodyweight and no-floor alternatives are available. Advanced dance remains optional.
+
+Weekly check-ins track subjective mobility ease, posture comfort, and the resistance used. They are personal observations, not a medical assessment or a promise of changes in appearance. Check-ins and profiles are saved only in the current browser.
