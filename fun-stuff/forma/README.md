@@ -1,6 +1,6 @@
 # Forma 3.0 — Make movement fit your goals
 
-[Open the app](https://sharmiladas.github.io/fun-stuff/forma/) · [Source code](https://github.com/sharmiladas/sharmiladas.github.io/tree/main/fun-stuff/forma) · [Portfolio: Fun Stuff](https://sharmiladas.github.io/#fun-stuff)
+[Open the app](https://sharmiladas.github.io/fun-stuff/forma/) · [Source code](https://github.com/sharmiladas/sharmiladas.github.io/tree/main/fun-stuff/forma) · [Portfolio: Products](https://sharmiladas.github.io/#products)
 
 Forma is a browser fitness and dance planner by Sharmila (Das) Rammohan. Choose goals such as mobility, posture, getting toned, or weight management, preview a routine, and adjust it to your equipment and available time. Fork the code to make your own version.
 
