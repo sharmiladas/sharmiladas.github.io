@@ -1,0 +1,148 @@
+{
+  "fictional": true,
+  "as_of": "2026-10-11",
+  "timezone": "Asia/Kolkata",
+  "program": "Knowledge platform pilot",
+  "milestone": {
+    "id": "M-01",
+    "name": "Pilot readiness review",
+    "committed_date": "2026-10-16",
+    "status": "amber"
+  },
+  "workstreams": [
+    {
+      "id": "WS-01",
+      "name": "Ingestion",
+      "owner": "Demo owner 1",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-02",
+      "name": "Content modeling",
+      "owner": "Demo owner 2",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-03",
+      "name": "Identity and permissions",
+      "owner": "Demo owner 3",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-04",
+      "name": "Knowledge graph",
+      "owner": "Demo owner 4",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-05",
+      "name": "Search and retrieval",
+      "owner": "Demo owner 5",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-06",
+      "name": "Answer evaluation",
+      "owner": "Demo owner 6",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-07",
+      "name": "Editorial standards",
+      "owner": "Demo owner 7",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-08",
+      "name": "CMS integration",
+      "owner": "Demo owner 8",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-09",
+      "name": "Developer documentation",
+      "owner": "Demo owner 9",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-10",
+      "name": "Operations and support",
+      "owner": "Demo owner 10",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-11",
+      "name": "Analytics",
+      "owner": "Demo owner 11",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    },
+    {
+      "id": "WS-12",
+      "name": "Launch enablement",
+      "owner": "Demo owner 12",
+      "status": "unknown",
+      "source": "source-notes.md#Coverage",
+      "last_verified": null
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-01",
+      "supplier": "WS-03",
+      "consumer": "WS-01",
+      "deliverable": "Approved permission mapping",
+      "needed_by": "2026-10-12",
+      "forecast": "unconfirmed",
+      "status": "blocked",
+      "affected_milestone": "M-01",
+      "source": "source-notes.md#Permissions",
+      "last_verified": "2026-10-10"
+    },
+    {
+      "id": "DEP-02",
+      "supplier": "WS-01",
+      "consumer": "WS-04",
+      "deliverable": "Permission-filtered test corpus",
+      "needed_by": "2026-10-13",
+      "forecast": "unconfirmed",
+      "status": "at risk",
+      "affected_milestone": "M-01",
+      "source": "source-notes.md#Permissions",
+      "last_verified": "2026-10-10"
+    },
+    {
+      "id": "DEP-03",
+      "supplier": "WS-04",
+      "consumer": "WS-05",
+      "deliverable": "Validated graph export",
+      "needed_by": "2026-10-14",
+      "forecast": "unconfirmed",
+      "status": "at risk",
+      "affected_milestone": "M-01",
+      "source": "source-notes.md#Permissions",
+      "last_verified": "2026-10-10"
+    }
+  ]
+}
