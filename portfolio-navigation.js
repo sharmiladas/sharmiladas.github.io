@@ -4,6 +4,7 @@
     ["index.html", "Overview", "overview"],
     ["technical-writing.html", "AI content strategy", "ai-content-strategy"],
     ["knowledge-management.html", "Knowledge management", "knowledge-management"],
+    ["learning-labs.html", "Learning Labs", "learning-labs"],
     ["work.html", "My work", "work"],
     ["editorial.html", "Editorial leadership", "editorial"],
     ["program-management.html", "Program management", "program-management"],
@@ -37,7 +38,7 @@
 
   const page = location.pathname.split('/').pop();
   if (page && page !== 'index.html') return;
-  const routes = {"ai-content-strategy": "technical-writing.html", "technical-writing": "technical-writing.html", "knowledge-management": "knowledge-management.html", "work": "work.html", "essays": "work.html", "editorial-leadership": "editorial.html", "practice": "program-management.html", "developer-documentation": "developer-documentation.html", "products": "products.html", "fun-stuff": "products.html", "frameworks": "frameworks.html", "point-of-view": "perspective.html", "background": "about.html"};
+  const routes = {"learning-labs": "learning-labs.html", "ai-content-strategy": "technical-writing.html", "technical-writing": "technical-writing.html", "knowledge-management": "knowledge-management.html", "work": "work.html", "essays": "work.html", "editorial-leadership": "editorial.html", "practice": "program-management.html", "developer-documentation": "developer-documentation.html", "products": "products.html", "fun-stuff": "products.html", "frameworks": "frameworks.html", "point-of-view": "perspective.html", "background": "about.html"};
   function routeBookmark() {
     const key = location.hash.slice(1);
     if (routes[key]) location.replace(routes[key]);
@@ -45,3 +46,4 @@
   routeBookmark();
   window.addEventListener('hashchange', routeBookmark);
 })();
+
