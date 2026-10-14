@@ -1,0 +1,98 @@
+{
+  "split": "dev",
+  "note": "Real lexical retrieval experiment on a synthetic corpus; not an MCP or production recommender. Stable ties follow corpus order.",
+  "variants": {
+    "body_only": {
+      "cases": 8,
+      "recall_at_1": 0.375,
+      "rows": [
+        {
+          "case_id": "Q025",
+          "top_document": "authentication",
+          "hit": false
+        },
+        {
+          "case_id": "Q026",
+          "top_document": "citations",
+          "hit": true
+        },
+        {
+          "case_id": "Q027",
+          "top_document": "deletion",
+          "hit": false
+        },
+        {
+          "case_id": "Q028",
+          "top_document": "citations",
+          "hit": true
+        },
+        {
+          "case_id": "Q029",
+          "top_document": "authentication",
+          "hit": false
+        },
+        {
+          "case_id": "Q030",
+          "top_document": "citations",
+          "hit": false
+        },
+        {
+          "case_id": "Q031",
+          "top_document": "deletion",
+          "hit": false
+        },
+        {
+          "case_id": "Q032",
+          "top_document": "uploads",
+          "hit": true
+        }
+      ]
+    },
+    "title_aliases": {
+      "cases": 8,
+      "recall_at_1": 0.5,
+      "rows": [
+        {
+          "case_id": "Q025",
+          "top_document": "authentication",
+          "hit": false
+        },
+        {
+          "case_id": "Q026",
+          "top_document": "citations",
+          "hit": true
+        },
+        {
+          "case_id": "Q027",
+          "top_document": "citations",
+          "hit": true
+        },
+        {
+          "case_id": "Q028",
+          "top_document": "citations",
+          "hit": true
+        },
+        {
+          "case_id": "Q029",
+          "top_document": "authentication",
+          "hit": false
+        },
+        {
+          "case_id": "Q030",
+          "top_document": "citations",
+          "hit": false
+        },
+        {
+          "case_id": "Q031",
+          "top_document": "deletion",
+          "hit": false
+        },
+        {
+          "case_id": "Q032",
+          "top_document": "uploads",
+          "hit": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "paired_answers": 0,
+  "dimensions": {
+    "accuracy": {
+      "exact_agreement": null,
+      "mean_absolute_error": null
+    },
+    "grounding": {
+      "exact_agreement": null,
+      "mean_absolute_error": null
+    },
+    "relevance": {
+      "exact_agreement": null,
+      "mean_absolute_error": null
+    },
+    "usefulness": {
+      "exact_agreement": null,
+      "mean_absolute_error": null
+    },
+    "safety": {
+      "exact_agreement": null,
+      "mean_absolute_error": null
+    }
+  },
+  "note": "No agreement estimate until paired reviews exist. This does not measure either evaluator against ground truth."
+}
