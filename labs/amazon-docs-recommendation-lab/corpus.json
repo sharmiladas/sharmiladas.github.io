@@ -1,0 +1,228 @@
+[
+  {
+    "id": "lwa-overview",
+    "title": "Login with Amazon Documentation",
+    "url": "https://developer.amazon.com/docs/login-with-amazon/documentation-overview.html",
+    "summary": "Login with Amazon uses OAuth 2.0 for user-authorized access. It has integration guides for websites, mobile apps, and devices. Devices without a browser can use code-based linking: display a code and verification URL, then the user signs in on another device.",
+    "tags": [
+      "authentication",
+      "oauth",
+      "code based linking",
+      "sign in",
+      "smart tv",
+      "cbl"
+    ],
+    "platforms": [
+      "web",
+      "mobile",
+      "tv"
+    ],
+    "stage": "discover",
+    "audiences": [
+      "developer",
+      "architect"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": null,
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "3cf67ee8773cfade9fbf0f226a83704f09cd25676ca4b26bb9fc9e68c8b49dfb"
+  },
+  {
+    "id": "lwa-register",
+    "title": "Register for Login with Amazon",
+    "url": "https://developer.amazon.com/docs/login-with-amazon/register-web.html",
+    "summary": "Website integration starts with a Security Profile in the Developer Console. Configure HTTPS Allowed Origins for the JavaScript SDK popup flow or Allowed Return URLs for redirect-based authorization. Supply a privacy-policy URL for the consent experience.",
+    "tags": [
+      "authentication",
+      "registration",
+      "security profile",
+      "redirect",
+      "allowed origins",
+      "consent"
+    ],
+    "platforms": [
+      "web"
+    ],
+    "stage": "configure",
+    "audiences": [
+      "developer"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": "2023-12-20",
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "3a627dabad9d22bcf94f0307f1c58bcdf3e23c9a721f0df00c2bafafaad32f05"
+  },
+  {
+    "id": "lwa-refresh",
+    "title": "Refresh Tokens",
+    "url": "https://developer.amazon.com/docs/login-with-amazon/refresh-token.html",
+    "summary": "A refresh token obtains another access token after the original expires. It belongs to one client and cannot be used by another. Refresh tokens are returned through the Authorization Code Grant. Revoked app access invalidates their use.",
+    "tags": [
+      "authentication",
+      "refresh",
+      "expired",
+      "access token",
+      "authorization code"
+    ],
+    "platforms": [
+      "web",
+      "mobile"
+    ],
+    "stage": "maintain",
+    "audiences": [
+      "developer"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": "2020-11-25",
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "78d2ab3db994c8008dabaf573f8b685551e030cfb4e199db3395cf5e7d947e41"
+  },
+  {
+    "id": "iap-overview",
+    "title": "In-App Purchasing Overview",
+    "url": "https://developer.amazon.com/docs/in-app-purchasing/iap-overview.html",
+    "summary": "The Appstore SDK IAP API supports purchases of digital items and subscriptions in Android apps. Amazon manages the purchase flow and payment handling. The application must implement fulfillment. Each purchasable item has a unique SKU configured in the Developer Console.",
+    "tags": [
+      "monetization",
+      "in app purchase",
+      "subscriptions",
+      "sku",
+      "fulfillment"
+    ],
+    "platforms": [
+      "fire-os"
+    ],
+    "stage": "discover",
+    "audiences": [
+      "developer",
+      "product"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": null,
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "eddb8c1275e8cb518c99625abff761590cf4d776911f92be473306e37c8c1582"
+  },
+  {
+    "id": "iap-testing",
+    "title": "IAP Testing Overview",
+    "url": "https://developer.amazon.com/docs/in-app-purchasing/iap-testing-overview.html",
+    "summary": "App Tester provides sandbox responses for IAP calls. RVS has separate sandbox and production environments. DevTest supports local end-to-end IAP testing without uploading a binary. Live App Testing uses a limited tester group in the production environment; testers are not charged for purchases.",
+    "tags": [
+      "monetization",
+      "testing",
+      "sandbox",
+      "receipt",
+      "rvs",
+      "beta",
+      "devtest"
+    ],
+    "platforms": [
+      "fire-os"
+    ],
+    "stage": "test",
+    "audiences": [
+      "developer",
+      "qa"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": "2026-04-15",
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "007eefdf795e02086ade12dc205bc7ad5e281eadad196f874490d0b17929667e"
+  },
+  {
+    "id": "devtest-api",
+    "title": "App Submission API for Testing",
+    "url": "https://developer.amazon.com/docs/app-testing/app-submission-api-testing.html",
+    "summary": "This REST API registers an application for Appstore DevTest and adds testers. Requests include an OAuth session token in the HTTP header. Registration requires the package name and signing certificate. Separate operations register the application and add testers.",
+    "tags": [
+      "testing",
+      "devtest",
+      "automation",
+      "rest",
+      "register",
+      "testers"
+    ],
+    "platforms": [
+      "fire-os"
+    ],
+    "stage": "configure",
+    "audiences": [
+      "developer",
+      "qa"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": null,
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "86c87b098ebc4fb6e6f477b9a7758ac672a86b25a261449e39a4d0f5ca258ab8"
+  },
+  {
+    "id": "app-submit",
+    "title": "Submit Your App to the Amazon Appstore",
+    "url": "https://developer.amazon.com/docs/app-submission/submitting-apps-to-amazon-appstore.html",
+    "summary": "Prepare the app binary, developer account, listing assets, descriptions, and a physical test device. Fire OS supports APK or AAB; Vega OS uses VPKG. A Vega manifest needs the main category. Complete upload, targeting, store details, and review before submission.",
+    "tags": [
+      "publishing",
+      "submission",
+      "manifest",
+      "vega",
+      "vpkg",
+      "apk",
+      "listing"
+    ],
+    "platforms": [
+      "fire-os",
+      "vega"
+    ],
+    "stage": "publish",
+    "audiences": [
+      "developer",
+      "product"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": null,
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "2f5284361fee5e42a5e496e357931d381317ec42f0c8176344a819082e0f978d"
+  },
+  {
+    "id": "app-bundles",
+    "title": "App Bundles",
+    "url": "https://developer.amazon.com/docs/app-submission/app-bundles.html",
+    "summary": "Amazon Appstore accepts Android App Bundles and generates device-optimized APKs. APK submission remains an option. Test bundles locally with bundletool and then with Live App Testing. Non-install-time asset delivery is not supported by this documentation.",
+    "tags": [
+      "publishing",
+      "bundle",
+      "aab",
+      "apk",
+      "bundletool",
+      "asset delivery"
+    ],
+    "platforms": [
+      "fire-os"
+    ],
+    "stage": "package",
+    "audiences": [
+      "developer",
+      "qa"
+    ],
+    "status": "active",
+    "visibility": "public",
+    "verified_at": "2026-10-14",
+    "source_updated_at": "2025-09-30",
+    "content_origin": "Baseframe authored paraphrase",
+    "checksum": "2e39e3e72b3c502f0bf9eef2ed6fe551f7b2b9a2fa07195a4b056e019991df54"
+  }
+]

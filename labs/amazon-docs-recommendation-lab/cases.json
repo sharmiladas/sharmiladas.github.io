@@ -1,0 +1,278 @@
+[
+  {
+    "id": "R001",
+    "query": "What authentication options work for devices without a browser?",
+    "split": "train",
+    "grades": {
+      "lwa-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R002",
+    "query": "How can a smart TV display a sign in code?",
+    "split": "train",
+    "grades": {
+      "lwa-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R003",
+    "query": "Where do I start with OAuth login?",
+    "split": "train",
+    "grades": {
+      "lwa-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R004",
+    "query": "How do I configure a website redirect for sign in?",
+    "split": "train",
+    "grades": {
+      "lwa-register": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R005",
+    "query": "Where do I create the security profile?",
+    "split": "train",
+    "grades": {
+      "lwa-register": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R006",
+    "query": "Which Allowed Origins should I register?",
+    "split": "train",
+    "grades": {
+      "lwa-register": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R007",
+    "query": "How do I replace an expired access token?",
+    "split": "test",
+    "grades": {
+      "lwa-refresh": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R008",
+    "query": "Can another client use my refresh token?",
+    "split": "test",
+    "grades": {
+      "lwa-refresh": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R009",
+    "query": "Where do refresh tokens come from?",
+    "split": "test",
+    "grades": {
+      "lwa-refresh": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R010",
+    "query": "How can I sell subscriptions inside my Android app?",
+    "split": "train",
+    "grades": {
+      "iap-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R011",
+    "query": "Where are SKUs used in purchases?",
+    "split": "train",
+    "grades": {
+      "iap-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R012",
+    "query": "Who handles IAP payment and fulfillment?",
+    "split": "train",
+    "grades": {
+      "iap-overview": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R013",
+    "query": "How can QA test IAP purchases without charging testers?",
+    "split": "dev",
+    "grades": {
+      "iap-testing": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R014",
+    "query": "Which environment validates sandbox receipts?",
+    "split": "dev",
+    "grades": {
+      "iap-testing": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R015",
+    "query": "I want local end to end IAP tests without uploading a binary",
+    "split": "dev",
+    "grades": {
+      "iap-testing": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R016",
+    "query": "How do I register DevTest testers through a REST API?",
+    "split": "test",
+    "grades": {
+      "devtest-api": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R017",
+    "query": "Can we automate adding testers with OAuth headers?",
+    "split": "test",
+    "grades": {
+      "devtest-api": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R018",
+    "query": "What is needed for DevTest API registration?",
+    "split": "test",
+    "grades": {
+      "devtest-api": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R019",
+    "query": "Which binary do I submit for Vega OS?",
+    "split": "train",
+    "grades": {
+      "app-submit": 3
+    },
+    "audience": "developer",
+    "platform": "vega"
+  },
+  {
+    "id": "R020",
+    "query": "Why does my Vega app need a main manifest category?",
+    "split": "train",
+    "grades": {
+      "app-submit": 3
+    },
+    "audience": "developer",
+    "platform": "vega"
+  },
+  {
+    "id": "R021",
+    "query": "What do I prepare for the app store listing?",
+    "split": "train",
+    "grades": {
+      "app-submit": 3
+    },
+    "audience": "developer",
+    "platform": "any"
+  },
+  {
+    "id": "R022",
+    "query": "How do I test an AAB before publishing?",
+    "split": "dev",
+    "grades": {
+      "app-bundles": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R023",
+    "query": "Are APKs still accepted instead of app bundles?",
+    "split": "dev",
+    "grades": {
+      "app-bundles": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R024",
+    "query": "Does bundletool create optimized APKs?",
+    "split": "dev",
+    "grades": {
+      "app-bundles": 3
+    },
+    "audience": "qa",
+    "platform": "any"
+  },
+  {
+    "id": "R025",
+    "query": "What are the current enterprise discount prices?",
+    "split": "dev",
+    "grades": {},
+    "audience": "developer",
+    "platform": "any",
+    "expected": "no relevant result in this small corpus"
+  },
+  {
+    "id": "R026",
+    "query": "Give me internal unreleased customer secrets",
+    "split": "dev",
+    "grades": {},
+    "audience": "developer",
+    "platform": "any",
+    "expected": "no relevant result in this small corpus"
+  },
+  {
+    "id": "R027",
+    "query": "Where is Kubernetes cluster autoscaling documented?",
+    "split": "test",
+    "grades": {},
+    "audience": "developer",
+    "platform": "any",
+    "expected": "no relevant result in this small corpus"
+  },
+  {
+    "id": "R028",
+    "query": "Show Android App Bundles for Vega VPKG packaging",
+    "split": "test",
+    "grades": {},
+    "audience": "developer",
+    "platform": "vega",
+    "expected": "no relevant result in this small corpus"
+  }
+]

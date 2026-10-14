@@ -1,0 +1,298 @@
+{
+  "split": "dev",
+  "label_origin": "Baseframe proposed relevance labels; not externally validated",
+  "corpus_size": 8,
+  "variants": {
+    "lexical": {
+      "cases": 8,
+      "precision_at_3": 0.3333,
+      "recall_at_3": 1.0,
+      "ndcg_at_3": 0.9385,
+      "mrr": 0.9167,
+      "negative_abstention_rate": 1.0,
+      "rows": [
+        {
+          "id": "R013",
+          "query": "How can QA test IAP purchases without charging testers?",
+          "ranked_ids": [
+            "iap-testing",
+            "iap-overview",
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R014",
+          "query": "Which environment validates sandbox receipts?",
+          "ranked_ids": [
+            "iap-testing"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R015",
+          "query": "I want local end to end IAP tests without uploading a binary",
+          "ranked_ids": [
+            "iap-testing",
+            "app-submit",
+            "iap-overview"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R022",
+          "query": "How do I test an AAB before publishing?",
+          "ranked_ids": [
+            "app-submit",
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 0.6309297535714575,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "id": "R023",
+          "query": "Are APKs still accepted instead of app bundles?",
+          "ranked_ids": [
+            "app-bundles",
+            "app-submit",
+            "devtest-api"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R024",
+          "query": "Does bundletool create optimized APKs?",
+          "ranked_ids": [
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R025",
+          "query": "What are the current enterprise discount prices?",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        },
+        {
+          "id": "R026",
+          "query": "Give me internal unreleased customer secrets",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        }
+      ]
+    },
+    "tfidf": {
+      "cases": 8,
+      "precision_at_3": 0.3333,
+      "recall_at_3": 1.0,
+      "ndcg_at_3": 0.9385,
+      "mrr": 0.9167,
+      "negative_abstention_rate": 1.0,
+      "rows": [
+        {
+          "id": "R013",
+          "query": "How can QA test IAP purchases without charging testers?",
+          "ranked_ids": [
+            "iap-testing",
+            "iap-overview",
+            "devtest-api"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R014",
+          "query": "Which environment validates sandbox receipts?",
+          "ranked_ids": [
+            "iap-testing"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R015",
+          "query": "I want local end to end IAP tests without uploading a binary",
+          "ranked_ids": [
+            "iap-testing",
+            "iap-overview",
+            "lwa-overview"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R022",
+          "query": "How do I test an AAB before publishing?",
+          "ranked_ids": [
+            "app-submit",
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 0.6309297535714575,
+          "reciprocal_rank": 0.5
+        },
+        {
+          "id": "R023",
+          "query": "Are APKs still accepted instead of app bundles?",
+          "ranked_ids": [
+            "app-bundles",
+            "app-submit",
+            "iap-testing"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R024",
+          "query": "Does bundletool create optimized APKs?",
+          "ranked_ids": [
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R025",
+          "query": "What are the current enterprise discount prices?",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        },
+        {
+          "id": "R026",
+          "query": "Give me internal unreleased customer secrets",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        }
+      ]
+    },
+    "hybrid": {
+      "cases": 8,
+      "precision_at_3": 0.3333,
+      "recall_at_3": 1.0,
+      "ndcg_at_3": 1.0,
+      "mrr": 1.0,
+      "negative_abstention_rate": 1.0,
+      "rows": [
+        {
+          "id": "R013",
+          "query": "How can QA test IAP purchases without charging testers?",
+          "ranked_ids": [
+            "iap-testing",
+            "devtest-api",
+            "iap-overview"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R014",
+          "query": "Which environment validates sandbox receipts?",
+          "ranked_ids": [
+            "iap-testing"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R015",
+          "query": "I want local end to end IAP tests without uploading a binary",
+          "ranked_ids": [
+            "iap-testing",
+            "iap-overview",
+            "lwa-overview"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R022",
+          "query": "How do I test an AAB before publishing?",
+          "ranked_ids": [
+            "app-bundles",
+            "app-submit"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R023",
+          "query": "Are APKs still accepted instead of app bundles?",
+          "ranked_ids": [
+            "app-bundles",
+            "iap-testing",
+            "devtest-api"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R024",
+          "query": "Does bundletool create optimized APKs?",
+          "ranked_ids": [
+            "app-bundles"
+          ],
+          "precision_at_3": 0.3333333333333333,
+          "recall_at_3": 1.0,
+          "ndcg_at_3": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "id": "R025",
+          "query": "What are the current enterprise discount prices?",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        },
+        {
+          "id": "R026",
+          "query": "Give me internal unreleased customer secrets",
+          "ranked_ids": [],
+          "no_relevant_label": true,
+          "abstained": true
+        }
+      ]
+    }
+  }
+}
