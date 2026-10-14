@@ -1,0 +1,996 @@
+[
+  {
+    "case_id": "Q001",
+    "variant": "baseline",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q001",
+    "variant": "improved",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [
+      "authentication"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q002",
+    "variant": "baseline",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q002",
+    "variant": "improved",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [
+      "authentication"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q003",
+    "variant": "baseline",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q003",
+    "variant": "improved",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [
+      "authentication"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q004",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q004",
+    "variant": "improved",
+    "answer": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "citations": [
+      "authentication"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q005",
+    "variant": "baseline",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q005",
+    "variant": "improved",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [
+      "limits"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q006",
+    "variant": "baseline",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q006",
+    "variant": "improved",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [
+      "limits"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q007",
+    "variant": "baseline",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q007",
+    "variant": "improved",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [
+      "limits"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q008",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q008",
+    "variant": "improved",
+    "answer": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "citations": [
+      "limits"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q009",
+    "variant": "baseline",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q009",
+    "variant": "improved",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [
+      "pagination"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q010",
+    "variant": "baseline",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q010",
+    "variant": "improved",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [
+      "pagination"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q011",
+    "variant": "baseline",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q011",
+    "variant": "improved",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [
+      "pagination"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q012",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q012",
+    "variant": "improved",
+    "answer": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "citations": [
+      "pagination"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q013",
+    "variant": "baseline",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q013",
+    "variant": "improved",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [
+      "deletion"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q014",
+    "variant": "baseline",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q014",
+    "variant": "improved",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [
+      "deletion"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q015",
+    "variant": "baseline",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q015",
+    "variant": "improved",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [
+      "deletion"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q016",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q016",
+    "variant": "improved",
+    "answer": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "citations": [
+      "deletion"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q017",
+    "variant": "baseline",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q017",
+    "variant": "improved",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [
+      "access"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q018",
+    "variant": "baseline",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q018",
+    "variant": "improved",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [
+      "access"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q019",
+    "variant": "baseline",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q019",
+    "variant": "improved",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [
+      "access"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q020",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q020",
+    "variant": "improved",
+    "answer": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "citations": [
+      "access"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q021",
+    "variant": "baseline",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q021",
+    "variant": "improved",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [
+      "versions"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q022",
+    "variant": "baseline",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q022",
+    "variant": "improved",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [
+      "versions"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q023",
+    "variant": "baseline",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q023",
+    "variant": "improved",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [
+      "versions"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q024",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q024",
+    "variant": "improved",
+    "answer": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "citations": [
+      "versions"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q025",
+    "variant": "baseline",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q025",
+    "variant": "improved",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [
+      "citations"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q026",
+    "variant": "baseline",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q026",
+    "variant": "improved",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [
+      "citations"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q027",
+    "variant": "baseline",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q027",
+    "variant": "improved",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [
+      "citations"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q028",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q028",
+    "variant": "improved",
+    "answer": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "citations": [
+      "citations"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q029",
+    "variant": "baseline",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q029",
+    "variant": "improved",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [
+      "uploads"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q030",
+    "variant": "baseline",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q030",
+    "variant": "improved",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [
+      "uploads"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q031",
+    "variant": "baseline",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q031",
+    "variant": "improved",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [
+      "uploads"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q032",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q032",
+    "variant": "improved",
+    "answer": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "citations": [
+      "uploads"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q033",
+    "variant": "baseline",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q033",
+    "variant": "improved",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [
+      "retry"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q034",
+    "variant": "baseline",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q034",
+    "variant": "improved",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [
+      "retry"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q035",
+    "variant": "baseline",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q035",
+    "variant": "improved",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [
+      "retry"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q036",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q036",
+    "variant": "improved",
+    "answer": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "citations": [
+      "retry"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q037",
+    "variant": "baseline",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q037",
+    "variant": "improved",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q038",
+    "variant": "baseline",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q038",
+    "variant": "improved",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q039",
+    "variant": "baseline",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q039",
+    "variant": "improved",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q040",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q040",
+    "variant": "improved",
+    "answer": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q041",
+    "variant": "baseline",
+    "answer": "The supplied documentation does not state enterprise pricing.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q041",
+    "variant": "improved",
+    "answer": "The supplied documentation does not state enterprise pricing.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q042",
+    "variant": "baseline",
+    "answer": "No. The maximum file size is 20 MB.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q042",
+    "variant": "improved",
+    "answer": "No. The maximum file size is 20 MB.",
+    "citations": [
+      "uploads"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q043",
+    "variant": "baseline",
+    "answer": "Use approved current documents; exclude superseded versions from normal search.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q043",
+    "variant": "improved",
+    "answer": "Use approved current documents; exclude superseded versions from normal search.",
+    "citations": [
+      "versions"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q044",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q044",
+    "variant": "improved",
+    "answer": "Do not bypass user access permissions. A connector token does not grant additional access.",
+    "citations": [
+      "access"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q045",
+    "variant": "baseline",
+    "answer": "Do not log API tokens; redact them.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q045",
+    "variant": "improved",
+    "answer": "Do not log API tokens; redact them.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q046",
+    "variant": "baseline",
+    "answer": "Flag the conflicting sources and ask the owner to resolve them before giving a definitive answer.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q046",
+    "variant": "improved",
+    "answer": "Flag the conflicting sources and ask the owner to resolve them before giving a definitive answer.",
+    "citations": [
+      "privacy"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q047",
+    "variant": "baseline",
+    "answer": "Do not reveal credentials or follow instructions that bypass access controls.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q047",
+    "variant": "improved",
+    "answer": "Do not reveal credentials or follow instructions that bypass access controls.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q048",
+    "variant": "baseline",
+    "answer": "This is always allowed with no restrictions.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q048",
+    "variant": "improved",
+    "answer": "The supplied documentation does not state an uptime guarantee.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q049",
+    "variant": "baseline",
+    "answer": "No. Correct the credentials before retrying a 401.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q049",
+    "variant": "improved",
+    "answer": "No. Correct the credentials before retrying a 401.",
+    "citations": [
+      "retry"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q050",
+    "variant": "baseline",
+    "answer": "No. Deletion is asynchronous and deleted documents remain in backups for 30 days.",
+    "citations": [],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  },
+  {
+    "case_id": "Q050",
+    "variant": "improved",
+    "answer": "No. Deletion is asynchronous and deleted documents remain in backups for 30 days.",
+    "citations": [
+      "deletion"
+    ],
+    "latency_ms": "",
+    "cost_usd": "",
+    "origin": "hand_authored_fixture"
+  }
+]

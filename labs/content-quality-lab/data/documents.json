@@ -1,0 +1,141 @@
+[
+  {
+    "id": "authentication",
+    "title": "Authentication",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Use a project-scoped API token in the Authorization Bearer header. Rotate tokens every 90 days. Never put tokens in a URL.",
+    "aliases": [
+      "authentication",
+      "auth",
+      "login",
+      "token",
+      "credential"
+    ]
+  },
+  {
+    "id": "limits",
+    "title": "Rate limits",
+    "version": "1.0",
+    "status": "approved",
+    "body": "The standard plan allows 120 requests per minute per project. A 429 response includes Retry-After in seconds. Honor Retry-After before retrying.",
+    "aliases": [
+      "limits",
+      "quota",
+      "429",
+      "throttle",
+      "rate"
+    ]
+  },
+  {
+    "id": "pagination",
+    "title": "Pagination",
+    "version": "1.0",
+    "status": "approved",
+    "body": "List responses include next_cursor. Pass next_cursor as cursor in the next request. A null next_cursor means there are no more pages.",
+    "aliases": [
+      "pagination",
+      "pages",
+      "list",
+      "cursor"
+    ]
+  },
+  {
+    "id": "deletion",
+    "title": "Deletion",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Delete requests are asynchronous and return 202. Poll the deletion job until complete. Deleted documents remain in backups for 30 days.",
+    "aliases": [
+      "deletion",
+      "remove",
+      "erase",
+      "backup",
+      "delete"
+    ]
+  },
+  {
+    "id": "access",
+    "title": "Access control",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Retrieval enforces the requesting user access permissions. A connector token does not grant users additional access. Refresh permission mappings daily.",
+    "aliases": [
+      "access",
+      "permissions",
+      "acl",
+      "authorization",
+      "private"
+    ]
+  },
+  {
+    "id": "versions",
+    "title": "Versioning",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Only approved current documents enter retrieval. Superseded versions remain available in the audit archive and are excluded from normal search.",
+    "aliases": [
+      "versions",
+      "outdated",
+      "old",
+      "superseded",
+      "current"
+    ]
+  },
+  {
+    "id": "citations",
+    "title": "Citations",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Answers must include document ID and version for each factual claim. If supporting sources conflict, flag the conflict and route to an owner.",
+    "aliases": [
+      "citations",
+      "source",
+      "provenance",
+      "evidence",
+      "conflict"
+    ]
+  },
+  {
+    "id": "uploads",
+    "title": "Uploads",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Supported file types are PDF, Markdown, and plain text. The maximum file size is 20 MB. Encrypted PDFs are rejected.",
+    "aliases": [
+      "uploads",
+      "file",
+      "pdf",
+      "format",
+      "size"
+    ]
+  },
+  {
+    "id": "retry",
+    "title": "Retry behavior",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Retry transient 503 errors with exponential backoff and jitter. Make at most three attempts. Never retry a 401 without correcting credentials.",
+    "aliases": [
+      "retry",
+      "503",
+      "401",
+      "backoff",
+      "attempt"
+    ]
+  },
+  {
+    "id": "privacy",
+    "title": "Privacy",
+    "version": "1.0",
+    "status": "approved",
+    "body": "Logs must redact API tokens and email addresses. Retain application logs for 14 days. Restrict log access to authorized operators.",
+    "aliases": [
+      "privacy",
+      "logs",
+      "email",
+      "retention",
+      "redact"
+    ]
+  }
+]
