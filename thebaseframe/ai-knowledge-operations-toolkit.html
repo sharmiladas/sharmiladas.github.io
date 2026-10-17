@@ -1,58 +1,17 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>AI Knowledge Operations Toolkit — Baseframe</title>
-<meta content="Templates for enterprise context architecture, continuous AI evaluation, and agent operations documentation." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2307101f'/%3E%3Ccircle%20cx='18'%20cy='32'%20r='5'%20fill='%2359c7ff'/%3E%3Ccircle%20cx='46'%20cy='17'%20r='5'%20fill='%23ffbd67'/%3E%3Ccircle%20cx='46'%20cy='47'%20r='5'%20fill='%2359c7ff'/%3E%3Cpath%20d='M23%2030%2041%2019M23%2034l18%2011'%20stroke='%23d9efff'%20stroke-width='4'%20stroke-linecap='round'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
-<link href="https://sharmiladas.github.io/thebaseframe/services.html" rel="canonical"/>
-<html><head><link href="baseframe.css?v=20261012-hubs" rel="stylesheet"/><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style><style id="toolkit-mobile-fix">
-@media(max-width:700px){
-.toolkit{min-width:0;width:100%;box-sizing:border-box;overflow-wrap:normal;word-break:normal}
-.toolkit .toolkit-table{overflow:visible;min-width:0;width:100%}
-.toolkit .toolkit-table table{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;table-layout:auto!important}
-.toolkit .toolkit-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.toolkit .toolkit-table tbody{display:grid!important;gap:18px;width:100%}
-.toolkit .toolkit-table tr{display:block!important;padding:18px!important;background:#faf7f1;border:1px solid #d8d0c4;border-radius:12px;min-width:0;box-sizing:border-box}
-.toolkit .toolkit-table td{display:block!important;width:auto!important;max-width:none!important;min-width:0!important;padding:10px 0!important;border:0!important;font-size:16px!important;line-height:1.65!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important}
-.toolkit .toolkit-table td:before{content:attr(data-label);display:block;font-size:12px;font-weight:700;letter-spacing:.04em;color:#6b5544;margin-bottom:3px}
-.toolkit .toolkit-table td:first-child{font-weight:700;font-size:18px!important}
-.toolkit .toolkit-links{display:grid;grid-template-columns:1fr;gap:10px}
-.toolkit .toolkit-links a{display:block;padding:10px 0;min-height:24px}
-}
-</style></head></html><html><head><script defer="" src="baseframe-navigation.js?v=20261012-hubs"></script><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style><style id="toolkit-mobile-fix">
-@media(max-width:700px){
-.toolkit{min-width:0;width:100%;box-sizing:border-box;overflow-wrap:normal;word-break:normal}
-.toolkit .toolkit-table{overflow:visible;min-width:0;width:100%}
-.toolkit .toolkit-table table{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;table-layout:auto!important}
-.toolkit .toolkit-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.toolkit .toolkit-table tbody{display:grid!important;gap:18px;width:100%}
-.toolkit .toolkit-table tr{display:block!important;padding:18px!important;background:#faf7f1;border:1px solid #d8d0c4;border-radius:12px;min-width:0;box-sizing:border-box}
-.toolkit .toolkit-table td{display:block!important;width:auto!important;max-width:none!important;min-width:0!important;padding:10px 0!important;border:0!important;font-size:16px!important;line-height:1.65!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important}
-.toolkit .toolkit-table td:before{content:attr(data-label);display:block;font-size:12px;font-weight:700;letter-spacing:.04em;color:#6b5544;margin-bottom:3px}
-.toolkit .toolkit-table td:first-child{font-weight:700;font-size:18px!important}
-.toolkit .toolkit-links{display:grid;grid-template-columns:1fr;gap:10px}
-.toolkit .toolkit-links a{display:block;padding:10px 0;min-height:24px}
-}
-</style></head></html><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style><style id="toolkit-mobile-fix">
-@media(max-width:700px){
-.toolkit{min-width:0;width:100%;box-sizing:border-box;overflow-wrap:normal;word-break:normal}
-.toolkit .toolkit-table{overflow:visible;min-width:0;width:100%}
-.toolkit .toolkit-table table{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;table-layout:auto!important}
-.toolkit .toolkit-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.toolkit .toolkit-table tbody{display:grid!important;gap:18px;width:100%}
-.toolkit .toolkit-table tr{display:block!important;padding:18px!important;background:#faf7f1;border:1px solid #d8d0c4;border-radius:12px;min-width:0;box-sizing:border-box}
-.toolkit .toolkit-table td{display:block!important;width:auto!important;max-width:none!important;min-width:0!important;padding:10px 0!important;border:0!important;font-size:16px!important;line-height:1.65!important;white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important}
-.toolkit .toolkit-table td:before{content:attr(data-label);display:block;font-size:12px;font-weight:700;letter-spacing:.04em;color:#6b5544;margin-bottom:3px}
-.toolkit .toolkit-table td:first-child{font-weight:700;font-size:18px!important}
-.toolkit .toolkit-links{display:grid;grid-template-columns:1fr;gap:10px}
-.toolkit .toolkit-links a{display:block;padding:10px 0;min-height:24px}
-}
-</style></head>
-<body><a class="skip" href="#main">Skip to content</a><aside class="bf-side"><a class="bf-brand" href="index.html">THE <span>BASEFRAME</span></a><p>Enterprise content<br/>Knowledge architecture<br/>AI advisory</p><nav aria-label="Baseframe sections" class="bf-nav"><a href="index.html">Overview</a><a href="services.html">Services</a><a href="approach.html">Approach</a><a href="work.html">Selected work</a><a href="products.html">Products</a><a href="learning.html">Learning &amp; toolkits</a><a href="about.html">About</a></nav><div class="bf-side-foot"><span>Founded by Sharmila Das</span><a href="https://sharmiladas.github.io/">Leadership portfolio ↗</a><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/thebaseframe">Source &amp; README ↗</a></div></aside><div class="bf-shell"><div class="bf-mobile"><a class="bf-brand" href="index.html">THE <span>BASEFRAME</span></a><details><summary>Explore The Baseframe</summary><nav aria-label="Mobile Baseframe sections" class="bf-nav"><a href="index.html">Overview</a><a href="services.html">Services</a><a href="approach.html">Approach</a><a href="work.html">Selected work</a><a href="products.html">Products</a><a href="learning.html">Learning &amp; toolkits</a><a href="about.html">About</a></nav></details></div><div class="bf-crumbs"><nav aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span>Services</span></li></ol></nav><a href="https://www.linkedin.com/in/sharmila">Start a conversation ↗</a></div><main id="main"><article class="toolkit"><p><a href="index.html">Home</a> / AI Knowledge Operations Toolkit</p><nav aria-label="Toolkit resources" class="toolkit-links"><a download="" href="Baseframe_AI_Knowledge_Operations_Toolkit.md">Download editable toolkit</a><a href="#enterprise-context-blueprint">Context Blueprint</a><a href="#continuous-ai-content-quality-lab">Quality Lab</a><a href="#agent-operations-documentation">Agent Operations</a></nav><h1 id="baseframe-ai-knowledge-operations-toolkit">Baseframe AI Knowledge Operations Toolkit</h1>
+<!doctype html><html lang="en"><head>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Knowledge Operations Toolkit — Baseframe</title>
+  <meta name="description" content="Templates for enterprise context architecture, continuous AI evaluation, and agent operations documentation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2307101f'/%3E%3Ccircle%20cx='18'%20cy='32'%20r='5'%20fill='%2359c7ff'/%3E%3Ccircle%20cx='46'%20cy='17'%20r='5'%20fill='%23ffbd67'/%3E%3Ccircle%20cx='46'%20cy='47'%20r='5'%20fill='%2359c7ff'/%3E%3Cpath%20d='M23%2030%2041%2019M23%2034l18%2011'%20stroke='%23d9efff'%20stroke-width='4'%20stroke-linecap='round'/%3E%3C/svg%3E">
+  
+<html><head><link rel="stylesheet" href="baseframe.css?v=20261012-hubs"><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style><link rel="canonical" href="https://sharmiladas.github.io/thebaseframe/ai-knowledge-operations-toolkit.html"></head></html><html><head><script src="baseframe-navigation.js?v=20261012-hubs" defer></script><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style></head></html><style>.toolkit{max-width:1000px;margin:auto;padding:32px 20px;overflow-wrap:anywhere}.toolkit h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.toolkit h2{font-size:28px;margin-top:42px}.toolkit h3{font-size:22px;margin-top:28px}.toolkit p,.toolkit li{font-size:17px;line-height:1.75;max-width:85ch}.toolkit-table{overflow-x:auto;max-width:100%;margin:24px 0}.toolkit table{width:100%;min-width:580px;border-collapse:collapse;font:15px/1.6 Arial,sans-serif}.toolkit th,.toolkit td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}.toolkit th{background:#f4eee7}.toolkit-links{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}.toolkit-card{padding:28px 20px;max-width:1000px;margin:24px auto;background:#f5f0e9;border-radius:12px}.toolkit-card p{line-height:1.7}.toolkit a:focus-visible,.toolkit-table:focus-visible{outline:3px solid #805426;outline-offset:4px}@media(max-width:650px){.toolkit{padding:24px 12px}.toolkit h2{font-size:25px}.toolkit p,.toolkit li{font-size:16px}}</style></head>
+<body><a class="skip" href="#main">Skip to content</a><aside class="bf-side"><a class="bf-brand" href="index.html">THE <span>BASEFRAME</span></a><p>Enterprise content<br>Knowledge architecture<br>AI advisory</p><nav class="bf-nav" aria-label="Baseframe sections"><a href="index.html">Overview</a><a href="service-offerings.html">Service offerings</a><a href="guided-implementation.html">Guided implementation</a><a href="services.html">Services</a><a href="approach.html">Approach</a><a href="work.html">Selected work</a><a href="products.html">Products</a><a href="learning.html">Learning Labs</a><a href="about.html">About</a></nav><div class="bf-side-foot"><span>Founded by Sharmila Das</span><a href="https://sharmiladas.github.io/">Leadership portfolio ↗</a><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/thebaseframe">Source & README ↗</a></div></aside><div class="bf-shell"><div class="bf-mobile"><a class="bf-brand" href="index.html">THE <span>BASEFRAME</span></a><details><summary>Explore The Baseframe</summary><nav class="bf-nav" aria-label="Mobile Baseframe sections"><a href="index.html">Overview</a><a href="service-offerings.html">Service offerings</a><a href="guided-implementation.html">Guided implementation</a><a href="services.html">Services</a><a href="approach.html">Approach</a><a href="work.html">Selected work</a><a href="products.html">Products</a><a href="learning.html">Learning Labs</a><a href="about.html">About</a></nav></details></div><div class="bf-crumbs"><nav aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span>Services</span></li></ol></nav><a href="https://www.linkedin.com/in/sharmila">Start a conversation ↗</a></div><main id="main"><article class="toolkit"><p><a href="index.html">Home</a> / AI Knowledge Operations Toolkit</p><nav class="toolkit-links" aria-label="Toolkit resources"><a href="downloads/Baseframe_AI_Knowledge_Operations_Toolkit.md" download>Download editable toolkit</a><a href="#enterprise-context-blueprint">Context Blueprint</a><a href="#continuous-ai-content-quality-lab">Quality Lab</a><a href="#agent-operations-documentation">Agent Operations</a></nav><h1 id="baseframe-ai-knowledge-operations-toolkit">Baseframe AI Knowledge Operations Toolkit</h1>
 <h2 id="trusted-context-measured-behavior-controlled-change">Trusted context. Measured behavior. Controlled change.</h2>
 <p>Sharmila (Das) Rammohan · Baseframe · Version 1.0 · October 12, 2026</p>
 <h2 id="the-business-problem-and-recommendation">The business problem and recommendation</h2>
@@ -60,33 +19,33 @@
 <p>Build a connected operating model with three deliverables: an Enterprise Context Blueprint defines what agents may know; a continuous AI Content Quality Lab tests what they do; an Agent Operations Documentation framework records who owns the system and how changes, exceptions, and incidents are handled.</p>
 <p>This toolkit contains proposed consulting methods and reusable templates. The example is illustrative, not a client implementation or measured business result. It makes no claims of certification or regulatory compliance.</p>
 <h2 id="engagement-structure">Engagement structure</h2>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Offering</th>
-<th scope="col">Buyer problem</th>
-<th scope="col">Deliverables</th>
-<th scope="col">Acceptance evidence</th>
+<th>Offering</th>
+<th>Buyer problem</th>
+<th>Deliverables</th>
+<th>Acceptance evidence</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Offering" role="cell">Enterprise Context Blueprint</td>
-<td data-label="Buyer problem" role="cell">AI answers use inconsistent or stale knowledge</td>
-<td data-label="Deliverables" role="cell">Source register, content model, glossary, relationship map, permission matrix, freshness rules, retrieval plan</td>
-<td data-label="Acceptance evidence" role="cell">A representative task can be traced to an authorized, current, authoritative source</td>
+<tr>
+<td>Enterprise Context Blueprint</td>
+<td>AI answers use inconsistent or stale knowledge</td>
+<td>Source register, content model, glossary, relationship map, permission matrix, freshness rules, retrieval plan</td>
+<td>A representative task can be traced to an authorized, current, authoritative source</td>
 </tr>
-<tr role="row">
-<td data-label="Offering" role="cell">Continuous AI Content Quality Lab</td>
-<td data-label="Buyer problem" role="cell">Good-looking answers hide failures</td>
-<td data-label="Deliverables" role="cell">Evaluation set, scoring rubric, retrieval and action tests, regression report, release decision</td>
-<td data-label="Acceptance evidence" role="cell">Reviewed evidence demonstrates quality and permitted behavior against agreed thresholds</td>
+<tr>
+<td>Continuous AI Content Quality Lab</td>
+<td>Good-looking answers hide failures</td>
+<td>Evaluation set, scoring rubric, retrieval and action tests, regression report, release decision</td>
+<td>Reviewed evidence demonstrates quality and permitted behavior against agreed thresholds</td>
 </tr>
-<tr role="row">
-<td data-label="Offering" role="cell">Agent Operations Documentation</td>
-<td data-label="Buyer problem" role="cell">Ownership and change controls are unclear</td>
-<td data-label="Deliverables" role="cell">Agent charter, approval boundaries, runbooks, incident template, change record</td>
-<td data-label="Acceptance evidence" role="cell">Owners can stop, investigate, restore, and revalidate the system</td>
+<tr>
+<td>Agent Operations Documentation</td>
+<td>Ownership and change controls are unclear</td>
+<td>Agent charter, approval boundaries, runbooks, incident template, change record</td>
+<td>Owners can stop, investigate, restore, and revalidate the system</td>
 </tr>
 </tbody>
 </table></div>
@@ -103,96 +62,96 @@
 <li>Deliver a prioritized remediation backlog and signed ownership plan.</li>
 </ol>
 <h3 id="source-register-template">Source register template</h3>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Field</th>
-<th scope="col">Required decision</th>
+<th>Field</th>
+<th>Required decision</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Field" role="cell">Source ID and location</td>
-<td data-label="Required decision" role="cell">Stable identifier, canonical URI, repository</td>
+<tr>
+<td>Source ID and location</td>
+<td>Stable identifier, canonical URI, repository</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Business owner / content steward</td>
-<td data-label="Required decision" role="cell">Who resolves policy and who maintains content</td>
+<tr>
+<td>Business owner / content steward</td>
+<td>Who resolves policy and who maintains content</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Authority</td>
-<td data-label="Required decision" role="cell">Canonical, supporting, historical, or excluded; precedence rationale</td>
+<tr>
+<td>Authority</td>
+<td>Canonical, supporting, historical, or excluded; precedence rationale</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Content scope</td>
-<td data-label="Required decision" role="cell">Covered products, audiences, regions, versions, and tasks</td>
+<tr>
+<td>Content scope</td>
+<td>Covered products, audiences, regions, versions, and tasks</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Classification</td>
-<td data-label="Required decision" role="cell">Sensitivity, retention, permitted audiences</td>
+<tr>
+<td>Classification</td>
+<td>Sensitivity, retention, permitted audiences</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Access enforcement</td>
-<td data-label="Required decision" role="cell">Identity source, repository controls, retrieval filtering</td>
+<tr>
+<td>Access enforcement</td>
+<td>Identity source, repository controls, retrieval filtering</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Effective and review dates</td>
-<td data-label="Required decision" role="cell">Validity interval, expiry behavior, review owner</td>
+<tr>
+<td>Effective and review dates</td>
+<td>Validity interval, expiry behavior, review owner</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Update mechanism</td>
-<td data-label="Required decision" role="cell">Manual review, release event, policy change, incident</td>
+<tr>
+<td>Update mechanism</td>
+<td>Manual review, release event, policy change, incident</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Lineage</td>
-<td data-label="Required decision" role="cell">Origin, transformations, approval record</td>
+<tr>
+<td>Lineage</td>
+<td>Origin, transformations, approval record</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Conflict treatment</td>
-<td data-label="Required decision" role="cell">Escalation route; whether answering must be blocked</td>
+<tr>
+<td>Conflict treatment</td>
+<td>Escalation route; whether answering must be blocked</td>
 </tr>
 </tbody>
 </table></div>
 <h3 id="content-model-template">Content model template</h3>
 <p>Use the types that support the task; a knowledge graph is optional.</p>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Type</th>
-<th scope="col">Essential fields</th>
-<th scope="col">Relationships</th>
+<th>Type</th>
+<th>Essential fields</th>
+<th>Relationships</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Type" role="cell">Concept</td>
-<td data-label="Essential fields" role="cell">ID, definition, scope, owner, approved synonyms</td>
-<td data-label="Relationships" role="cell">Explains task or entity</td>
+<tr>
+<td>Concept</td>
+<td>ID, definition, scope, owner, approved synonyms</td>
+<td>Explains task or entity</td>
 </tr>
-<tr role="row">
-<td data-label="Type" role="cell">Task</td>
-<td data-label="Essential fields" role="cell">ID, prerequisites, ordered steps, success check, exceptions</td>
-<td data-label="Relationships" role="cell">Uses policy; applies to product/version</td>
+<tr>
+<td>Task</td>
+<td>ID, prerequisites, ordered steps, success check, exceptions</td>
+<td>Uses policy; applies to product/version</td>
 </tr>
-<tr role="row">
-<td data-label="Type" role="cell">Reference</td>
-<td data-label="Essential fields" role="cell">ID, values or parameters, constraints, version</td>
-<td data-label="Relationships" role="cell">Supports task</td>
+<tr>
+<td>Reference</td>
+<td>ID, values or parameters, constraints, version</td>
+<td>Supports task</td>
 </tr>
-<tr role="row">
-<td data-label="Type" role="cell">Policy</td>
-<td data-label="Essential fields" role="cell">ID, authority, applicability, effective dates, obligations</td>
-<td data-label="Relationships" role="cell">Constrains task or action</td>
+<tr>
+<td>Policy</td>
+<td>ID, authority, applicability, effective dates, obligations</td>
+<td>Constrains task or action</td>
 </tr>
-<tr role="row">
-<td data-label="Type" role="cell">Decision</td>
-<td data-label="Essential fields" role="cell">ID, question, rationale, approver, date, supersession</td>
-<td data-label="Relationships" role="cell">Changes policy or workflow</td>
+<tr>
+<td>Decision</td>
+<td>ID, question, rationale, approver, date, supersession</td>
+<td>Changes policy or workflow</td>
 </tr>
-<tr role="row">
-<td data-label="Type" role="cell">Troubleshooting</td>
-<td data-label="Essential fields" role="cell">Symptom, diagnosis, permitted resolution, escalation</td>
-<td data-label="Relationships" role="cell">Resolves task failure</td>
+<tr>
+<td>Troubleshooting</td>
+<td>Symptom, diagnosis, permitted resolution, escalation</td>
+<td>Resolves task failure</td>
 </tr>
 </tbody>
 </table></div>
@@ -216,89 +175,89 @@
 <p>Create a representative set from real tasks, with personal and confidential information removed. Separate tuning cases from a held-out regression set. Include common tasks, exceptions, conflicting sources, missing evidence, stale content, unauthorized users, and malicious instructions embedded in retrieved content.</p>
 <p>Do not judge only the final response. Inspect selected sources, tool calls, identity checks, state transitions, approvals, and resulting system state.</p>
 <h3 id="evaluation-case-template">Evaluation case template</h3>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Field</th>
-<th scope="col">Value to supply</th>
+<th>Field</th>
+<th>Value to supply</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Field" role="cell">Case ID / workflow / risk</td>
-<td data-label="Value to supply" role="cell">Stable ID, business task, severity</td>
+<tr>
+<td>Case ID / workflow / risk</td>
+<td>Stable ID, business task, severity</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Actor and permissions</td>
-<td data-label="Value to supply" role="cell">Role, identity status, allowed scope</td>
+<tr>
+<td>Actor and permissions</td>
+<td>Role, identity status, allowed scope</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Input and initial state</td>
-<td data-label="Value to supply" role="cell">Request, repository snapshot, tool state</td>
+<tr>
+<td>Input and initial state</td>
+<td>Request, repository snapshot, tool state</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Expected sources</td>
-<td data-label="Value to supply" role="cell">Canonical IDs and permitted alternatives</td>
+<tr>
+<td>Expected sources</td>
+<td>Canonical IDs and permitted alternatives</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Expected behavior</td>
-<td data-label="Value to supply" role="cell">Answer, action, clarification, refusal, or escalation</td>
+<tr>
+<td>Expected behavior</td>
+<td>Answer, action, clarification, refusal, or escalation</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Forbidden behavior</td>
-<td data-label="Value to supply" role="cell">Unauthorized disclosure or state change</td>
+<tr>
+<td>Forbidden behavior</td>
+<td>Unauthorized disclosure or state change</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Success evidence</td>
-<td data-label="Value to supply" role="cell">Source citation, trace, approval, resulting state</td>
+<tr>
+<td>Success evidence</td>
+<td>Source citation, trace, approval, resulting state</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Reviewer / adjudication</td>
-<td data-label="Value to supply" role="cell">Owner, disputed judgment, resolution</td>
+<tr>
+<td>Reviewer / adjudication</td>
+<td>Owner, disputed judgment, resolution</td>
 </tr>
-<tr role="row">
-<td data-label="Field" role="cell">Version</td>
-<td data-label="Value to supply" role="cell">Model, prompt, content, retriever, tool and policy versions</td>
+<tr>
+<td>Version</td>
+<td>Model, prompt, content, retriever, tool and policy versions</td>
 </tr>
 </tbody>
 </table></div>
 <h3 id="scoring-rubric">Scoring rubric</h3>
 <p>Score each dimension 0–2: 0 fails, 1 partially meets, 2 meets. Attach evidence; do not average away a critical failure.</p>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Dimension</th>
-<th scope="col">Meets criterion</th>
+<th>Dimension</th>
+<th>Meets criterion</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Dimension" role="cell">Grounding</td>
-<td data-label="Meets criterion" role="cell">Material claims supported by current authorized sources</td>
+<tr>
+<td>Grounding</td>
+<td>Material claims supported by current authorized sources</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Task completion</td>
-<td data-label="Meets criterion" role="cell">Requested permitted outcome achieved and verified</td>
+<tr>
+<td>Task completion</td>
+<td>Requested permitted outcome achieved and verified</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Business rules</td>
-<td data-label="Meets criterion" role="cell">Prerequisites, identity checks, limits, and exceptions followed</td>
+<tr>
+<td>Business rules</td>
+<td>Prerequisites, identity checks, limits, and exceptions followed</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Safety and access</td>
-<td data-label="Meets criterion" role="cell">No forbidden disclosure, instruction following, or action</td>
+<tr>
+<td>Safety and access</td>
+<td>No forbidden disclosure, instruction following, or action</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Usability</td>
-<td data-label="Meets criterion" role="cell">Clear, actionable response appropriate to the audience</td>
+<tr>
+<td>Usability</td>
+<td>Clear, actionable response appropriate to the audience</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Robustness</td>
-<td data-label="Meets criterion" role="cell">Handles ambiguity, missing context, tool errors, and conflicts</td>
+<tr>
+<td>Robustness</td>
+<td>Handles ambiguity, missing context, tool errors, and conflicts</td>
 </tr>
-<tr role="row">
-<td data-label="Dimension" role="cell">Cost and latency</td>
-<td data-label="Meets criterion" role="cell">Meets agreed operating budget without reducing required controls</td>
+<tr>
+<td>Cost and latency</td>
+<td>Meets agreed operating budget without reducing required controls</td>
 </tr>
 </tbody>
 </table></div>
@@ -314,33 +273,33 @@
 </ul>
 <p>Report case counts and uncertainty alongside percentages. Passing a finite test set does not prove that production failures cannot occur.</p>
 <h3 id="operating-cadence">Operating cadence</h3>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Trigger</th>
-<th scope="col">Required action</th>
+<th>Trigger</th>
+<th>Required action</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Trigger" role="cell">Model, prompt, tool, permission or retrieval change</td>
-<td data-label="Required action" role="cell">Run impacted cases plus critical regression suite before release</td>
+<tr>
+<td>Model, prompt, tool, permission or retrieval change</td>
+<td>Run impacted cases plus critical regression suite before release</td>
 </tr>
-<tr role="row">
-<td data-label="Trigger" role="cell">Policy or source update</td>
-<td data-label="Required action" role="cell">Update expected evidence and test affected tasks</td>
+<tr>
+<td>Policy or source update</td>
+<td>Update expected evidence and test affected tasks</td>
 </tr>
-<tr role="row">
-<td data-label="Trigger" role="cell">Production complaint or incident</td>
-<td data-label="Required action" role="cell">Add a reviewed regression case; diagnose source versus system failure</td>
+<tr>
+<td>Production complaint or incident</td>
+<td>Add a reviewed regression case; diagnose source versus system failure</td>
 </tr>
-<tr role="row">
-<td data-label="Trigger" role="cell">Weekly</td>
-<td data-label="Required action" role="cell">Review sampled traces, failure clusters, freshness gaps, cost and latency</td>
+<tr>
+<td>Weekly</td>
+<td>Review sampled traces, failure clusters, freshness gaps, cost and latency</td>
 </tr>
-<tr role="row">
-<td data-label="Trigger" role="cell">Monthly</td>
-<td data-label="Required action" role="cell">Reassess coverage, business outcomes, reviewer consistency and priorities</td>
+<tr>
+<td>Monthly</td>
+<td>Reassess coverage, business outcomes, reviewer consistency and priorities</td>
 </tr>
 </tbody>
 </table></div>
@@ -363,44 +322,44 @@
 <li>Log retention, access, privacy controls, and incident contacts.</li>
 </ul>
 <h3 id="decision-and-permission-matrix">Decision and permission matrix</h3>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Situation</th>
-<th scope="col">Required behavior</th>
-<th scope="col">Evidence</th>
+<th>Situation</th>
+<th>Required behavior</th>
+<th>Evidence</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Situation" role="cell">Current, permitted informational request</td>
-<td data-label="Required behavior" role="cell">Retrieve and answer with authoritative citation</td>
-<td data-label="Evidence" role="cell">Source IDs and retrieval trace</td>
+<tr>
+<td>Current, permitted informational request</td>
+<td>Retrieve and answer with authoritative citation</td>
+<td>Source IDs and retrieval trace</td>
 </tr>
-<tr role="row">
-<td data-label="Situation" role="cell">Conflicting or expired policy</td>
-<td data-label="Required behavior" role="cell">Abstain from action and escalate</td>
-<td data-label="Evidence" role="cell">Conflict IDs and owner</td>
+<tr>
+<td>Conflicting or expired policy</td>
+<td>Abstain from action and escalate</td>
+<td>Conflict IDs and owner</td>
 </tr>
-<tr role="row">
-<td data-label="Situation" role="cell">Sensitive read request</td>
-<td data-label="Required behavior" role="cell">Verify identity and authorization before retrieval</td>
-<td data-label="Evidence" role="cell">Access decision</td>
+<tr>
+<td>Sensitive read request</td>
+<td>Verify identity and authorization before retrieval</td>
+<td>Access decision</td>
 </tr>
-<tr role="row">
-<td data-label="Situation" role="cell">State-changing action</td>
-<td data-label="Required behavior" role="cell">Validate prerequisites; obtain required approval</td>
-<td data-label="Evidence" role="cell">Approval ID and tool result</td>
+<tr>
+<td>State-changing action</td>
+<td>Validate prerequisites; obtain required approval</td>
+<td>Approval ID and tool result</td>
 </tr>
-<tr role="row">
-<td data-label="Situation" role="cell">Retrieved text requests policy bypass</td>
-<td data-label="Required behavior" role="cell">Treat it as untrusted content</td>
-<td data-label="Evidence" role="cell">Detection and handling record</td>
+<tr>
+<td>Retrieved text requests policy bypass</td>
+<td>Treat it as untrusted content</td>
+<td>Detection and handling record</td>
 </tr>
-<tr role="row">
-<td data-label="Situation" role="cell">Tool failure or uncertain result</td>
-<td data-label="Required behavior" role="cell">Avoid claiming success; reconcile before retry</td>
-<td data-label="Evidence" role="cell">Tool status and state check</td>
+<tr>
+<td>Tool failure or uncertain result</td>
+<td>Avoid claiming success; reconcile before retry</td>
+<td>Tool status and state check</td>
 </tr>
 </tbody>
 </table></div>
@@ -430,39 +389,39 @@
 <p><strong>Operations:</strong> Order creation uses a scoped tool with duplicate prevention. A missing approval blocks creation. If order status is uncertain, reconcile the existing order before retrying. A policy conflict routes to the equipment-policy owner.</p>
 <p><strong>Example failure:</strong> The answer looks helpful but the agent opens an order without approval. The lab classifies this as a critical business-rule failure; the operating controls block release, preserve the trace, and require a regression case before resumption.</p>
 <h2 id="5-thirty-day-pilot-plan">5. Thirty-day pilot plan</h2>
-<div aria-label="Scrollable template table" class="toolkit-table" role="region" tabindex="0"><table role="table">
+<div class="toolkit-table" tabindex="0" role="region" aria-label="Scrollable template table"><table>
 <thead>
 <tr>
-<th scope="col">Period</th>
-<th scope="col">Work</th>
-<th scope="col">Reviewable output</th>
+<th>Period</th>
+<th>Work</th>
+<th>Reviewable output</th>
 </tr>
 </thead>
 <tbody>
-<tr role="row">
-<td data-label="Period" role="cell">Days 1–5</td>
-<td data-label="Work" role="cell">Select workflow, interview owners, establish baseline</td>
-<td data-label="Reviewable output" role="cell">Scope, outcome and source register</td>
+<tr>
+<td>Days 1–5</td>
+<td>Select workflow, interview owners, establish baseline</td>
+<td>Scope, outcome and source register</td>
 </tr>
-<tr role="row">
-<td data-label="Period" role="cell">Days 6–10</td>
-<td data-label="Work" role="cell">Resolve authority, model content, define access and freshness</td>
-<td data-label="Reviewable output" role="cell">Context Blueprint and gap backlog</td>
+<tr>
+<td>Days 6–10</td>
+<td>Resolve authority, model content, define access and freshness</td>
+<td>Context Blueprint and gap backlog</td>
 </tr>
-<tr role="row">
-<td data-label="Period" role="cell">Days 11–17</td>
-<td data-label="Work" role="cell">Build representative cases, rubric and retrieval prototype</td>
-<td data-label="Reviewable output" role="cell">Evaluation set and baseline report</td>
+<tr>
+<td>Days 11–17</td>
+<td>Build representative cases, rubric and retrieval prototype</td>
+<td>Evaluation set and baseline report</td>
 </tr>
-<tr role="row">
-<td data-label="Period" role="cell">Days 18–23</td>
-<td data-label="Work" role="cell">Remediate failures and document operations</td>
-<td data-label="Reviewable output" role="cell">Regression results, charter and runbooks</td>
+<tr>
+<td>Days 18–23</td>
+<td>Remediate failures and document operations</td>
+<td>Regression results, charter and runbooks</td>
 </tr>
-<tr role="row">
-<td data-label="Period" role="cell">Days 24–30</td>
-<td data-label="Work" role="cell">Review gates, approve bounded pilot, measure outcomes</td>
-<td data-label="Reviewable output" role="cell">Release decision and ongoing assurance plan</td>
+<tr>
+<td>Days 24–30</td>
+<td>Review gates, approve bounded pilot, measure outcomes</td>
+<td>Release decision and ongoing assurance plan</td>
 </tr>
 </tbody>
 </table></div>
@@ -476,5 +435,5 @@
 <p>I define the documentation and ownership needed to operate enterprise agents. The framework covers purpose, permitted tools and data, approval boundaries, escalation, incident handling, rollback, and revalidation. It connects content governance with engineering and operational controls.</p>
 <h3 id="suggested-portfolio-placement">Suggested portfolio placement</h3>
 <p>Place the Context Blueprint under Knowledge Management; the continuous lab under AI Content Strategy; and operations documentation under Frameworks, with cross-links between all three. Pair each with the worked example, templates, and an explicit label: “Independent methodology and illustrative demonstration.”</p>
-<p>For future case studies use: business problem → intervention → artifacts → validation method → measured results → limitations. Publish actual results only after a real evaluation; retain baseline, case counts, and evidence.</p></article></main><footer><div class="wrap foot"><span>© 2026 The Baseframe · Founded by Sharmila Das</span><div class="footlinks"><a href="https://sharmiladas.github.io/" rel="noopener" target="_blank">Leadership portfolio</a><a href="https://www.linkedin.com/in/sharmila" rel="noopener" target="_blank">LinkedIn</a></div></div></footer>
-</div></body></html>
+<p>For future case studies use: business problem → intervention → artifacts → validation method → measured results → limitations. Publish actual results only after a real evaluation; retain baseline, case counts, and evidence.</p></article></main><footer><div class="wrap foot"><span>© 2026 The Baseframe · Founded by Sharmila Das</span><div class="footlinks"><a href="https://sharmiladas.github.io/" target="_blank" rel="noopener">Leadership portfolio</a><a href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
+  </div></body></html>
