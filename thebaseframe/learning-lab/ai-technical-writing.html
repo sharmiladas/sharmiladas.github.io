@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive learning paths, practical labs, and assessments for AI-ready content and knowledge systems.">
+  <meta name="theme-color" content="#07182d">
+  <title>AI Technical Writing | Baseframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307182d'/%3E%3Cpath d='M14 43V21h11c8 0 12 3 12 9 0 3-1 5-4 7l8 6H29l-6-5v5H14Zm9-13h3c2 0 3-1 3-2s-1-2-3-2h-3v4Z' fill='%2364d2ff'/%3E%3Ccircle cx='47' cy='19' r='5' fill='%23ffbd67'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="course-docs.css?v=6"><link rel="stylesheet" href="offer-navigation.css?v=1"><link rel="canonical" href="https://sharmiladas.github.io/thebaseframe/learning-lab/ai-technical-writing.html"></head>
+<body>
+  <a class="skip-link" href="#content">Skip to lesson content</a>
+  <header class="topbar">
+    <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Open curriculum navigation" aria-expanded="false">☰</button>
+    <a class="brand" href="index.html" aria-label="Baseframe Learning Lab home"><span class="brand-mark">B</span><span><b>BASEFRAME</b><small>COURSE DOCUMENTATION</small></span></a>
+    <button class="search-trigger" id="search-trigger" type="button"><span aria-hidden="true">⌕</span><span>Search lessons and concepts</span><kbd>⌘ K</kbd></button>
+    <div class="header-actions"><a href="#/case-study">Case study</a><a href="#/assessment">Final assessment</a><a class="baseframe-link" href="https://sharmiladas.github.io/thebaseframe/" target="_blank" rel="noopener">The Baseframe ↗</a></div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Learning curriculum">
+      <div class="sidebar-inner"><nav class="offer-nav" aria-label="Baseframe learning offers"><p>LEARNING LABS</p><a href="https://sharmiladas.github.io/thebaseframe/learning.html">All learning offers ↗</a><p>AI CONTENT STRATEGY</p><a href="https://sharmiladas.github.io/thebaseframe/ai-content-strategy.html">Overview ↗</a><a href="https://sharmiladas.github.io/thebaseframe/ai-content-strategy-sample.html">Free sample ↗</a><a href="https://sharmiladas.github.io/thebaseframe/ai-content-strategy-playbook.html">Playbook ↗</a><a href="https://sharmiladas.github.io/thebaseframe/ai-content-strategy-access.html">Toolkit & advisory ↗</a></nav>
+        <div class="progress-summary"><div><span>Course progress</span><strong id="progress-percent">0%</strong></div><div class="progress-track"><span id="progress-bar"></span></div><small id="progress-copy">0 of 19 lessons complete</small></div>
+        <p><a href="index.html">← All learning tracks</a></p><p><a href="technical-writing-workbook.md" download>Download workbook</a> · <a href="technical-writing-resources.html">Sources & resources</a></p><p><a href="knowledge-graph-course.html">Knowledge graphs: complete course →</a></p><nav id="curriculum-nav"></nav>
+        <div class="sidebar-tools"><a href="#/case-study"><span>↗</span> Case study</a><a href="#/offers"><span>◆</span> Toolkit &amp; training</a><a href="#/glossary"><span>◇</span> Glossary</a><a href="#/assessment"><span>✓</span> Final assessment</a><button id="reset-progress" type="button"><span>↻</span> Reset progress</button></div>
+      </div>
+    </aside>
+
+    <main id="content" class="content" tabindex="-1"></main>
+
+    <aside class="on-this-page" id="on-this-page" aria-label="On this page"></aside>
+  </div>
+
+  <div class="search-dialog" id="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-title" hidden>
+    <div class="search-panel">
+      <div class="search-box"><span aria-hidden="true">⌕</span><label class="sr-only" id="search-title" for="search-input">Search the learning lab</label><input id="search-input" type="search" placeholder="Search lessons, frameworks, or terms…" autocomplete="off"><button id="search-close" type="button" aria-label="Close search">Esc</button></div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="concept-guides.js?v=7"></script><script src="course-playgrounds.js?v=6"></script><script src="technical-writing.js?v=7"></script>
+<nav aria-label="GitHub resources" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px;padding:24px;font-size:14px"><a href="https://github.com/sharmiladas/sharmiladas.github.io" target="_blank" rel="noopener">GitHub projects ↗</a><a href="https://github.com/sharmiladas/sharmiladas.github.io/blob/main/products/ai-content-quality-lab/README.md" target="_blank" rel="noopener">AI Content Quality Lab toolkit ↗</a></nav><script src="offer-navigation.js?v=1"></script></body>
+</html>
