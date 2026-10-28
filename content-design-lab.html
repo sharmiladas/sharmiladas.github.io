@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Content Design Lab — Sharmila Das</title>
+  <meta name="description" content="Practical content design, prompt engineering, and evaluation methods by Sharmila Das.">
+  <link rel="stylesheet" href="/styles.css?v=20261012-pages">
+<style>
+.product-list{border-top:1px solid var(--line)}.product-card{display:grid;grid-template-columns:170px minmax(0,1fr);gap:32px;padding:34px 0;border-bottom:1px solid var(--line)}.product-kind{font:700 12px/1.6 Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.product-card h3{margin:0 0 12px;font-size:29px}.product-card p{margin:0 0 18px;max-width:780px;line-height:1.65;color:var(--muted)}.product-actions{display:flex;flex-wrap:wrap;gap:12px 22px;font:700 13px/1.6 Arial,sans-serif}.product-actions a{border-bottom:2px solid var(--orange);padding-bottom:4px}.product-actions a:focus-visible{outline:2px solid var(--plum);outline-offset:5px}@media(max-width:700px){.product-card{grid-template-columns:1fr;gap:12px}.product-card h3{font-size:25px}}
+</style>
+<link rel="stylesheet" href="/portfolio-navigation.css?v=20261012-mobile">
+<style>.cdl{max-width:900px;margin:auto;padding:40px 28px;line-height:1.75;font-family:Arial,sans-serif}.cdl h1{font:500 clamp(34px,5vw,54px)/1.13 Georgia,serif;color:#3c1933}.cdl h2{font:500 29px/1.25 Georgia,serif;margin-top:2em}.cdl a{color:#681b50;text-decoration:underline;text-underline-offset:3px}.cdl .lede{font-size:20px;color:#5f5952}.cdl pre{background:#eee8df;padding:20px;overflow:auto;max-width:100%;font-size:13px}.cdl table{border-collapse:collapse;font-size:14px;min-width:600px;width:100%}.cdl td,.cdl th{text-align:left;vertical-align:top;padding:10px;border:1px solid #cfc7ba}.scroll{overflow:auto;max-width:100%}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.cards a{display:block;padding:22px;border:1px solid #cfc7ba;text-decoration:none;background:#fffdf8}.cards h2{font-size:25px;margin:0 0 12px}.cdl .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#8c3b29}.cdl .notice{border-left:3px solid #8c3b29;padding-left:18px;color:#5f5952}.cdl .actions{display:flex;flex-wrap:wrap;gap:18px}.cdl :focus-visible{outline:3px solid #b94327;outline-offset:4px}@media(max-width:620px){.cards{grid-template-columns:1fr}.cdl{padding:24px 20px}.cdl h1{font-size:34px}.cdl{overflow-wrap:anywhere}}</style></head><body class="portfolio-page portfolio-section-page"><a class="skip-link" href="#main-content">Skip to content</a><aside class="portfolio-sidebar"><a class="portfolio-brand" href="/index.html">Sharmila Das</a><p class="portfolio-position">AI content strategy<br>Knowledge management<br>Technical programs</p><nav class="portfolio-nav" aria-label="Portfolio sections"><a href="/index.html">Overview</a><a href="/technical-writing.html">AI content strategy</a><a href="/knowledge-management.html">Knowledge management</a><a href="/learning-labs.html" aria-current="page">Learning Labs</a><a href="/work.html">My work</a><a href="/editorial.html">Editorial leadership</a><a href="/program-management.html">Program management</a><a href="/developer-documentation.html">Developer docs</a><a href="/products.html">Products</a><a href="/frameworks.html">Frameworks</a><a href="/perspective.html">Perspective</a><a href="/about.html">About</a></nav><div class="portfolio-sidebar-foot"><p>AI · Cloud · Semiconductor</p><a href="/resume.pdf">Résumé</a><a href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://sharmiladas.github.io/thebaseframe/">The Baseframe ↗</a></div></aside><div class="portfolio-main"><div class="portfolio-mobile-brand"><a href="/index.html">Sharmila Das</a><a href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">LinkedIn ↗</a></div><details class="portfolio-mobile-menu"><summary>Explore portfolio</summary><nav class="portfolio-nav" aria-label="Mobile portfolio sections"><a href="/index.html">Overview</a><a href="/technical-writing.html">AI content strategy</a><a href="/knowledge-management.html">Knowledge management</a><a href="/learning-labs.html" aria-current="page">Learning Labs</a><a href="/work.html">My work</a><a href="/editorial.html">Editorial leadership</a><a href="/program-management.html">Program management</a><a href="/developer-documentation.html">Developer docs</a><a href="/products.html">Products</a><a href="/frameworks.html">Frameworks</a><a href="/perspective.html">Perspective</a><a href="/about.html">About</a></nav></details><div class="portfolio-toolbar"><nav class="portfolio-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/index.html">Home</a></li><li><span aria-current="page">Learning Labs</span></li></ol></nav><a class="portfolio-toolbar-link" href="https://www.linkedin.com/in/sharmila" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></div><main id="main-content"><div class="cdl"><p><a href="/learning-labs.html">Learning Labs</a> / <a href="/content-design-lab.html">Content Design Lab</a></p><p class="label">A practical field guide · Sharmila Das</p><h1>Design the words.<br>Test the behavior.</h1><p class="lede">Turn editorial judgment into prompts, evaluation criteria, and useful AI content experiences.</p><p>Six articles, a reusable toolkit, and a local Python lab connect content design craft with reliable evaluation. Explore prompt iteration, human review, lifecycle messages, and release decisions.</p><p class="actions"><a href="#toolkit">Open the toolkit →</a><a href="/content-design-lab-public.zip" download>Download code and templates ↓</a><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/content-design-lab.htmlsource">Browse source ↗</a></p><p class="notice">Independent teaching materials. Fictional examples and synthetic evaluation results illustrate the methods; they are not employer outcomes or production benchmarks.</p><h2>Read the series</h2><div class="cards"><a href="#article-1"><span class="label">Article 01</span><h2>Prompts Are Content Design Specifications</h2><span>Read article →</span></a><a href="#article-2"><span class="label">Article 02</span><h2>Turn Editorial Judgment into an Evaluation People Can Use</h2><span>Read article →</span></a><a href="#article-3"><span class="label">Article 03</span><h2>Test the Evaluator Before Trusting the Score</h2><span>Read article →</span></a><a href="#article-4"><span class="label">Article 04</span><h2>Make the Content Workflow Reproducible</h2><span>Read article →</span></a><a href="#article-5"><span class="label">Article 05</span><h2>Design for a Meaningful Next Step</h2><span>Read article →</span></a><a href="#article-6"><span class="label">Article 06</span><h2>Make Content Quality a Shared Decision</h2><span>Read article →</span></a></div><h2>Build with the toolkit</h2><p>Use prompt specifications, anchored rubrics, scenario datasets, reviewer guidance, reliability worksheets, notification rules, experiment briefs, and engineering handoff contracts.</p><h2>Run a small evaluation</h2><pre><code>cd content-design-lab-public
+python3 lab/evaluate.py lab/sample_reviews.csv --out lab/results</code></pre><p>The lab uses Python’s standard library and needs no API key. It reads supplied judgments and reports reviewer agreement, grader errors, and character-limit checks. It does not generate model output or judge factual accuracy.</p><p><a href="#sources">Primary sources and method notes →</a></p></div><section id="article-1"><h2>Prompts Are Content Design Specifications</h2>
+<p>By Sharmila Das</p>
+<p>A prompt starts with a decision about what someone needs to understand or do. The model instruction comes later. If the user problem is unclear, more elaborate instructions can produce consistent output that solves the wrong problem.</p>
+<p>Consider a fictional writing assistant onboarding a new user. “Write engaging onboarding copy” leaves several decisions unresolved. What can the product actually do? What does the user need to supply? What happens after the button? What should the system avoid promising?</p>
+<p>A useful brief answers those questions before generation. The product can revise text supplied by the user. The person needs to paste a paragraph and choose a goal. Suggestions remain optional. The message should make that next action understandable without promising a better grade, a job offer, or another unsupported result.</p>
+<p>The prompt can then encode the design: approved facts, audience, user state, action, voice, constraints, and output structure. “Paste a paragraph to begin” follows from the interaction. It is not simply a friendlier version of a vague instruction.</p>
+<p>Documentation transformation makes this relationship especially visible. A prompt must preserve more than meaning in the abstract. Commands, parameter names, prerequisites, version conditions, and warnings may carry functional consequences. The instruction should identify what can change, what must remain intact, and when an uncertainty requires review.</p>
+<p>The first output is a design test. Suppose a transformed document loses a prerequisite. Adding “be accurate” gives little guidance. A stronger revision identifies prerequisite preservation explicitly, includes a representative example, and requires an issue report when source material is incomplete. The revised prompt then needs regression testing against cases it previously handled well.</p>
+<p>This creates a practical division of responsibility. Content design defines acceptable communication and the user task. Engineering implements the repeatable workflow. Evaluation tests whether the resulting behavior meets the specification. Each contributes to a usable system.</p>
+<p>For a portfolio, show that chain. Include a brief, an initial prompt, a failed output, the reasoning behind a revision, and the results of a controlled comparison. Describe failures that remain. The strongest evidence is a defensible design decision that changed system behavior.</p>
+<p><strong>Try it:</strong> Choose one message. Write its user job, source boundary, required action, and three failure conditions. Build two prompt versions and explain the specific behavior each change is intended to improve.</p>
+<p><strong>Technical reference:</strong> OpenAI&#39;s <a href="https://developers.openai.com/api/docs/guides/prompt-engineering">prompt engineering guide</a> provides background on instructions, context, and examples. The fictional exercise and design framework above are original teaching material.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="article-2"><h2>Turn Editorial Judgment into an Evaluation People Can Use</h2>
+<p>By Sharmila Das</p>
+<p>“This copy feels wrong” can be the start of useful feedback. It cannot be the entire evaluation system. A repeatable assessment needs to identify what failed, why it matters, and what evidence would support a different judgment.</p>
+<p>Start with the user task. An onboarding message should help a person understand the next action. A recovery message should explain a problem and a workable next step. A notification should provide enough value to justify an interruption. Those purposes require different criteria even when all three messages share the same voice.</p>
+<p>Next, separate dimensions. Clarity asks whether the meaning is understandable. Grounding asks whether claims have support. Context asks whether the message fits the person&#39;s state. A clear message can still be factually wrong. One combined “quality” score can hide that distinction.</p>
+<p>Use anchored judgments. A clarity score of zero might mean the intended action is unclear. One could mean the action is understandable after interpretation. Two could mean the next action is explicit and appropriate. Reviewers need examples at the boundary, including cases with more than one acceptable wording.</p>
+<p>Some failures should block release regardless of the average. An invented product capability is not repaired by excellent tone. A notification that exposes sensitive information is not rescued by a short headline. Decide which failures are gates before examining candidate results.</p>
+<p>Then design the dataset. Include ordinary use, sparse context, conflicting source material, already-completed tasks, and known failure patterns. Label the expected behavior instead of forcing every output to resemble one reference sentence. Divide scenario families between development and held-out assessment so near duplicates do not create an exaggerated impression of generalization.</p>
+<p>The result should help people act. A report that says “quality fell” is less useful than one showing that missing prerequisites increased in recovery scenarios after a prompt change. That finding points to a specific investigation and a regression test.</p>
+<p>For a small portfolio project, publish the rubric, scenario coverage, failure examples, and release recommendation alongside the aggregate results. Explain the sample&#39;s limits. A carefully documented small evaluation demonstrates judgment; it does not establish production-wide performance.</p>
+<p><strong>Try it:</strong> Write a six-dimension rubric for five fictional messages. Add two hard gates. Ask another reviewer to apply it independently, then identify which definitions produced disagreement.</p>
+<p><strong>Reference:</strong> OpenAI&#39;s <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">evaluation best practices</a> provides general background on task-specific assessment. The rubric and gates in the companion toolkit are proposed exercise rules.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="article-3"><h2>Test the Evaluator Before Trusting the Score</h2>
+<p>By Sharmila Das</p>
+<p>An automated grader can make content review faster while creating a new source of error. It may reject useful content, overlook a serious defect, or apply the same criterion inconsistently. A quality score becomes useful only when we understand the behavior behind it.</p>
+<p>Begin with a reference. Two reviewers independently examine the same examples using written criteria. Preserve their initial judgments. Discuss disagreements afterward and record a separate adjudicated decision. Otherwise, the process can confuse consensus achieved through discussion with independent agreement.</p>
+<p>Human disagreement is informative. If reviewers disagree about whether a claim is supported, the source boundary may be unclear. If they disagree about tone, the rubric may need examples. Do not automatically treat the majority opinion as an unquestionable fact.</p>
+<p>Compare the automated labels with the adjudicated reference. Define the positive label explicitly. In the companion lab, positive means a defect is present. A false positive is acceptable content incorrectly flagged. A false negative is a defect the grader missed.</p>
+<p>These errors have different consequences. Too many false positives create review burden and reduce trust. False negatives allow poor content through. Precision tells you how often flags correspond to reference defects. Recall tells you how many reference defects the grader caught. The acceptable tradeoff depends on the failure cost and the review workflow.</p>
+<p>Repeatability is another question. Run the evaluator several times on unchanged inputs and preserve the configuration. Then inspect whether decisions change, especially near the release boundary. Repeated runs of the same scenario should not be counted as independent evidence about a broader user population.</p>
+<p>Agreement metrics also need context. Raw agreement can look high when nearly every example belongs to one class. Cohen&#39;s kappa accounts for agreement expected from the raters&#39; label proportions, but it is sensitive to prevalence. Neither statistic replaces examining critical misses and performance by content type.</p>
+<p>When improving the grader, keep a separate evaluator test set. If you repeatedly tune criteria against the same examples, the score can improve without demonstrating broader reliability. Document what changed and what remains uncertain.</p>
+<p><strong>Try it:</strong> Run the bundled script, inspect each false positive and false negative, and propose one rubric change. Evaluate that change on fresh examples before declaring improvement.</p>
+<p><strong>Reference:</strong> <a href="https://aclanthology.org/W19-8643/">van der Lee et al. (2019)</a> reviews variation in human evaluation and argues for more consistent procedures. The local lab&#39;s metrics are diagnostic teaching tools, not validated release standards.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="article-4"><h2>Make the Content Workflow Reproducible</h2>
+<p>By Sharmila Das</p>
+<p>A successful prompt in a chat window is useful evidence that an approach might work. A repeatable workflow requires more: identifiable inputs, versioned instructions, preserved outputs, explicit errors, and a way to connect decisions back to evidence.</p>
+<p>Start with the run record. Save the scenario ID, source version, prompt version, model identifier, configuration, output, and evaluator version. If a result changes, these fields help determine whether the cause was a prompt edit, different context, model behavior, or a grading change.</p>
+<p>Keep generation separate from evaluation. The component that produces a message should return the message and operational metadata. Another step checks its shape and constraints. A semantic review examines usefulness and factual support. This separation makes it easier to diagnose failures and replace one component without rebuilding everything.</p>
+<p>Schema checks are helpful but narrow. A JSON object can contain every required field and still make an unsupported claim. A length check can confirm that a message fits while missing that its action is inappropriate. Treat these checks as evidence about specific properties.</p>
+<p>Failures belong in the dataset. A timeout, refusal, malformed response, or missing output should have an explicit status. Silently discarding those records makes the remaining sample look better than the full workflow. Report operational success alongside content quality.</p>
+<p>The engineering contract should also cover retries, budget limits, duplicate prevention, access controls, and logging. Some failures are transient; others need a person. Repeatedly retrying an invalid request can add cost without increasing reliability.</p>
+<p>A small local harness is a useful starting point. The companion script reads saved labels, checks a simple character constraint, and calculates agreement and confusion metrics. It deliberately makes no model calls. This lets a learner inspect the evaluation mechanics before adding network behavior and credentials.</p>
+<p>For a portfolio, make the boundary explicit: “I built and tested the local evaluation harness; the provider adapter is a proposed next step.” That statement is more credible than presenting pseudocode as a deployed integration.</p>
+<p><strong>Try it:</strong> Add a run manifest and one explicit failure record to a saved-output exercise. Explain how your report includes that failure and how an engineer could reproduce the run.</p>
+<p><strong>Reference:</strong> OpenAI&#39;s <a href="https://developers.openai.com/api/docs/guides/structured-outputs">structured output guide</a> explains schema-constrained responses. The workflow contract above is a teaching design; use current provider documentation for a live implementation.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="article-5"><h2>Design for a Meaningful Next Step</h2>
+<p>By Sharmila Das</p>
+<p>Discovery, onboarding, and notifications operate at different moments. Discovery helps someone recognize a useful possibility. Onboarding helps them begin. A notification asks them to interrupt something else. Applying one “engaging” tone to all three misses the decision each message must support.</p>
+<p>For discovery, make the value concrete. A fictional writing product might offer “Turn rough notes into a first draft.” The person can judge whether that is relevant. “Unlock your creativity” leaves the actual benefit harder to assess.</p>
+<p>For onboarding, connect the promise to an achievable action. “Paste a paragraph to begin” tells the person what to supply. If there is a necessary choice or limitation, explain it at the point it matters. The goal is an understandable first success, not completion of a tour.</p>
+<p>Notifications require another layer of judgment. Even useful words can be wrong when the trigger is stale, the person already completed the task, or the preview reveals something sensitive. A notification design needs eligibility, timing, frequency, expiration, and destination rules alongside the copy.</p>
+<p>Consider “Your export is ready.” Before sending, the system should know an export actually completed, that the person requested it, that the message is still relevant, and that its link leads to the correct place. If those conditions fail, rewriting the sentence does not fix the experience.</p>
+<p>Measurement should follow the user purpose. A high click rate may indicate curiosity or confusion. For onboarding, examine completion of a meaningful task and whether the person understood the action. For notifications, examine useful task completion alongside opt-outs, complaints, and interruption burden.</p>
+<p>A portfolio exercise can make these tradeoffs visible without claiming a production launch. Create a fictional journey, write alternatives, document no-message conditions, test comprehension with consenting participants, and state what would need an online experiment.</p>
+<p><strong>Try it:</strong> Write one discovery card, one onboarding message, one recovery message, and one notification for the same fictional product. For each, specify the user state, intended action, failure condition, and measurement. Write a fifth example in which the correct decision is to send nothing.</p>
+<p><strong>Method note:</strong> These examples and recommendations are original product-design exercises aligned to the supplied job description. They describe no actual OpenAI notification policy or product capability.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="article-6"><h2>Make Content Quality a Shared Decision</h2>
+<p>By Sharmila Das</p>
+<p>Evaluation becomes useful when it changes a decision. A dashboard can show a rising score while leaving a team uncertain about what to ship, who should fix failures, or which tradeoffs are acceptable.</p>
+<p>Start by connecting the report to the user problem. “The candidate scored 10.4” is incomplete. “The candidate clarified the first action but introduced unsupported promises in two scenarios” gives the team something to assess. Include the denominator, affected surface, severity, and limitations.</p>
+<p>Then separate evidence from explanation. An evaluation may show that recovery messages fail more often. It does not by itself establish whether the cause is poor source material, unclear instructions, retrieval failure, or a grading problem. State the root-cause hypothesis and the next test that could challenge it.</p>
+<p>Assign responsibility around the decision. Content design can own communication criteria and reviewer guidance. Engineering can own integration, logging, and failure handling. Product can own prioritization. Research can help investigate comprehension. Data Science can help design and interpret experiments. Sensitive claims may require specialist review.</p>
+<p>These responsibilities become concrete in a release memo. Describe what changed, which tests ran, what regressed, which critical failures remain, and how the team will monitor and reverse the change. Record the versions so a future reviewer can reproduce the decision.</p>
+<p>Coaching strengthens this process. Ask designers to score examples independently before discussing them. Compare the evidence behind their judgments. Revise an unclear criterion, test it on a new example, and capture the lesson. This teaches people to reason about quality instead of memorizing a preferred sentence.</p>
+<p>A reusable approach should preserve its limits. A rubric that worked for documentation transformation may need different anchors for consumer notifications. A threshold chosen for a learning exercise should not quietly become a production policy. Document where an approach applies and where fresh validation is needed.</p>
+<p>For a portfolio, include a decision memo and workshop agenda alongside prompts and results. They demonstrate the ability to turn individual expertise into a working team capability.</p>
+<p><strong>Try it:</strong> Write a one-page release recommendation with three sections: evidence, decision, and next validation. Include one reason to hold the candidate and one observation that could change the decision.</p>
+<p><strong>Method note:</strong> This article offers an original operating model for the learning project. It does not describe an employer&#39;s internal release process.</p>
+<p><a href="/content-design-lab.html">Back to the series</a></p></section><section id="toolkit"><h2>The Content Designer&#39;s Prompt &amp; Evaluation Toolkit</h2>
+<p>Sharmila Das | October 2026</p>
+<h2>1. Begin with a content-design brief</h2>
+<p>Before writing a prompt, decide what the person needs to understand or do.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Fill in</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User and situation</td>
+<td>Who is here, and what happened immediately before this message?</td>
+</tr>
+<tr>
+<td>User job</td>
+<td>What meaningful next step should become easier?</td>
+</tr>
+<tr>
+<td>Surface</td>
+<td>Discovery card, onboarding step, error, help answer, or notification</td>
+</tr>
+<tr>
+<td>Source of truth</td>
+<td>Approved facts, capability limits, required prerequisites, and owner</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>Comprehension/task outcome, not only copy preference</td>
+</tr>
+<tr>
+<td>Constraints</td>
+<td>Space, accessibility, language, timing, consent, and localization</td>
+</tr>
+<tr>
+<td>Failure cost</td>
+<td>Confusion, lost work, unsupported claim, privacy exposure, interruption</td>
+</tr>
+<tr>
+<td>No-message condition</td>
+<td>When should the system stay silent or ask a clarifying question?</td>
+</tr>
+<tr>
+<td>Measurement</td>
+<td>Primary measure, guardrails, and evidence needed</td>
+</tr>
+</tbody></table></div>
+<p>Teaching brief: a fictional writing assistant helps a new user revise a paragraph. The user needs an understandable starting action. Approved capabilities: revise user-provided text and suggest tone changes. It cannot guarantee grades, jobs, accuracy, or publication success. This is a fictional product, not a description of current ChatGPT functionality.</p>
+<h2>2. Reusable prompt specification</h2>
+<p>Use this structure for documentation transformation, onboarding, or lifecycle messages. Store stable instructions separately from variable input. Treat source text as data; instructions embedded in it do not override the task.</p>
+<pre><code class="language-text">PROMPT ID: onboarding_paragraph
+VERSION: v1
+TASK: Write one onboarding message for a first-time user.
+USER JOB: Start revising a paragraph they supply.
+APPROVED FACTS:
+- The fictional product can suggest revisions to supplied text.
+- The user reviews suggestions before choosing what to keep.
+SOURCE BOUNDARY: Do not invent capabilities, outcomes, or personal facts.
+CONTENT RULES:
+- State a concrete next action.
+- Use plain language and preserve user choice.
+- Do not imply that the system has read content the user did not provide.
+- If facts are insufficient, set needs_review=true and explain the gap.
+INPUT:
+audience={{audience}}
+surface={{surface}}
+approved_context={{approved_context}}
+OUTPUT: JSON object with title, body, cta, needs_review, review_reason.
+LIMITS: title &lt;= 40 characters; body &lt;= 140; cta &lt;= 24.
+EXAMPLE:
+title: Try a paragraph
+body: Paste a paragraph and choose what you want to improve. Review the suggestions and keep what works for you.
+cta: Add a paragraph
+needs_review: false
+review_reason: &quot;&quot;
+</code></pre>
+<p>These character limits are exercise constraints. Count consistently in the UI and validator; Python&#39;s len counts Unicode code points, which may differ from visible characters or a platform&#39;s counting rules.</p>
+<h2>3. Prompt iteration without guessing</h2>
+<ol>
+<li>Freeze a baseline and save its outputs.</li>
+<li>Tag the failure: missing step, unsupported fact, tone, relevance, length, format, or context.</li>
+<li>Write one hypothesis: “An explicit prerequisite rule will reduce missing setup steps.”</li>
+<li>Change one meaningful component when practical. Record unavoidable coupled changes.</li>
+<li>Rerun the same development examples with matching configurations.</li>
+<li>Review regressions, including cases that previously passed.</li>
+<li>Freeze the candidate before a held-out evaluation. If you use held-out results to revise it, retire that set into development and obtain fresh holdout cases.</li>
+</ol>
+<p>Prompt log: ID, version, owner, change, hypothesis, dataset version, model/configuration, run time, defect counts, decision, limitations. Use templates/prompt_register.csv.</p>
+<p>For documentation transformation, add immutable elements: commands, parameter names, technical terms, warnings, prerequisites, source IDs, and version scope. Ask for an issue report when preservation is impossible. Do not make the model silently “repair” unknown technical facts.</p>
+<h2>4. Content quality rubric</h2>
+<p>Use separate dimensions and written anchors. Do not average away a severe failure.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>0: fails</th>
+<th>1: needs revision</th>
+<th>2: meets brief</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Grounding</td>
+<td>Invents a capability/fact</td>
+<td>Ambiguous or weak support</td>
+<td>Every material claim supported</td>
+</tr>
+<tr>
+<td>Task usefulness</td>
+<td>Wrong or absent action</td>
+<td>Action needs interpretation</td>
+<td>Action fits the user&#39;s next step</td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td>Meaning unclear</td>
+<td>Understandable with effort</td>
+<td>Direct and easy to understand</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Wrong state/audience</td>
+<td>Generic but usable</td>
+<td>Fits state and surface</td>
+</tr>
+<tr>
+<td>Voice</td>
+<td>Pressure, blame, or misleading confidence</td>
+<td>Uneven tone</td>
+<td>Respectful, specific, appropriate</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Essential meaning unavailable</td>
+<td>Avoidable jargon/ambiguity</td>
+<td>Understandable without hidden context</td>
+</tr>
+</tbody></table></div>
+<p>Exercise hard gates: unsupported capability, private information disclosure, misleading outcome guarantee, and notification sent without required eligibility. A hard-gate failure blocks release even if other scores are high.</p>
+<p>Suggested exercise decision: all hard gates pass; each dimension &gt;=1; total &gt;=10/12. This is a learning threshold, not a validated production standard. If dimensions conflict, document the tradeoff and decision owner.</p>
+<h2>5. Dataset design</h2>
+<p>The unit of evaluation is one scenario plus its generated message, source context, and expected behavior. Multiple model runs for one scenario are repeated observations, not independent new users.</p>
+<p>For the capstone, author 60 scenarios: 30 development, 10 reviewer-calibration, and 20 held-out. Assign entire scenario families to one split to prevent near-duplicate leakage.</p>
+<p>Suggested surface coverage: discovery, onboarding, notification, recovery, and re-engagement. Add sparse context, conflicting facts, long inputs, sensitive details, already-completed tasks, ineligible notifications, and accessibility needs.</p>
+<p>Do not use a single “golden answer” when several wordings are acceptable. Specify constraints and acceptable behaviors. Reference copy illustrates a solution; it is not necessarily the only valid answer.</p>
+<p>Track provenance, source permission, risk, split, audience, surface, expected action, forbidden claims, eligibility, rubric version, and author. Use templates/dataset.csv. Synthetic cases help explore failures; they do not establish real-world prevalence.</p>
+<h2>6. Reviewer guide and calibration</h2>
+<p>Give each reviewer the user state, approved facts, message, rubric, and task. Hide prompt version and candidate identity where feasible.</p>
+<p>Reviewer sequence:</p>
+<ol>
+<li>Read the scenario and sources.</li>
+<li>Mark hard-gate failures and quote the relevant evidence.</li>
+<li>Score each dimension independently.</li>
+<li>Assign pass/fail using the declared rule.</li>
+<li>Record defect type, rationale, confidence, and unresolved ambiguity.</li>
+</ol>
+<p>Two reviewers first label the 10 calibration scenarios independently. Discuss disagreements after labels are locked. Revise unclear anchors, then label fresh examples. Preserve the original labels; do not report post-discussion consensus as independent agreement.</p>
+<p>One person cannot simulate independent inter-rater reliability. If only you are available, do a delayed blind second pass and label it intra-rater repeatability.</p>
+<h2>7. Reliability worksheet</h2>
+<p>Distinguish four questions:</p>
+<ul>
+<li>Repeatability: Does the same evaluator make consistent judgments on the same material?</li>
+<li>Human agreement: Do independent reviewers apply the rubric similarly?</li>
+<li>Automated validity against reference: Does a grader detect the defects experts identified?</li>
+<li>Robustness: Does performance persist across surface, audience, input, and prompt variations?</li>
+</ul>
+<p>For binary defect labels, “positive” means a defect is present:</p>
+<ul>
+<li>TP: grader flags a defect and reference flags a defect.</li>
+<li>FP: grader flags a defect but reference does not.</li>
+<li>FN: grader misses a reference defect.</li>
+<li>TN: neither flags a defect.</li>
+<li>Precision = TP/(TP+FP); recall = TP/(TP+FN).</li>
+<li>False-positive rate = FP/(FP+TN). This differs from 1-precision.</li>
+</ul>
+<p>Raw agreement = agreements / paired items. Cohen&#39;s kappa = (observed agreement - expected agreement)/(1 - expected agreement), where expected agreement uses each rater&#39;s label proportions. Report undefined denominators as unavailable. Kappa is sensitive to prevalence and is not a sufficient release criterion.</p>
+<p>Worked synthetic example: TP=8, FP=2, FN=2, TN=8 gives precision=80%, recall=80%, FPR=20%, and accuracy=80%. With balanced marginals and 80% observed agreement, kappa=0.60. These are teaching numbers.</p>
+<p>The lab script calculates agreement/kappa for two independent reviewers and confusion metrics for a supplied grader against a separate adjudicated reference. It does not adjudicate disagreements itself. Report sample counts and inspect slices; do not treat a tiny sample as proof of production reliability.</p>
+<h2>8. Discovery, onboarding, and notifications</h2>
+<div class="scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Design question</th>
+<th>Fictional example</th>
+<th>Evidence to collect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Discovery</td>
+<td>Is value concrete and relevant?</td>
+<td>“Turn rough notes into a first draft.”</td>
+<td>Can users explain the benefit?</td>
+</tr>
+<tr>
+<td>Onboarding</td>
+<td>Is the first action clear?</td>
+<td>“Paste a paragraph to begin.”</td>
+<td>First task completion; confusion</td>
+</tr>
+<tr>
+<td>Recovery</td>
+<td>Can users regain control?</td>
+<td>“That file could not be read. Try a text file.”</td>
+<td>Recovery success; repeated errors</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>Is there a user-owned reason to come back?</td>
+<td>“Continue your saved draft.”</td>
+<td>Meaningful resumed work</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>Is interruption justified now?</td>
+<td>“Your export is ready to download.”</td>
+<td>Completion; opt-outs; complaints</td>
+</tr>
+</tbody></table></div>
+<p>Notification policy template: trigger, evidence of value, consent/eligibility, channel, user timezone, quiet hours, frequency cap, expiration, duplicate suppression, completed-task suppression, sensitive-preview rules, destination, fallback, owner.</p>
+<p>Teach “no notification” as a valid output. A polished message can still be wrong if timing or eligibility fails. Do not use guilt, fabricated urgency, or personal facts inferred without a valid basis.</p>
+<h2>9. Experiment brief</h2>
+<p>Hypothesis: context-specific onboarding copy helps new users complete a first meaningful task.
+Define eligible population, randomization unit, assignment duration, control, treatment, exposure event, completion event, denominator, attribution window, exclusions, and analysis owner before launch.</p>
+<p>Primary metric: first meaningful task completion among assigned eligible users. Guardrails: complaints, abandonment, errors, opt-outs, and repeat usefulness where measurable. Click-through is diagnostic, not proof of value.</p>
+<p>Have a data scientist estimate required sample and duration using baseline rates, minimum detectable effect, and traffic. Do not stop just because an early result looks favorable. Separate offline quality, usability findings, and causal online outcomes.</p>
+<p>Offline exercise: manually test with consenting participants using neutral tasks. Report recruitment limitations and observational findings. Do not describe a simulated A/B comparison as an actual randomized production experiment.</p>
+<h2>10. Repeatable code and API handoff</h2>
+<p>Contract:</p>
+<ul>
+<li>Inputs: scenario_id, source_version, prompt_version, model_id, configuration, user state, approved context.</li>
+<li>Output: message JSON, request ID, model/configuration, timestamp, refusal/error status, latency, and usage when available.</li>
+<li>Evaluations: schema and length checks, independent semantic review, eligibility checks, and versioned decision rule.</li>
+<li>Storage: output/run IDs, dataset version, reviewer labels and evaluator version; exclude secrets and unnecessary personal data.</li>
+<li>Operations: timeouts, bounded retries for transient failures, backoff, rate limits, partial failure records, budget caps, and duplicate protection.</li>
+</ul>
+<p>Pseudocode:</p>
+<pre><code class="language-text">load frozen scenarios and prompt
+for each scenario:
+  build request from approved context
+  call chosen provider through a small adapter
+  log response or explicit failure with run metadata
+  validate output shape and deterministic constraints
+  route semantic quality to calibrated review
+join results by scenario_id + candidate + repeat_id
+compare baseline and candidate; investigate regressions
+</code></pre>
+<p>Structured output helps constrain shape, not factual accuracy. Recheck current provider documentation before implementing the adapter. No live adapter is bundled; the supplied local harness starts from saved outputs and review labels.</p>
+<h2>11. Diagnose failures and recommend changes</h2>
+<p>Use templates/failure_log.csv.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Check first</th>
+<th>Possible intervention</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Invented capability</td>
+<td>Source facts and retrieval</td>
+<td>Fix authority/context; constrain claims</td>
+</tr>
+<tr>
+<td>Missing prerequisite</td>
+<td>Brief and preservation rules</td>
+<td>Add requirement/example; regression case</td>
+</tr>
+<tr>
+<td>Good content rejected</td>
+<td>Grader/reference disagreement</td>
+<td>Clarify rubric; calibrate thresholds</td>
+</tr>
+<tr>
+<td>Poor content accepted</td>
+<td>False-negative examples</td>
+<td>Add relevant defect tests; strengthen gate</td>
+</tr>
+<tr>
+<td>Valid JSON, unusable copy</td>
+<td>Semantic criteria</td>
+<td>Add human usefulness review</td>
+</tr>
+<tr>
+<td>Strong offline score, weak activation</td>
+<td>Journey friction and exposure</td>
+<td>Research product experience and measurement</td>
+</tr>
+<tr>
+<td>Notification complaints</td>
+<td>Trigger and eligibility</td>
+<td>Fix policy before rewriting copy</td>
+</tr>
+</tbody></table></div>
+<p>Recommendation memo: finding → evidence and n → root-cause hypothesis → proposed change → owner → tradeoff → validation → release/hold decision. Say what would change your mind.</p>
+<h2>12. Release and team enablement</h2>
+<p>Release record: user problem; prompt/source/model/rubric versions; known failures; held-out results by slice; human-review agreement; critical misses; rollback conditions; owner and monitoring cadence. Exercise gates: no observed critical failures, review all disagreements, and document any unsupported generalization. Zero observed failures in a small set does not mean zero risk.</p>
+<p>Partner responsibilities: Content owns brief/rubric/copy; Engineering owns integration and failure handling; Product owns prioritization; Research owns study design; Data Science owns experiment analysis; relevant specialists review sensitive claims.</p>
+<p>Teach a 45-minute workshop: 5-minute brief, 10-minute independent scoring, 10-minute disagreement review, 10-minute prompt revision, 10-minute rerun and decision. Capture one reusable lesson and one unresolved question. Coach judgment rather than teaching people to maximize a score.</p>
+</section><section id="sources"><h2>Primary references</h2>
+<p>Checked October 28, 2026. These links support the general technical background; the toolkit&#39;s examples, schedules, rubrics, and decision thresholds are original teaching designs.</p>
+<ol>
+<li>OpenAI, Prompt engineering: <a href="https://developers.openai.com/api/docs/guides/prompt-engineering">https://developers.openai.com/api/docs/guides/prompt-engineering</a>
+Reference for clear instructions, context, examples, and prompt organization.</li>
+<li>OpenAI, Evaluation best practices: <a href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">https://developers.openai.com/api/docs/guides/evaluation-best-practices</a>
+Reference for task-specific tests, representative data, and human calibration. Some hosted evaluation workflows are labeled legacy in current navigation; the local exercise deliberately avoids depending on that product interface.</li>
+<li>OpenAI, Structured model outputs: <a href="https://developers.openai.com/api/docs/guides/structured-outputs">https://developers.openai.com/api/docs/guides/structured-outputs</a>
+Reference for schema-constrained output. A valid schema does not establish that the content is correct.</li>
+<li>van der Lee et al., 2019, Best practices for the human evaluation of automatically generated text: <a href="https://aclanthology.org/W19-8643/">https://aclanthology.org/W19-8643/</a>
+Reference for explicit evaluation design and consistent human-review procedures.</li>
+</ol>
+<p>This independent resource explores content design for AI products.</p>
+<p>No model names, prices, or time-sensitive SDK signatures are hardcoded. The API handoff is an implementation contract and pseudocode, not a tested live integration.</p>
+</section></main><footer class="portfolio-footer"><span>Sharmila Das</span><span>AI content strategy · Knowledge management · Technical programs</span></footer></div><script src="/portfolio-navigation.js?v=20261013-learning-labs"></script></body></html>
+
+
+
+
+
+
