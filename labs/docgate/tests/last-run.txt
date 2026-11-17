@@ -1,0 +1,28 @@
+Executed 2026-11-17 with Python 3.12.14
+test_invalid_response_shape (test_docgate.ClaudeClientTests.test_invalid_response_shape) ... ok
+test_missing_config (test_docgate.ClaudeClientTests.test_missing_config) ... ok
+test_network_errors (test_docgate.ClaudeClientTests.test_network_errors) ... ok
+test_provider_errors_redact_body (test_docgate.ClaudeClientTests.test_provider_errors_redact_body) ... ok
+test_request_contract_and_mixed_blocks (test_docgate.ClaudeClientTests.test_request_contract_and_mixed_blocks) ... ok
+test_truncation (test_docgate.ClaudeClientTests.test_truncation) ... ok
+test_chunked_is_rejected (test_docgate.HTTPTests.test_chunked_is_rejected) ... ok
+test_content_type (test_docgate.HTTPTests.test_content_type) ... ok
+test_exact_character_limit (test_docgate.HTTPTests.test_exact_character_limit) ... ok
+test_health (test_docgate.HTTPTests.test_health) ... ok
+test_invalid_document (test_docgate.HTTPTests.test_invalid_document) ... ok
+test_invalid_fields (test_docgate.HTTPTests.test_invalid_fields) ... ok
+test_invalid_length (test_docgate.HTTPTests.test_invalid_length) ... ok
+test_malformed_and_non_utf8 (test_docgate.HTTPTests.test_malformed_and_non_utf8) ... ok
+test_oversized_body (test_docgate.HTTPTests.test_oversized_body) ... ok
+test_success (test_docgate.HTTPTests.test_success) ... ok
+test_unknown_route (test_docgate.HTTPTests.test_unknown_route) ... ok
+test_wrong_method (test_docgate.HTTPTests.test_wrong_method) ... ok
+test_before_and_after (test_docgate.RuleTests.test_before_and_after) ... ok
+test_fenced_headings_are_not_page_structure (test_docgate.RuleTests.test_fenced_headings_are_not_page_structure) ... ok
+test_line_numbers_and_unicode (test_docgate.RuleTests.test_line_numbers_and_unicode) ... ok
+test_unclosed_fence (test_docgate.RuleTests.test_unclosed_fence) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.526s
+
+OK
