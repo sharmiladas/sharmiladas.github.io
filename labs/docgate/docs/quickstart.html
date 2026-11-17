@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Quickstart for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Quickstart · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" aria-current="page">Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Quickstart</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Review your first page</h1>
+<p>Run DocGate locally and submit a Markdown page. You will receive a JSON list of
+structural issues that a documentation editor can review.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Python 3.11 or later, available as <code>python3</code>.</li>
+<li>curl, or use the included Python client instead.</li>
+<li>Two terminals open in the extracted <code>baseframe-docs-api</code> directory.</li>
+</ul>
+<p>No account, dependency installation, or API key is needed for this quickstart.
+Commands use macOS or Linux shell syntax. On Windows, use WSL or adjust the shell syntax.</p>
+<h2>Start the server</h2>
+<p>In the first terminal:</p>
+<pre><code class="language-bash">python3 docgate.py
+</code></pre>
+<p>Keep the terminal open. The server prints <code>DocGate listening at http://127.0.0.1:8787</code>.</p>
+<h2>Submit a page</h2>
+<p>In the second terminal:</p>
+<pre><code class="language-bash">curl -sS http://127.0.0.1:8787/v1/reviews \
+  -H &#39;Content-Type: application/json&#39; \
+  -d &#39;{&quot;markdown&quot;:&quot;# Connect your app&quot;}&#39;
+</code></pre>
+<h2>Expected result</h2>
+<p>The request returns HTTP 200 with this shape. <code>request_id</code> differs on each request.</p>
+<pre><code class="language-json">{
+  &quot;ruleset&quot;: &quot;quickstart-structure-v1&quot;,
+  &quot;finding_count&quot;: 2,
+  &quot;findings&quot;: [
+    {&quot;rule&quot;: &quot;prerequisites_missing&quot;, &quot;line&quot;: null, &quot;message&quot;: &quot;State the tools and access needed before the first step.&quot;},
+    {&quot;rule&quot;: &quot;expected_result_missing&quot;, &quot;line&quot;: null, &quot;message&quot;: &quot;Show how the reader can recognize success.&quot;}
+  ],
+  &quot;human_review_required&quot;: true,
+  &quot;request_id&quot;: &quot;&lt;generated UUID&gt;&quot;
+}
+</code></pre>
+<p>HTTP 200 means the review completed. Findings are editorial signals, not API errors.
+The checker expects the English headings <code>## Prerequisites</code> and <code>## Expected result</code>.</p>
+<h2>Review a file without curl</h2>
+<pre><code class="language-bash">python3 examples/review_file.py examples/quickstart-before.md
+</code></pre>
+<p>This fixture returns four findings. If the connection fails, confirm the first
+terminal is still running the server. See <a href="troubleshooting.html">troubleshooting</a>.</p>
+<h2>Next step</h2>
+<p>Follow the <a href="tutorial.html">rewrite tutorial</a>, or press Ctrl+C in the first terminal to stop.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

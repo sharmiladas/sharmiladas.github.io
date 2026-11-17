@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Tutorial for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Tutorial · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" aria-current="page">Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Tutorial</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Turn a vague instruction into a usable quickstart</h1>
+<p>Review a deliberately incomplete page, replace it with a task-focused rewrite,
+and compare the API responses. The goal is to make the reader&#39;s first request
+reproducible, not to optimize a quality score.</p>
+<h2>Prerequisites</h2>
+<p>Complete the <a href="quickstart.html">quickstart</a> and keep the server running.
+Run these commands from the repository root in a second terminal.</p>
+<h2>Review the original</h2>
+<p>Open <a href="../examples/quickstart-before.html">the original page</a>. It says to send a
+document but omits the endpoint, request format, and definition of success.</p>
+<pre><code class="language-bash">python3 examples/review_file.py examples/quickstart-before.md
+</code></pre>
+<p>The response reports four findings: missing title, prerequisites, expected result,
+and minimizing language on line 3. The checker can detect the word “Simply”; an
+editor must decide whether it hides a difficult step in this context.</p>
+<h2>Read the rewrite</h2>
+<p>Open <a href="../examples/quickstart-after.html">the revised page</a>. It provides a task title,
+required tools, a complete curl request, and a way to interpret the result.</p>
+<pre><code class="language-bash">python3 examples/review_file.py examples/quickstart-after.md
+</code></pre>
+<h2>Expected result</h2>
+<p>The revised page returns <code>finding_count: 0</code>. Both responses retain
+<code>human_review_required: true</code> because headings do not prove technical accuracy.
+The code-fence content is excluded from heading checks: a shell comment beginning
+with <code>#</code> must not satisfy the document-title rule.</p>
+<h2>Check what the rules cannot tell you</h2>
+<p>Run the curl command from the revised page. Confirm it returns HTTP 200 and zero
+findings. Then ask whether a new reader would know where to run it and what to do
+after an error. These judgments require reviewing the surrounding instructions.</p>
+<p>This is a synthetic demonstration, not a measured study of developer task success.
+See the <a href="rewrite-rationale.html">rewrite rationale</a> for the editing decisions and
+the <a href="test-report.html">test report</a> for actual execution evidence.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

@@ -1,0 +1,164 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="API reference for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>API reference · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" aria-current="page">API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / API reference</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>DocGate API reference</h1>
+<p>Base URL: <code>http://127.0.0.1:8787</code>. The local demo requires no authentication.
+It does not call Claude; use the separate <a href="claude-integration.html">Claude client</a>.
+The machine-readable contract is <a href="../openapi.json">openapi.json</a>.</p>
+<h2>Check service health</h2>
+<p><code>GET /health</code> returns HTTP 200 with <code>{&quot;status&quot;:&quot;ok&quot;}</code>. It checks local liveness,
+not Claude availability or document quality.</p>
+<h2>Review a document</h2>
+<p><code>POST /v1/reviews</code> requires <code>Content-Type: application/json</code> and a Content-Length
+header. curl and the Python client calculate Content-Length. Chunked requests are unsupported.
+The request must be a UTF-8 JSON object containing only <code>markdown</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>markdown</code></td>
+<td>string</td>
+<td>1–12000 Unicode characters; cannot be blank</td>
+</tr>
+</tbody></table></div>
+<p>The encoded JSON body must not exceed 65536 bytes. Escapes and non-ASCII encoding
+can make the body larger than the decoded text. Both limits apply.</p>
+<pre><code class="language-json">{&quot;markdown&quot;:&quot;# Connect your app&quot;}
+</code></pre>
+<p>HTTP 200 returns a synchronous review, with no stored review resource.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ruleset</code></td>
+<td>Rule semantics identifier, currently <code>quickstart-structure-v1</code></td>
+</tr>
+<tr>
+<td><code>finding_count</code></td>
+<td>Number of findings, not a percentage or ATS-style score</td>
+</tr>
+<tr>
+<td><code>findings</code></td>
+<td>Ordered list of <code>{rule, line, message}</code> objects</td>
+</tr>
+<tr>
+<td><code>line</code></td>
+<td>One-based line of matching text, or null for a missing element</td>
+</tr>
+<tr>
+<td><code>human_review_required</code></td>
+<td>Always true in this version</td>
+</tr>
+<tr>
+<td><code>request_id</code></td>
+<td>Server-generated UUID for this request</td>
+</tr>
+</tbody></table></div>
+<h2>Rules</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title_missing</code></td>
+<td>No level-one heading outside triple-backtick fences</td>
+</tr>
+<tr>
+<td><code>prerequisites_missing</code></td>
+<td>No <code>## Prerequisites</code> heading outside fences</td>
+</tr>
+<tr>
+<td><code>expected_result_missing</code></td>
+<td>No <code>## Expected result</code> heading outside fences</td>
+</tr>
+<tr>
+<td><code>minimizing_language</code></td>
+<td>A prose line contains simply, obviously, or just, ignoring case</td>
+</tr>
+<tr>
+<td><code>unclosed_fence</code></td>
+<td>An odd number of lines start with triple backticks after whitespace</td>
+</tr>
+</tbody></table></div>
+<p>Section-heading matches ignore case and allow trailing whitespace, but not inline
+formatting or alternate wording. They do not check whether the section contains
+useful text. Multiple minimizing words on one line produce one finding.</p>
+<h2>Errors</h2>
+<p>Application errors on the documented GET/POST routes use this shape:</p>
+<pre><code class="language-json">{&quot;error&quot;:{&quot;code&quot;:&quot;invalid_markdown&quot;,&quot;message&quot;:&quot;markdown must contain 1 to 12000 characters and cannot be blank.&quot;},&quot;request_id&quot;:&quot;&lt;generated UUID&gt;&quot;}
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Code</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>400</td>
+<td><code>invalid_json</code></td>
+<td>Fix JSON syntax or UTF-8 encoding</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>invalid_content_length</code></td>
+<td>Supply a nonnegative length</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>unsupported_transfer_encoding</code></td>
+<td>Send a fixed-length request</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>not_found</code></td>
+<td>Check the route; query strings and trailing slashes do not match</td>
+</tr>
+<tr>
+<td>405</td>
+<td><code>method_not_allowed</code></td>
+<td>Use POST instead of GET on <code>/v1/reviews</code></td>
+</tr>
+<tr>
+<td>408</td>
+<td><code>request_timeout</code></td>
+<td>Send the complete body within the five-second read timeout</td>
+</tr>
+<tr>
+<td>413</td>
+<td><code>body_too_large</code></td>
+<td>Reduce encoded JSON to at most 65536 bytes</td>
+</tr>
+<tr>
+<td>415</td>
+<td><code>unsupported_media_type</code></td>
+<td>Set Content-Type to application/json</td>
+</tr>
+<tr>
+<td>422</td>
+<td><code>invalid_fields</code></td>
+<td>Provide an object containing only markdown</td>
+</tr>
+<tr>
+<td>422</td>
+<td><code>invalid_markdown</code></td>
+<td>Fix the text type, length, or blank value</td>
+</tr>
+</tbody></table></div>
+<p>Other HTTP methods use Python&#39;s default 501 HTML response and are outside this
+demo&#39;s JSON contract. Parser-level HTTP errors may also use Python&#39;s default
+response. This is a local learning service, not an internet-facing API gateway.</p>
+<h2>Versioning</h2>
+<p>The route is versioned as <code>/v1</code>. Clients should branch on <code>rule</code>, not message text.
+No persistence, pagination, streaming, idempotency keys, or rate limits are implemented.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

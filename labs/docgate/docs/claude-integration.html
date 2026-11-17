@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Claude integration for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Claude integration · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" aria-current="page">Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Claude integration</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Review a page with Claude</h1>
+<p>Use the optional client to request editorial feedback through the Claude Messages
+API. This is separate from DocGate&#39;s deterministic HTTP service. It sends the
+file contents to Anthropic and can incur API charges.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Python 3.11 or later.</li>
+<li>A Claude API account with available credits and a usable model.</li>
+<li>An API key and a model identifier from your Claude Console.</li>
+<li>Public or synthetic Markdown that you are authorized to send.</li>
+</ul>
+<p>Local tests use response fixtures. They do not establish live model access,
+credential validity, response quality, or provider latency.</p>
+<h2>Configure and run</h2>
+<p>Set <code>ANTHROPIC_API_KEY</code> using your shell or secret manager; do not put a key in
+source files. Set <code>ANTHROPIC_MODEL</code> to an exact model ID available to your account.
+The placeholder below must be replaced. No model is silently selected.</p>
+<pre><code class="language-bash">export ANTHROPIC_MODEL=&#39;replace-with-your-available-model-id&#39;
+python3 claude_review.py examples/quickstart-before.md
+</code></pre>
+<p>The client calls <code>POST https://api.anthropic.com/v1/messages</code> with an Authorization
+Bearer header and <code>anthropic-version: 2026-10-21</code>. The body includes your model,
+a 1200-token output limit, a review instruction, and the document as a user message.
+There is no tool access or code execution. Prompt instructions to treat text as
+data reduce ambiguity but do not guarantee immunity to prompt injection.</p>
+<h2>Expected result</h2>
+<p>On a successful live call, stdout contains JSON with <code>review</code>, <code>stop_reason</code>,
+<code>truncated</code>, <code>upstream_request_id</code>, and <code>human_review_required</code>. Editorial text
+varies by model and request. If <code>truncated</code> is true, do not treat the review as complete.
+The program exits 1 on a configuration, file, network, provider, or response-shape error.</p>
+<h2>Handle failures</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>Client behavior</th>
+<th>Your next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missing key or model</td>
+<td>Stops before a network request</td>
+<td>Set both environment variables</td>
+</tr>
+<tr>
+<td>HTTP 401 or 403</td>
+<td>Prints status and recovery hint</td>
+<td>Check credentials and access</td>
+</tr>
+<tr>
+<td>HTTP 404</td>
+<td>Prints a model hint</td>
+<td>Confirm the model ID</td>
+</tr>
+<tr>
+<td>HTTP 429</td>
+<td>Returns an error; no automatic retry</td>
+<td>Wait and inspect rate limits</td>
+</tr>
+<tr>
+<td>HTTP 529 or 5xx</td>
+<td>Returns an error; no automatic retry</td>
+<td>Check provider status before retrying</td>
+</tr>
+<tr>
+<td>Timeout or connection error</td>
+<td>Stops after the network failure</td>
+<td>Check connectivity; avoid blind repeated requests</td>
+</tr>
+<tr>
+<td>Non-text or malformed response</td>
+<td>Rejects unusable output</td>
+<td>Inspect configuration and provider behavior</td>
+</tr>
+</tbody></table></div>
+<p>The client does not echo upstream error bodies or secrets. It makes a single
+attempt with a 30-second network timeout. A timeout does not prove the provider
+did not process the request; a retry can incur another charge.</p>
+<h2>Record a live verification</h2>
+<p>After you run the sample, record the date, exact model, stop reason, sanitized
+request ID, one finding you accepted or rejected, and your reasoning. Keep keys
+and private text out of the record. Until then, describe this as a fixture-tested
+integration rather than a live-verified Claude application.</p>
+<h2>Sources</h2>
+<p>Contract reviewed 17 November 2026 against primary documentation:</p>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/api/messages/create">Create a Message</a></li>
+<li><a href="https://platform.claude.com/docs/en/api/migration-2026-10-21">API version migration</a></li>
+<li><a href="https://platform.claude.com/docs/en/api/errors">API errors</a></li>
+</ul>
+<p>Provider APIs evolve. Recheck these pages before changing the pinned API version.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

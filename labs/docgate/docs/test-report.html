@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Test report for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Test report · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" aria-current="page">Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Test report</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Test report</h1>
+<p>Executed 17 November 2026 with Python 3.12.14 on Linux. These are local execution
+results, not user research or production performance measurements.</p>
+<h2>Automated tests</h2>
+<p>Command: <code>python3 -m unittest discover -s tests -v</code></p>
+<p>Result: 22 tests passed. Tests cover the deterministic rules, actual loopback HTTP
+requests, and the optional Claude client with injected response fixtures.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Original and revised page</td>
+<td>Four findings before; zero after</td>
+</tr>
+<tr>
+<td>Headings inside fenced code</td>
+<td>Do not satisfy page-heading checks</td>
+</tr>
+<tr>
+<td>Unicode prose</td>
+<td>Accepted and reviewed with one-based line numbers</td>
+</tr>
+<tr>
+<td>Malformed JSON and invalid UTF-8</td>
+<td>HTTP 400</td>
+</tr>
+<tr>
+<td>Blank, non-string, null, or overlength Markdown</td>
+<td>HTTP 422</td>
+</tr>
+<tr>
+<td>Exactly 12000 text characters</td>
+<td>Accepted when the encoded body fits</td>
+</tr>
+<tr>
+<td>Encoded body above 65536 bytes</td>
+<td>HTTP 413</td>
+</tr>
+<tr>
+<td>Wrong content type</td>
+<td>HTTP 415</td>
+</tr>
+<tr>
+<td>Unknown route and GET on review route</td>
+<td>HTTP 404 and 405 respectively</td>
+</tr>
+<tr>
+<td>Negative Content-Length and chunked framing</td>
+<td>HTTP 400</td>
+</tr>
+<tr>
+<td>Claude authentication and version headers</td>
+<td>Match the checked request contract in a fixture test</td>
+</tr>
+<tr>
+<td>Claude 400, 401, 403, 404, 429, 500, 529</td>
+<td>Converted into controlled errors without echoing response bodies</td>
+</tr>
+<tr>
+<td>Network failure and timeout</td>
+<td>Returned as controlled client errors</td>
+</tr>
+<tr>
+<td>Missing or non-text response content</td>
+<td>Rejected</td>
+</tr>
+<tr>
+<td>Output token limit</td>
+<td>Marked as truncated</td>
+</tr>
+</tbody></table></div>
+<h2>Documented client commands</h2>
+<p>Four additional requests were executed against a running server on port 8787:
+the Python file client for both rewrite fixtures, the quickstart curl request,
+and the blank-document troubleshooting request. Results matched the documented
+finding counts and status codes. Sanitized, actual responses are saved in
+<a href="../examples/recorded-local-results.json">recorded-local-results.json</a>.</p>
+<h2>What testing revealed</h2>
+<p>Code examples can contain heading-like lines. Counting those as document structure
+would produce false negatives, so the implementation excludes triple-backtick
+fences and includes a regression case. A request&#39;s UTF-8 JSON size is different
+from its decoded character count, so the API enforces and documents both limits.
+Provider responses can mix text and other blocks, so the client extracts text
+blocks and rejects responses without usable text. These are verified behaviors,
+not claims that a defect was discovered in a prior employer system.</p>
+<h2>Unverified behavior</h2>
+<p>No live Claude call was made. Fixture tests verify client handling, not actual
+provider compatibility, model quality, or billing. Python 3.11 and 3.13 are configured
+in the included CI workflow but were not executed here. Slow-body timeout recovery,
+concurrent load, and full CommonMark compatibility were not exercised. The code is
+a local sample, with no production deployment, durability, or authentication claim.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

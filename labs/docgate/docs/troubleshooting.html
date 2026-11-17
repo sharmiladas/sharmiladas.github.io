@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Troubleshooting for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Troubleshooting · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" aria-current="page">Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" >Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Troubleshooting</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Troubleshoot a review request</h1>
+<p>Use the response status and <code>error.code</code> to identify the next action. A completed
+review with findings is HTTP 200; it does not need a retry.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Connection refused</td>
+<td>The server is stopped or the port differs</td>
+<td>Run <code>python3 docgate.py</code>; use port 8787</td>
+</tr>
+<tr>
+<td>Address already in use</td>
+<td>Another process uses 8787</td>
+<td>Stop that process or run <code>python3 docgate.py --port 8788</code> and change your request URL</td>
+</tr>
+<tr>
+<td>HTTP 400</td>
+<td>Invalid JSON or request framing</td>
+<td>Use the Python file client to avoid shell escaping errors</td>
+</tr>
+<tr>
+<td>HTTP 413</td>
+<td>The encoded JSON exceeds 64 KiB</td>
+<td>Submit a smaller excerpt; retain enough context for review</td>
+</tr>
+<tr>
+<td>HTTP 415</td>
+<td>Content-Type is missing or wrong</td>
+<td>Add <code>-H &#39;Content-Type: application/json&#39;</code></td>
+</tr>
+<tr>
+<td>HTTP 422</td>
+<td>Wrong fields, blank text, or text too long</td>
+<td>Provide only a nonblank markdown string of at most 12000 characters</td>
+</tr>
+<tr>
+<td>Missing-section findings despite headings</td>
+<td>Heading format differs</td>
+<td>Use level-two English headings with the documented names</td>
+</tr>
+<tr>
+<td>Zero findings on an inaccurate page</td>
+<td>Structural checks cannot verify facts</td>
+<td>Run the instructions and have a technical reviewer inspect the result</td>
+</tr>
+<tr>
+<td>Claude configuration error</td>
+<td>Key or model is absent</td>
+<td>Follow the optional integration guide; the local API needs neither</td>
+</tr>
+</tbody></table></div>
+<h2>Example validation failure</h2>
+<p>With the local server running:</p>
+<pre><code class="language-bash">curl -sS -i http://127.0.0.1:8787/v1/reviews \
+  -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;markdown&quot;:&quot; &quot;}&#39;
+</code></pre>
+<p>Expect HTTP 422 and <code>error.code: invalid_markdown</code>. Replace the blank text and
+resubmit. The server does not store a failed review.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

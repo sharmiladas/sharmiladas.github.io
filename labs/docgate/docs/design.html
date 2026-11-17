@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Design decisions for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Design decisions · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="../docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="../index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="../index.html" >Overview</a><a href="../docs/quickstart.html" >Quickstart</a><a href="../docs/tutorial.html" >Tutorial</a><a href="../docs/api-reference.html" >API reference</a><a href="../docs/claude-integration.html" >Claude integration</a><a href="../docs/troubleshooting.html" >Troubleshooting</a><a href="../docs/rewrite-rationale.html" >Rewrite rationale</a><a href="../docs/agent-guide.html" >Agent guide</a><a href="../docs/design.html" aria-current="page">Design decisions</a><a href="../docs/test-report.html" >Test report</a><a href="../CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="../docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../../developer-documentation.html">Developer docs</a> / Design decisions</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Design decisions</h1>
+<p>DocGate separates structural validation from editorial judgment. A deterministic
+review is repeatable and works offline. Claude review is an optional operation
+because model access, cost, latency, and output quality are different concerns.</p>
+<h2>Why a small stateless API</h2>
+<p>A single request returns findings without requiring an account, database, or
+polling. This makes the first successful request easy to document and test.
+There is no review history and no promise of durable storage. A production design
+would need authentication, resource controls, observability, deployment hardening,
+and an explicit document-retention policy before accepting remote traffic.</p>
+<h2>Why there is no quality score</h2>
+<p>A missing heading is observable. A page&#39;s usefulness is contextual. Combining
+those into a percentage would imply more evidence than the tool has. The response
+provides findings and always calls for human review.</p>
+<h2>Why no automatic provider retry</h2>
+<p>A failed connection does not establish whether a paid request was processed.
+This sample returns the failure and leaves the next attempt to the operator.
+A more mature client could add bounded retries, Retry-After support, and a total
+deadline with clear cost semantics. That behavior is not implemented here.</p>
+<h2>Why line-based Markdown checks</h2>
+<p>The small rule set keeps behavior inspectable. It deliberately supports a narrow
+format and excludes triple-backtick examples from prose checks. It does not fully
+parse CommonMark, tilde fences, nested structures, or all blockquote forms.
+An expanded implementation should use a Markdown syntax tree and test compatibility.</p>
+<h2>How the docs are organized</h2>
+<p>The quickstart gets a first request working. The tutorial teaches a complete
+editing task. The reference records the contract. Troubleshooting starts from
+symptoms. The agent guide states constraints and stop conditions. This avoids
+making the first-time reader sift through every error code before making a request.</p>
+<h2>What feedback would change the product</h2>
+<p>Record failed first requests, misunderstood findings, and edits rejected by reviewers.
+If users repeatedly mistake findings for request errors, change the response
+explanation and examples. If alternate headings create false positives, revise
+the rule semantics and version the ruleset. No user study has been run for this sample.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>
