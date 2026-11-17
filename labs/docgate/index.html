@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Overview for Baseframe DocGate, a Python API and developer documentation portfolio project."><title>Overview · DocGate · Sharmila Rammohan</title><link rel="stylesheet" href="docgate.css"></head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="index.html">THE BASEFRAME <span>/ DocGate</span></a><a href="../../developer-documentation.html">Portfolio ↗</a></header><div class="layout"><aside><p class="eyebrow">Developer documentation</p><nav aria-label="DocGate documentation"><a href="index.html" aria-current="page">Overview</a><a href="docs/quickstart.html" >Quickstart</a><a href="docs/tutorial.html" >Tutorial</a><a href="docs/api-reference.html" >API reference</a><a href="docs/claude-integration.html" >Claude integration</a><a href="docs/troubleshooting.html" >Troubleshooting</a><a href="docs/rewrite-rationale.html" >Rewrite rationale</a><a href="docs/agent-guide.html" >Agent guide</a><a href="docs/design.html" >Design decisions</a><a href="docs/test-report.html" >Test report</a><a href="CONTRIBUTING.html" >Contribute</a></nav><div class="aside-links"><a href="https://github.com/sharmiladas/sharmiladas.github.io/tree/main/labs/docgate">Source on GitHub ↗</a><a href="docgate-source.zip">Download project ↓</a></div></aside><main id="content"><div class="breadcrumbs"><a href="../../developer-documentation.html">Developer docs</a> / Overview</div><div class="status">Open-source portfolio sample · Python API · MIT license</div><article><h1>Baseframe DocGate</h1>
+<p>A small Python API and documentation sample for reviewing developer quickstarts.
+Send Markdown to a local endpoint, inspect structural findings, and revise the page.
+An optional client sends a document to the Claude Messages API for an editorial review.</p>
+<p>This is a new, AI-assisted portfolio sample prepared for Sharmila Rammohan in November
+2026. It contains synthetic documents, not employer material. Local HTTP behavior is
+tested; the Claude integration is tested with fixtures and has not been live-verified.
+Source code and documentation were developed with AI assistance.</p>
+<h2>Start here</h2>
+<ol>
+<li><a href="docs/quickstart.html">Run the quickstart</a>.</li>
+<li><a href="docs/tutorial.html">Improve a page in the tutorial</a>.</li>
+<li><a href="docs/api-reference.html">Look up the API contract</a>.</li>
+<li><a href="docs/claude-integration.html">Try the optional Claude review</a>.</li>
+</ol>
+<h2>Documentation samples</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sample</th>
+<th>What it demonstrates</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="docs/quickstart.html">Quickstart</a></td>
+<td>Prerequisites, first request, expected output, next step</td>
+</tr>
+<tr>
+<td><a href="docs/tutorial.html">Tutorial</a></td>
+<td>A complete before-and-after task with runnable examples</td>
+</tr>
+<tr>
+<td><a href="docs/api-reference.html">API reference</a></td>
+<td>Input constraints, response semantics, status codes</td>
+</tr>
+<tr>
+<td><a href="docs/troubleshooting.html">Troubleshooting</a></td>
+<td>Symptom, cause, corrective action</td>
+</tr>
+<tr>
+<td><a href="docs/rewrite-rationale.html">Rewrite rationale</a></td>
+<td>Editorial decisions tied to reader needs</td>
+</tr>
+<tr>
+<td><a href="docs/agent-guide.html">Agent guide</a></td>
+<td>Machine-oriented contract, constraints, stop conditions</td>
+</tr>
+<tr>
+<td><a href="docs/design.html">Design decisions</a></td>
+<td>Scope, tradeoffs, API evolution and human judgment</td>
+</tr>
+<tr>
+<td><a href="docs/test-report.html">Test report</a></td>
+<td>Executed tests, observed findings, limits</td>
+</tr>
+</tbody></table></div>
+<h2>Run the checks</h2>
+<p>Requires Python 3.11 or later. No third-party packages or API keys are needed.</p>
+<pre><code class="language-bash">python3 -m unittest discover -s tests -v
+</code></pre>
+<h2>Scope</h2>
+<p>The service binds to <code>127.0.0.1</code>, has no authentication, and stores no documents.
+Use it as a local demo. A zero-finding review is not a quality certification.
+This narrow line-based checker supports triple-backtick fences; it is not a full
+Markdown parser. It does not validate links, run submitted code, or verify claims.</p>
+<h2>Contribute</h2>
+<p>See <a href="CONTRIBUTING.html">CONTRIBUTING.md</a>. Source and documentation are MIT-licensed.
+The source and documentation are published in the portfolio repository. The API runs locally; this website does not host a running Python service.</p>
+</article><footer>Sharmila Rammohan · November 2026 · AI-assisted portfolio project<br>Local API tested. Claude integration tested with fixtures; live verification pending.</footer></main></div><script>document.querySelectorAll('pre').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy';b.type='button';b.setAttribute('aria-label','Copy code example');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pre.querySelector('code').innerText);b.textContent='Copied';}catch{b.textContent='Select code to copy';}setTimeout(()=>b.textContent='Copy',2000)});pre.append(b)});</script></body></html>

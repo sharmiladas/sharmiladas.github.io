@@ -1,0 +1,255 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Baseframe DocGate",
+    "version": "0.1.0",
+    "description": "Local-only stateless structural review. No authentication or storage. Body limit 65536 bytes. Requires Content-Length; chunked requests unsupported."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8787"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "description": "Local service is running",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "const": "ok",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/reviews": {
+      "post": {
+        "operationId": "reviewMarkdown",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Review completed; findings do not indicate an HTTP failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "See the API reference for stable error codes and recovery.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "reviewWrongMethod",
+        "responses": {
+          "405": {
+            "description": "Use POST.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ReviewInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "markdown"
+        ],
+        "properties": {
+          "markdown": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000,
+            "pattern": "\\S",
+            "description": "Nonblank Markdown. Encoded JSON must be at most 65536 bytes."
+          }
+        }
+      },
+      "Finding": {
+        "type": "object",
+        "required": [
+          "rule",
+          "line",
+          "message"
+        ],
+        "properties": {
+          "rule": {
+            "type": "string",
+            "enum": [
+              "title_missing",
+              "prerequisites_missing",
+              "expected_result_missing",
+              "minimizing_language",
+              "unclosed_fence"
+            ]
+          },
+          "line": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "required": [
+          "ruleset",
+          "finding_count",
+          "findings",
+          "human_review_required",
+          "request_id"
+        ],
+        "properties": {
+          "ruleset": {
+            "type": "string",
+            "const": "quickstart-structure-v1"
+          },
+          "finding_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "human_review_required": {
+            "type": "boolean",
+            "const": true
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "error",
+          "request_id"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  }
+}
